@@ -21,6 +21,7 @@ export default function Navbar() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList value={value} onChange={handleChange} aria-label="basic tabs example">
             <Tab sx={{ padding: 0 }} value="/" label={<Link to="/">О компании</Link>} />
+            <Tab label={<MenuPopupState />} />
             <Tab sx={{ padding: 0 }} value="/products" label={<Link to="/products">Продукция</Link>} />
             <Tab sx={{ padding: 0 }} value="/auth" label={<Link to="/auth">Регистрация/Войти</Link>} />
             <Tab sx={{ padding: 0 }} value="/contacts" label={<Link to="/contacts">Связаться с нами</Link>} />
@@ -30,8 +31,9 @@ export default function Navbar() {
         <TabPanel value="/" index={0}>
           О компании
         </TabPanel>
+
         <TabPanel value="/products" index={1}>
-          Продукция
+          Продукция меню
         </TabPanel>
         <TabPanel value="/auth" index={2}>
           Регистрация/Войти
