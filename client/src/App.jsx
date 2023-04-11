@@ -1,11 +1,12 @@
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
+
+import './App.css';
+
+import Navbar from './components/Navbar/Navbar';
 import HomePage from './components/HomePage/HomePage';
 import Products from './components/Products/Products';
 import Categories from './components/Categories/Categories';
-import Navbar from './components/Navbar/Navbar';
 import Cart from './components/Cart/Cart';
 import Auth from './components/Auth/Auth';
 import Footer from './components/Footer/Footer';
@@ -13,8 +14,8 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div className="App">
-    
-        <Navbar />
+
+      <Navbar />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/products" element={<Products />} />
