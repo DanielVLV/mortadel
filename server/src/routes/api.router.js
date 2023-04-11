@@ -60,3 +60,5 @@ router.post('/cart', async (req, res) => {
     console.log({ msg: err.message });
   }
 });
+
+module.exports = router;
