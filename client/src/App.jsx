@@ -10,6 +10,7 @@ import Categories from './components/Categories/Categories';
 import Cart from './components/Cart/Cart';
 import Auth from './components/Auth/Auth';
 import Footer from './components/Footer/Footer';
+import Contacts from './components/Contacts/Contacts';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/products/categories" element={<Categories />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
       <Footer />
 
