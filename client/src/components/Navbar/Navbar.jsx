@@ -58,9 +58,6 @@ export default function BasicTabs() {
           <Tab label="Корзина" {...a11yProps(4)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        О компании
-      </TabPanel>
       <TabPanel value={value} index={1}>
         Продукция
       </TabPanel>
