@@ -51,20 +51,29 @@ export default function BasicTabs() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="О компании" {...a11yProps(0)} />
+          <Tab label="Продукция" {...a11yProps(1)} />
+          <Tab label="Регистрация/Войти" {...a11yProps(2)} />
+          <Tab label="Связаться с нами" {...a11yProps(3)} />
+          <Tab label="Корзина" {...a11yProps(4)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        О компании
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        Продукция
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        Регистрация/Войти
       </TabPanel>
+      <TabPanel value={value} index={3}>
+        Связаться с нами
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Корзина
+      </TabPanel>
+
     </Box>
   );
 }
