@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('./src/middleware/cors');
 const AuthRouter = require('./src/routes/auth.router');
+const ApiRouter = require('./src/routes/api.router');
 
 const app = express();
 const { PORT, COOKIE_SEKRET } = process.env;
@@ -32,6 +33,8 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(express.static(path.resolve('public')));
 app.use('/', AuthRouter);
+app.use('/', ApiRouter);
+
 app.use('*', (req, res) => { res.sendStatus(404); });
 
 app.use(morgan('dev'));
