@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  Category, Product, Cart, Tags,
+  Category, Product, Cart, Tag,
 } = require('../../db/models');
 
 router.get('/categories', async (req, res) => {
@@ -15,7 +15,7 @@ router.get('/categories', async (req, res) => {
 router.get('/products', async (req, res) => {
   try {
     const products = await Category.findAll({
-      attributes: ['id', 'name'],
+      attributes: ['id', 'categoryName'],
       order: [[Product, 'categoryId', 'ASC']],
       include: {
         model: Product,
@@ -35,7 +35,7 @@ router.get('/products/tag', async (req, res) => {
     const products = await Product.findAll({
       include: [
         {
-          model: Tags,
+          model: Tag,
           where: { name: tagName },
           through: {
             attributes: [],
@@ -49,6 +49,15 @@ router.get('/products/tag', async (req, res) => {
   }
 });
 
+router.get('/tags', async (req, res) => {
+  try {
+    const tags = await Tag.findAll();
+    console.log(tags);
+    res.json(tags.map((tag) => tag.get()));
+  } catch (err) {
+    console.log({ msg: err.message });
+  }
+});
 router.post('/cart', async (req, res) => {
   const { userId } = req.body;
   try {
