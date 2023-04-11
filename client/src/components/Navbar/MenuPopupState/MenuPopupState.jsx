@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
+import { Link } from 'react-router-dom';
 
 export default function MenuPopupState() {
   return (
@@ -10,12 +11,12 @@ export default function MenuPopupState() {
       {(popupState) => (
         <>
           <Button variant="contained" {...bindTrigger(popupState)}>
-            Dashboard
+            Продукция попап
           </Button>
           <Menu {...bindMenu(popupState)}>
-            <MenuItem onClick={popupState.close}>Profile</MenuItem>
-            <MenuItem onClick={popupState.close}>My account</MenuItem>
-            <MenuItem onClick={popupState.close}>Logout</MenuItem>
+            <MenuItem onClick={popupState.close}><Link to="/products">Products</Link></MenuItem>
+            <MenuItem onClick={popupState.close}><Link to="/products">Products</Link></MenuItem>
+            <MenuItem onClick={popupState.close}><Link to="/products">Products</Link></MenuItem>
           </Menu>
         </>
       )}
