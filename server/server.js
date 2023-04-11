@@ -33,7 +33,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(express.static(path.resolve('public')));
 app.use('/', AuthRouter);
-app.use('/', ApiRouter);
+app.use('/api', ApiRouter);
 
 app.use('*', (req, res) => { res.sendStatus(404); });
 
