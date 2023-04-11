@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './components/Navbar/Navbar';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
@@ -12,7 +13,8 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+    
+        <Navbar />
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/products" element={<Products />} />
@@ -21,6 +23,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
       </Routes>
       <Footer />
+
     </div>
   );
 }
