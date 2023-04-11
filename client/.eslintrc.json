@@ -17,5 +17,10 @@
         "react"
     ],
     "rules": {
+        "react/jsx-props-no-spreading": 0,
+        "import/no-extraneous-dependencies": 0,
+        "react/require-default-props": 0,
+        "no-multiple-empty-lines": 0,
+        "padded-blocks": 0
     }
 }
