@@ -12,9 +12,12 @@ function Categories() {
   return (
     <Box style={{ display: 'flex' }}>
       <Sidebar />
-      {categoriesArr[categoryId]?.Products?.map((el) => (
-        <CategoryCard key={el.id} product={el} />
-      ))}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {categoriesArr[categoryId]?.Products?.map((el) => (
+          <CategoryCard key={el.id} product={el} />
+        ))}
+      </Box>
+
     </Box>
   );
 }

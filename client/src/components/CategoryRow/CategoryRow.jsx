@@ -13,7 +13,6 @@ import ProductElement from "../ProductElement/ProductElement";
 import './CategoryRow.css';
 
 function CategoryRow({ el }) {
-  console.log("productsInCategoryArr", el.Products);
   return (
     <div className="columnSwiperProducts">
       <Swiper
