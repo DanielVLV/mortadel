@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
@@ -11,6 +11,17 @@ import { Checkbox, FormControlLabel, TextField } from '@mui/material';
 const drawerWidth = 200;
 
 export default function Sidebar() {
+
+  const [tags, setTags] = useState();
+
+  useEffect(() => {
+    fetch('http://localhost:3003/api/tags')
+      .then((data) => data.json())
+      .then((res) => setTags(res))
+      .catch(console.error);
+    return () => {
+    };
+  }, []);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -36,10 +47,10 @@ export default function Sidebar() {
               multiline
               size="small"
             />
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
-              <ListItem key={text} disablePadding>
+            {tags?.map((el) => (
+              <ListItem key={el.id} disablePadding>
                 <ListItemButton>
-                  <FormControlLabel control={<Checkbox />} label={text} />
+                  <FormControlLabel control={<Checkbox />} label={el.tagName} />
                 </ListItemButton>
               </ListItem>
             ))}
