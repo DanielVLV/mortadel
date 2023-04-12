@@ -3,7 +3,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+
 import Sidebar from "../Sidebar/Sidebar";
 import ProductElement from "../ProductElement/ProductElement";
 import CategoryRow from "../CategoryRow/CategoryRow";
@@ -12,13 +13,20 @@ function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
 
   return (
-    <Box style={{ display: "flex" }}>
-      <Sidebar />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {products?.map((el) => (
-          <CategoryRow key={el.id} el={el} />
-        ))}
-      </Box>
+    <Box>
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <Sidebar />
+        </Grid>
+        <Grid item xs={9}>
+
+          <Box component="main" sx={{ p: 3 }}>
+            {products?.map((el) => (
+              <CategoryRow key={el.id} el={el} />
+            ))}
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
