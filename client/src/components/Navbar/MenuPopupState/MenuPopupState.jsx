@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -23,7 +24,7 @@ export default function MenuPopupState() {
           </Button>
           <Menu {...bindMenu(popupState)}>
             {categoriesArrProps?.map((el, index) => (
-              <MenuItem sx={{ height: '36px', width: '400px' }} onClick={popupState.close}>
+              <MenuItem key={index} sx={{ height: '36px', width: '400px' }} onClick={popupState.close}>
                 <Link sx={{ padding: 0 }} to={`/categories/${index}`}>{el}</Link>
               </MenuItem>
             ))}

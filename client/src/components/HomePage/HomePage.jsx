@@ -1,5 +1,7 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import './HomePage.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
