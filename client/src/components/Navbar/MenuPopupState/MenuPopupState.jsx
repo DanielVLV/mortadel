@@ -13,7 +13,7 @@ export default function MenuPopupState() {
           <Button variant="contained" {...bindTrigger(popupState)}>
             Продукция попап
           </Button>
-          <Menu {...bindMenu(popupState)}>
+          <Menu {...bindMenu(PopupState)}>
             <MenuItem onClick={popupState.close}><Link to="/categories">Все колбасы</Link></MenuItem>
             <MenuItem onClick={popupState.close}><Link to="/categories/1">Колбаса1</Link></MenuItem>
             <MenuItem onClick={popupState.close}><Link to="/categories/2">Колбаса2</Link></MenuItem>
