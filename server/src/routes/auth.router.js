@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const {
-      name, login, password,
+      name, email, phone, password, isAdmin,
     } = req.body;
-    const checkLogin = await User.findOne({ where: { login } });
-    if (!checkLogin) {
+    const checkEmail = await User.findOne({ where: { email } });
+    if (!checkEmail) {
       const hash = await bcrypt.hash(password, 10);
       const user = (await User.create({
-        name, login, password: hash,
+        name, email, phone, password: hash, isAdmin: false,
       })).get();
       delete user.password;
       delete user.createdAt;

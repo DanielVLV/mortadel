@@ -15,10 +15,10 @@ function Products() {
   return (
     <Box>
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Sidebar />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
 
           <Box component="main" sx={{ p: 3 }}>
             {products?.map((el) => (
