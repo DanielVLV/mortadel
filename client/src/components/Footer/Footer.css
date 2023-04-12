@@ -1,0 +1,14 @@
+.footerAllDiv {
+    display: flex; 
+    justify-content: space-around;
+}
+
+.text {
+    text-decoration: none;
+    color: black;
+}
+
+.text:hover {
+    font-weight: bolder;
+    color: rgb(68, 22, 22);
+}
