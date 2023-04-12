@@ -10,8 +10,13 @@ function Auth() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await fetch('http://localhost:3003/api/tags', {
-
+      await fetch('http://localhost:3003/auth', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
       });
     } catch (error) {
       console.log(error);
@@ -20,20 +25,21 @@ function Auth() {
 
   return (
 
-  // <form onSubmit={(e) => handleSubmit(e)}>
-    <>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <div className="mb-3">
-        <input type="text" className="form-control" name="name" aria-describedby="emailHelp" placeholder="Login" onChange={handleInput} />
+        <input type="text" name="name" placeholder="Имя" onChange={handleInput} />
       </div>
       <div className="mb-3">
-        <input type="text" className="form-control" name="login" aria-describedby="emailHelp" placeholder="Name" onChange={handleInput} />
+        <input type="text" name="email" placeholder="Почта" onChange={handleInput} />
       </div>
       <div className="mb-3">
-        <input type="password" className="form-control" name="password" placeholder="Password" onChange={handleInput} />
+        <input type="number" name="phone" placeholder="Телефон" onChange={handleInput} />
       </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
-    </>
-  // </form>
+      <div className="mb-3">
+        <input type="password" name="password" placeholder="Пароль" onChange={handleInput} />
+      </div>
+      <button type="submit" className="btn btn-primary">Зарегистрироваться</button>
+    </form>
   );
 }
 

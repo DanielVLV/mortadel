@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
   res.json(req.session.user || null);
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/auth', async (req, res) => {
   try {
     const {
-      name, email, phone, password, isAdmin,
+      name, email, phone, password,
     } = req.body;
     const checkEmail = await User.findOne({ where: { email } });
     if (!checkEmail) {
