@@ -9,6 +9,7 @@ const path = require('path');
 const cors = require('./src/middleware/cors');
 const AuthRouter = require('./src/routes/auth.router');
 const ApiRouter = require('./src/routes/api.router');
+const MailRouter = require('./src/routes/mail.router');
 
 const app = express();
 const { PORT, COOKIE_SEKRET } = process.env;
@@ -34,6 +35,7 @@ app.use(session(sessionConfig));
 app.use(express.static(path.resolve('public')));
 app.use('/', AuthRouter);
 app.use('/api', ApiRouter);
+app.use('/mail', MailRouter);
 
 app.use('*', (req, res) => { res.sendStatus(404); });
 

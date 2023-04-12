@@ -1,17 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Box } from '@mui/material';
+import Sidebar from '../Sidebar/Sidebar';
+import CategoryCard from './CategoryCard/CategoryCard';
 
 function Categories() {
   const { categoryId } = useParams();
   const categoriesArr = useSelector((state) => state.ProductSlice.products);
-  const categoriesArrProps = [];
-  categoriesArr?.map((el) => categoriesArrProps.push(el.categoryName));
 
   return (
-    <div>
-      {categoriesArrProps[categoryId]}
-    </div>
+    <Box style={{ display: 'flex' }}>
+      <Sidebar />
+      {categoriesArr[categoryId]?.Products?.map((el) => (
+        <CategoryCard key={el.id} product={el} />
+      ))}
+    </Box>
   );
 }
 

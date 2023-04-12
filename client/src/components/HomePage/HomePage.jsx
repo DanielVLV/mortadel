@@ -1,53 +1,59 @@
 /* eslint-disable import/no-unresolved */
+
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
+
 import './HomePage.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper';
-import { getProducts } from '../../redux/product.slice';
-
+import { Pagination, Navigation } from 'swiper';
 
 function HomePage() {
 
   return (
     <>
+      <p>ЛЕГЕНДА ВОЗВРАЩАЕТСЯ!</p>
       <div className="columnHomePage">
-        <div className="leftColumn">
-          <p>ЛЕГЕНДА ВОЗВРАЩАЕТСЯ!</p>
-          <p>
-            Пройдет немного времени и мы с Вами снова встретимся на торговых полках.
-            Мы помним Ваши вкусы и потребности, ведь для их удовлетворения наша компания
-            трудилась более 30 лет.
-            Мы продолжаем наш путь с энтузиазмом, вооруженные честностью и любовью к своему
-            Великому Делу - кормить людей,
-            заряжать их энергией созидания.
-          </p>
-          <p>
-            Руководство компании желает Вам здоровья и всяческих успехов!
-          </p>
+        {/* <div className="leftColumn"> */}
+        <div className="columnText">
+          Пройдет немного времени и мы с Вами снова встретимся на торговых полках.
+          Мы помним Ваши вкусы и потребности, ведь для их удовлетворения наша компания
+          трудилась более 30 лет.
+          Мы продолжаем наш путь с энтузиазмом, вооруженные честностью и любовью к своему
+          Великому Делу - кормить людей,
+          заряжать их энергией созидания.
+          Руководство компании желает Вам здоровья и всяческих успехов!
         </div>
-        <div className="rightColumn">
-          <img src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2022/05/Шпикачки-Москворецкие-ГОСТ-300x286.png" alt="img" />
-        </div>
-      </div>
-      <div className="columnHomePage">
-        <div className="leftColumn">
-          <Swiper navigation modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+        <div className="columnSwiper">
+
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            loop
+            pagination={{
+              clickable: true,
+            }}
+            navigation
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide><img className="imgSwiper" src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2022/05/Ветчина-ГОСТ-в-натуральной-оболочке--e1652791693541.png" alt="img" /></SwiperSlide>
+            <SwiperSlide><img className="imgSwiper" src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2021/11/Колбаса-полукопченая-Мускатный-сервелат-e1652791706537.png" alt="img" /></SwiperSlide>
+            <SwiperSlide><img className="imgSwiper" src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2021/11/сардельки-говяжьи-e1652789805669.png" alt="img" /></SwiperSlide>
+            <SwiperSlide><img className="imgSwiper" src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2021/11/колбаса-варёно-копченая-Сервелат-ароматный-1-e1652791727604.png" alt="img" /></SwiperSlide>
+            <SwiperSlide><img className="imgSwiper" src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2021/11/Колбаса-полукопченая-Краковская-ГОСТ-e1652791737598.png" alt="img" /></SwiperSlide>
           </Swiper>
+        </div>
+
+      </div>
+      {/* </div> */}
+      <div className="columnHomePage">
+        <div className="leftColumn">
           <img
+            className="logo"
             src="https://xn--80aach9dr2b.xn--p1ai/wp-content/uploads/2021/11/%D0%9F%D0%95%D0%A7%D0%90%D0%A2%D0%AC_%D0%90%D0%9D%D0%93-02-removebg-preview-1.png"
             alt="N.AGURBASH"
           />

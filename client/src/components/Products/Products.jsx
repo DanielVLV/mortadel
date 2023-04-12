@@ -10,7 +10,6 @@ import CategoryRow from "../CategoryRow/CategoryRow";
 
 function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
-  // console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", products);
 
   return (
     <Box style={{ display: "flex" }}>
