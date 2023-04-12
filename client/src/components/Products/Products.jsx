@@ -8,7 +8,6 @@ import ProductElement from '../ProductElement/ProductElement';
 
 function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
-  console.log(products);
 
   return (
     <Box style={{ display: 'flex' }}>
