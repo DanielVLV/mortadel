@@ -13,7 +13,7 @@ export const getProducts = createAsyncThunk(
 const ProductSlice = createSlice({
   name: 'product',
   initialState: {
-    products: [],
+    products: null,
     status: 'idle',
   },
   extraReducers: (builder) => {

@@ -10,15 +10,7 @@ import { getProducts } from '../../redux/product.slice';
 
 
 function HomePage() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log('useffect<<<<<<<<<<<<<<<<<<<');
-    dispatch(getProducts());
 
-    return () => {
-      // console.log('unmount');
-    };
-  }, []);
   return (
     <>
       <div className="columnHomePage">
