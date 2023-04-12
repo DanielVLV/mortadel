@@ -13,7 +13,6 @@ function HomePage() {
     <>
       <p>ЛЕГЕНДА ВОЗВРАЩАЕТСЯ!</p>
       <div className="columnHomePage">
-        {/* <div className="leftColumn"> */}
         <div className="columnText">
           Пройдет немного времени и мы с Вами снова встретимся на торговых полках.
           Мы помним Ваши вкусы и потребности, ведь для их удовлетворения наша компания
@@ -45,7 +44,6 @@ function HomePage() {
         </div>
 
       </div>
-      {/* </div> */}
       <div className="columnHomePage">
         <div className="leftColumn">
           <img
