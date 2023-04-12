@@ -13,6 +13,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
+import FormOrder from "../FormOrder/FormOrder";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -47,6 +48,8 @@ function ModalWindow({ open, setOpen, product }) {
             Состав: {product.fullDescription}
             <br />
             Вес: {product.weight}
+            <br />
+            <FormOrder productId={product.id} />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

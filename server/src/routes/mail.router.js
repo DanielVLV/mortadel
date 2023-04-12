@@ -7,10 +7,12 @@ router.post('/order', async (req, res) => {
 
     const message = {
     //   from: 'Mailer test <nettie12@ethereal.email>',
-      to: ['mortadeltest@mail.ru', 'odindlrus@mail.ru'],
+      to: ['mortadeltest@mail.ru'],
       //   to: 'odindlrus@mail.ru',
       subject: 'NODEMAILER',
-      text: `Mail text, req.body: , ${req.body.body}`,
+      text: `Номер телефона: ${req.body.form.phone}, 
+            Имя: ${req.body.form.name}, 
+            Артикул товара: ${req.body.productId}`,
     };
     mailer(message);
 
