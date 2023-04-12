@@ -1,8 +1,12 @@
-.swiper-wrapper {
+/* .swiper-wrapper {
     width: 1200px;
     /* max-width: 40%; */
     /* max-height: 30%; */
-  }
+  /* } */
+  
+.css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root {
+    min-height: 330px;
+}
 
 #app {
     height: 100%;
