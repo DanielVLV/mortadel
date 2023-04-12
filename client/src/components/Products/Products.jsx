@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 import { Box, Grid } from "@mui/material";
 
 import Sidebar from "../Sidebar/Sidebar";
-import ProductElement from "../ProductElement/ProductElement";
 import CategoryRow from "../CategoryRow/CategoryRow";
 
 function Products() {
