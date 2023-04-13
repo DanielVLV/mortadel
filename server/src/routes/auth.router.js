@@ -41,6 +41,9 @@ router.post('/signin', async (req, res) => {
         res.status(401).json({ msg: 'Try again' });
       }
       if (checkPass) {
+        delete checkUser.password;
+        delete checkUser.createdAt;
+        delete checkUser.updatedAt;
         req.session.user = checkUser;
         res.json(checkUser);
       }
