@@ -22,7 +22,8 @@
         "react/require-default-props": 0,
         "no-multiple-empty-lines": 0,
         "padded-blocks": 0,
-        "react/jsx-no-bind": 0, 
+        "react/jsx-no-bind": 0,
+        "comma-dangle": 0,
         "import/no-unresolv": 0
     }
 }

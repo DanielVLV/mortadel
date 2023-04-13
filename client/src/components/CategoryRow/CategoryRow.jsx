@@ -2,20 +2,18 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper";
 import ProductElement from "../ProductElement/ProductElement";
 
-
-import './CategoryRow.css';
+import "./CategoryRow.css";
 
 function CategoryRow({ el }) {
   return (
     <div className="columnSwiperProducts">
-      <h2>{el.categoryName}</h2>
+      {el.Products.length && <h2>{el.categoryName}</h2>}
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

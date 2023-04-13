@@ -6,11 +6,13 @@ import {
   Card, CardActionArea, CardContent, CardMedia, Typography,
 } from '@mui/material';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
-// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './card.css';
+import { useSelector } from 'react-redux';
 
 function CategoryCard({ product }) {
+  const user = useSelector((state) => state.UserSlice.value);
+
   return (
     <Box style={{ border: '1px solid grey' }}>
       <Card>
@@ -46,9 +48,11 @@ function CategoryCard({ product }) {
             <Button variant="outlined">
               Купить в 1 клик
             </Button>
+            {user && (
             <Button variant="contained" endIcon={<StarHalfIcon />}>
               В избранное
             </Button>
+            )}
             <Button variant="outlined">
               В корзину
               <ShoppingCartIcon />

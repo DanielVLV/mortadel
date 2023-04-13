@@ -1,20 +1,38 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { signUpUser } from '../../redux/user.slice';
 
 
 function Auth() {
-  const [form, setForm] = useState({});
+  // const user = useSelector((state) => state.UserSlice.value);
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+  });
   const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate('/');
+
+  //   }
+  // }, [user]);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const url = isSignUp ? 'http://localhost:3003/auth' : 'http://localhost:3003/login';
-    await dispatch(signUpUser({ url, form }));
-    navigate('/');
+    const url = isSignUp ? 'http://localhost:3003/signin' : 'http://localhost:3003/signup';
+    dispatch(signUpUser({ url, form }));
+
+    setForm({
+      name: '',
+      email: '',
+      phone: '',
+      password: '',
+    });
   };
 
   const handleInput = (event) => {
@@ -32,10 +50,10 @@ function Auth() {
         {isSignUp ? (
           <>
             <div>
-              <input type="text" name="email" placeholder="Почта" onChange={handleInput} />
+              <input type="text" name="email" value={form.email} placeholder="Почта" onChange={handleInput} />
             </div>
             <div>
-              <input type="password" name="password" placeholder="Пароль" onChange={handleInput} />
+              <input type="password" name="password" value={form.password} placeholder="Пароль" onChange={handleInput} />
             </div>
           </>
 
@@ -43,16 +61,16 @@ function Auth() {
           <>
             <div>
               <div>
-                <input type="text" name="name" placeholder="Имя" onChange={handleInput} />
+                <input type="text" name="name" value={form.name} placeholder="Имя" onChange={handleInput} />
               </div>
               <div>
-                <input type="text" name="email" placeholder="Почта" onChange={handleInput} />
+                <input type="text" name="email" value={form.email} placeholder="Почта" onChange={handleInput} />
               </div>
-              <input type="number" name="phone" placeholder="Телефон" onChange={handleInput} />
+              <input type="number" name="phone" value={form.phone} placeholder="Телефон" onChange={handleInput} />
             </div>
             <div />
             <div>
-              <input type="password" name="password" placeholder="Пароль" onChange={handleInput} />
+              <input type="password" name="password" value={form.password} placeholder="Пароль" onChange={handleInput} />
             </div>
           </>
         )}
