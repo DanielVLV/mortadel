@@ -4,6 +4,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
+import CartForm from "./CartForm/CartForm";
 import CartRow from "./cartRow/CartRow";
 
 function Cart() {
@@ -18,15 +19,14 @@ function Cart() {
     count[item.id] = (count[item.id] || 0) + 1;
   }
 
-  console.log("Уникальные элементы: ", uniqueArray[0]);
-  console.log("Количество повторений для каждого элемента: ", count);
+  // console.log("Уникальные элементы: ", uniqueArray[0]);
+  // console.log("Количество повторений для каждого элемента: ", count);
 
   return (
     <div>
-      <div>
-        <CartRow uniqueArray={uniqueArray} count={count} />
-      </div>
-      <div>Form</div>
+      <CartRow uniqueArray={uniqueArray} count={count} />
+
+      <CartForm count={count} />
     </div>
   );
 }
