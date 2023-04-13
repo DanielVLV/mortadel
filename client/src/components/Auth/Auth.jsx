@@ -10,7 +10,7 @@ function Auth() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await fetch('http://localhost:3003/auth', {
+      await fetch('http://localhost:3003/signup', {
         method: 'POST',
         credentials: 'include',
         headers: {
