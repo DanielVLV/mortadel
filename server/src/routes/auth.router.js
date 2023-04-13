@@ -12,6 +12,7 @@ router.post('/signup', async (req, res) => {
     const {
       name, email, phone, password,
     } = req.body;
+    console.log(req.body);
     const checkEmail = await User.findOne({ where: { email } });
     if (!checkEmail) {
       const hash = await bcrypt.hash(password, 10);
@@ -21,8 +22,10 @@ router.post('/signup', async (req, res) => {
       delete user.password;
       delete user.createdAt;
       delete user.updatedAt;
+      req.session.user = user;
       res.json(user);
     }
+    res.json({ msg: 'уже зарегистрирован' });
   } catch (error) {
     console.log(error);
   }
@@ -30,9 +33,8 @@ router.post('/signup', async (req, res) => {
 
 router.post('/signin', async (req, res) => {
   try {
-    const { login, password } = req.body;
-    const checkUser = await User.findOne({ where: { login }, raw: true });
-
+    const { email, password } = req.body;
+    const checkUser = await User.findOne({ where: { email }, raw: true });
     if (checkUser) {
       const checkPass = await bcrypt.compare(password, checkUser.password);
       if (!checkPass) {
@@ -46,6 +48,9 @@ router.post('/signin', async (req, res) => {
         res.status(400).json({ msg: 'Try again' });
       }
     }
+    if (!checkUser) {
+      res.json({ msg: 'не найден' });
+    }
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
@@ -56,7 +61,6 @@ router.get('/signout', (req, res) => {
     req.session.destroy();
     res.clearCookie('Cookie');
     res.sendStatus(200);
-    // console.log();
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
