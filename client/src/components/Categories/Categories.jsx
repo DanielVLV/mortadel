@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Box } from '@mui/material';
@@ -7,13 +7,13 @@ import CategoryCard from './CategoryCard/CategoryCard';
 
 function Categories() {
   const { categoryId } = useParams();
-  const categoriesArr = useSelector((state) => state.ProductSlice.products);
-
+  const products = useSelector((state) => state.ProductSlice.products);
+  const [filteredProducts, setFilter] = useState(null);
   return (
     <Box style={{ display: 'flex' }}>
-      <Sidebar />
+      <Sidebar setFilter={setFilter} filteredProducts={filteredProducts} products={products} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {categoriesArr[categoryId]?.Products?.map((el) => (
+        {products[categoryId]?.Products?.map((el) => (
           <CategoryCard key={el.id} product={el} />
         ))}
       </Box>
