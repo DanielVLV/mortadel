@@ -15,7 +15,7 @@ function CartForm({ count }) {
     name: "",
   });
 
-//   console.log(Object.entries(count));
+  //   console.log(Object.entries(count));
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,18 +23,17 @@ function CartForm({ count }) {
     console.log(event.target.parentNode);
     let fullOrder = "";
     for (const [key, value] of Object.entries(count)) {
-      fullOrder += `Артикул ${key} в количестве ${value} штук\n`;
-      // console.log(`${key}: ${value}`);
+      fullOrder += `Артикул ${key} в количестве ${value} штук, `;
     }
     console.log(fullOrder);
-    // fetch('http://localhost:3003/mail/order', {
-    //   method: 'POST',
-    //   credentials: 'include',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ form, productId }),
-    // });
+    fetch("http://localhost:3003/mail/fullorder", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ form, fullOrder }),
+    });
 
     setForm({ phone: "", name: "" });
   };
@@ -60,7 +59,7 @@ function CartForm({ count }) {
           variant="outlined"
           name="phoneRep"
           onChange={handleInput}
-        //   value={form.phone}
+          //   value={form.phone}
         />
         <TextField
           id="name"
