@@ -16,6 +16,7 @@ import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { checkUser } from './redux/user.slice';
+// import Login from "./components/Auth/Login";
 
 
 function App() {

@@ -14,6 +14,9 @@ function Products() {
 
   console.log(filteredProducts)
 
+  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
+  console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
+
   return (
     <Box>
       <Grid container spacing={2}>

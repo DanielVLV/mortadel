@@ -25,6 +25,7 @@ function CategoryRow({ el }) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
+
         {el.Products.map((product) => (
           <SwiperSlide>
             <ProductElement key={product.id} product={product} />
