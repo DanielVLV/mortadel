@@ -1,9 +1,11 @@
+/* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import signUpFetch from './user.api';
 
 export const signUpUser = createAsyncThunk(
   'user/signUp',
-  async () => {
-    const response = await signUpFetch();
+  async (data) => {
+    const response = await signUpFetch(data);
     return response;
   },
 );

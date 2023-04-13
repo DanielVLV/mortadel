@@ -14,7 +14,6 @@ import Auth from "./components/Auth/Auth";
 import Footer from "./components/Footer/Footer";
 import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
-import Login from "./components/Auth/Login";
 
 
 function App() {

@@ -1,8 +1,7 @@
 
-
-export const signUpFetch = async (form) => {
+export default async ({ url, form }) => {
   try {
-    await fetch('http://localhost:3003/signup', {
+    const response = await fetch(url, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -10,8 +9,13 @@ export const signUpFetch = async (form) => {
       },
       body: JSON.stringify(form),
     });
+    const data = await response.json();
+    if (data.msg) {
+      throw new Error(data.msg);
+    }
+    return data;
   } catch (error) {
+    console.log(error);
+    return null;
   }
 };
-
-export const signInFetch;
