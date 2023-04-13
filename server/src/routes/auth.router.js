@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   res.json(req.session.user || null);
 });
 
-router.post('/auth', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const {
       name, email, phone, password,

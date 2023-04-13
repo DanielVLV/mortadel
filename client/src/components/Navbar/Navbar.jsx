@@ -47,7 +47,7 @@ export default function Navbar() {
             <Tab
               sx={{ padding: 0 }}
               value="/auth"
-              label={<Link to="/auth">Регистрация/Войти</Link>}
+              label={<Link to="/login">Регистрация/Войти</Link>}
             />
             <Tab
               sx={{ padding: 0 }}
@@ -74,7 +74,7 @@ export default function Navbar() {
         <TabPanel value="/products" index={1}>
           Продукция меню
         </TabPanel>
-        <TabPanel value="/auth" index={2}>
+        <TabPanel value="/login" index={2}>
           Регистрация/Войти
         </TabPanel>
         <TabPanel value="/contacts" index={3}>

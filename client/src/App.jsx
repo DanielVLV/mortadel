@@ -14,6 +14,7 @@ import Auth from "./components/Auth/Auth";
 import Footer from "./components/Footer/Footer";
 import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
+import Login from "./components/Auth/Login";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path="/categories" element={<Products />} />
         <Route path="/categories/:categoryId" element={<Categories />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
