@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../redux/user.slice';
 
 
 function Auth() {
   // const user = useSelector((state) => state.UserSlice.value);
-  const user = useSelector((state) => state.UserSlice.value);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -15,14 +13,14 @@ function Auth() {
   });
   const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate('/');
+  // useEffect(() => {
+  //   if (user) {
+  //     navigate('/');
 
-    }
-  }, [user]);
+  //   }
+  // }, [user]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
