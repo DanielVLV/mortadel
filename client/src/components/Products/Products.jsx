@@ -11,6 +11,9 @@ import CategoryRow from "../CategoryRow/CategoryRow";
 function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
 
+  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
+  console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
+
   return (
     <Box>
       <Grid container spacing={2}>

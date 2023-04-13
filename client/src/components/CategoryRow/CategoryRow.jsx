@@ -15,6 +15,7 @@ import './CategoryRow.css';
 function CategoryRow({ el }) {
   return (
     <div className="columnSwiperProducts">
+      <h2>{el.categoryName}</h2>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -26,7 +27,7 @@ function CategoryRow({ el }) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <h2>{el.categoryName}</h2>
+
         {el.Products.map((product) => (
           <SwiperSlide>
             <ProductElement key={product.id} product={product} />
