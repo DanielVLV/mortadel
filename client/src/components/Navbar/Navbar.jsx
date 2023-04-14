@@ -2,7 +2,7 @@
 /* eslint-disable quotes */
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Tab, Box } from "@mui/material";
@@ -11,16 +11,23 @@ import Badge from "@mui/material/Badge";
 
 import MenuPopupState from "./MenuPopupState/MenuPopupState";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
+import { signoutUser } from '../../redux/user.slice';
 
 export default function Navbar() {
   const location = useLocation();
-  const [value, setValue] = useState(location.pathname);
   const cartItems = useSelector(getCart);
+  const dispatch = useDispatch();
+
+  const [value, setValue] = useState(location.pathname);
+  const user = useSelector((state) => state.UserSlice.value);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleSignout = () => {
+    dispatch(signoutUser(user));
+  };
   return (
     <Box sx={{ width: "100%" }}>
       <TabContext value={value}>
@@ -42,18 +49,20 @@ export default function Navbar() {
                 </Link>
               }
             />
-            {/* <Tab sx={{ padding: 0 }}
-            value="/products" label={<Link to="/categories">Продукция</Link>} /> */}
-            <Tab
-              sx={{ padding: 0 }}
-              value="/auth"
-              label={<Link to="/auth">Регистрация/Войти</Link>}
-            />
             <Tab
               sx={{ padding: 0 }}
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
+            {user ? <Tab
+              sx={{ marginLeft: "auto", padding: 0 }}
+              value="/signout"
+              label={<Link to="/" variant="text" onClick={handleSignout}>Выйти</Link>}
+            /> : <Tab
+              sx={{ marginLeft: "auto", padding: 0 }}
+              value="/auth"
+              label={<Link to="/auth">Регистрация/Войти</Link>}
+            />}
             <Tab
               sx={{ padding: 0 }}
               value="/cart"

@@ -8,7 +8,6 @@ import { signUpUser } from '../../redux/user.slice';
 
 function Auth() {
   // const user = useSelector((state) => state.UserSlice.value);
-  const user = useSelector((state) => state.UserSlice.value);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -17,7 +16,7 @@ function Auth() {
   });
   const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {

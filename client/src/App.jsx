@@ -14,6 +14,9 @@ import Auth from "./components/Auth/Auth";
 import Footer from "./components/Footer/Footer";
 import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import { checkUser } from './redux/user.slice';
+// import Login from "./components/Auth/Login";
 
 
 function App() {
@@ -25,10 +28,16 @@ function App() {
   // const { categoryId } = useParams();
   // console.log(categoryId);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log("useffect<<<<<<<<<<<<<<<<<<<");
-    dispatch(getProducts());
 
+  useEffect(() => {
+    dispatch(checkUser());
+    return () => {
+      // console.log('unmount');
+    };
+  }, []);
+
+  useEffect(() => {
+    dispatch(getProducts());
     return () => {
       // console.log('unmount');
     };
@@ -41,7 +50,9 @@ function App() {
         <Route path="/categories" element={<Products />} />
         <Route path="/categories/:categoryId" element={<Categories />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route element={<ProtectedRoute flag redirectTo="/" />}>
+          <Route path="/auth" element={<Auth />} />
+        </Route>
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
       <Footer />
