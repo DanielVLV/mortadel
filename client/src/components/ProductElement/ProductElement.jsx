@@ -9,18 +9,17 @@ import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import ModalWindow from "../ModalWindow/ModalWindow";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
+import { selectOneProduct } from '../../redux/product.slice';
 
-function ProductElement({ product }) {
+function ProductElement({ product, setOpen }) {
   // const handleClick = () => {
   //   console.log("productproductproduct", product.id);
   // };
   const dispatch = useDispatch();
 
-  const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
+    dispatch(selectOneProduct({ product }));
     setOpen(true);
   };
 
@@ -43,7 +42,7 @@ function ProductElement({ product }) {
           В корзину
         </Button>
       </CardActions>
-      <ModalWindow open={open} setOpen={setOpen} product={product} />
+      {/* <ModalWindow open={open} setOpen={setOpen} product={product} /> */}
     </Card>
   );
 }
