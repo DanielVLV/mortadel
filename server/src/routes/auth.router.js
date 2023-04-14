@@ -35,8 +35,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/googlesignup', async (req, res) => {
   try {
-    const { form } = req.body;
-    const userObject = jwtDecode(form.credential);
+    const userObject = jwtDecode(req.body.credential);
     const { email } = userObject;
     const checkUser = await User.findOne({ where: { email }, raw: true });
     if (!checkUser) {
