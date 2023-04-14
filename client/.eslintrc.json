@@ -24,6 +24,7 @@
         "padded-blocks": 0,
         "react/jsx-no-bind": 0,
         "comma-dangle": 0,
-        "import/no-unresolv": 0
+        "import/no-unresolv": 0,
+        "quotes": 0
     }
 }
