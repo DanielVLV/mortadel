@@ -11,17 +11,19 @@ import ModalWindow from '../ModalWindow/ModalWindow';
 
 function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
-  const [filteredProducts, setFilter] = useState([]);
+
+  const [filteredProducts, setFilter] = useState(null);
   const [open, setOpen] = useState(false);
   console.log(open);
+
 
 
   const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
   useEffect(() => {
+    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
     setFilter(SAGATURBONITROFILTERED);
-    console.log('SET FILTER PRODUCTS<><><><><><><');
   }, [SAGATURBONITROFILTERED]);
 
   // console.log(filteredProducts, "filteredProducts");
@@ -34,8 +36,9 @@ function Products() {
         <Grid item xs={10}>
 
           <Box component="main" sx={{ p: 3 }}>
-            {filteredProducts.length ? filteredProducts.map((el) => (
-              <CategoryRow key={el.id} el={el} setOpen={setOpen} />
+
+            {filteredProducts ? filteredProducts.map((el) => (
+              <CategoryRow key={el.id} el={el} setOpen={setOpen}/>
             )) : products?.map((el) => (
               <CategoryRow key={el.id} el={el} setOpen={setOpen} />
             ))}

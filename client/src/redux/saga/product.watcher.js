@@ -1,5 +1,5 @@
 import {
-  call, put, throttle,
+  call, put, takeEvery, throttle,
 } from '@redux-saga/core/effects';
 // import { useSelector } from 'react-redux';
 import { INPUT_CHANGE, SET_FILTERED_PRODUCTS } from './searchInput/type.searchInput';
@@ -61,5 +61,5 @@ function* searchWorker(action) {
 
 export default function* productWatcher() {
   // yield takeEvery(INPUT_CHANGE, searchWorker);
-  yield throttle(3000, INPUT_CHANGE, searchWorker);
+  yield throttle(500, INPUT_CHANGE, searchWorker);
 }
