@@ -2,7 +2,7 @@
 import { SET_FILTERED_PRODUCTS, UNSET_FILTERED_PRODUCTS } from './type.searchInput';
 
 const initialState = {
-  filteredProducts: [],
+  filteredProducts: null,
 };
 
 function searchInputReducer(state = initialState, action) {
@@ -12,7 +12,7 @@ function searchInputReducer(state = initialState, action) {
     case SET_FILTERED_PRODUCTS:
       return { ...state, filteredProducts: payload };
     case UNSET_FILTERED_PRODUCTS:
-      return { ...state, filteredProducts: [] };
+      return { ...state, filteredProducts: null };
     default:
       return state;
   }
