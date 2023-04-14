@@ -14,6 +14,7 @@ router.post('/signup', async (req, res) => {
     name, email, phone, password,
   } = req.body;
   try {
+    console.log('email', req.body);
     const checkEmail = await User.findOne({ where: { email } });
     if (!checkEmail) {
       const hash = await bcrypt.hash(password, 10);

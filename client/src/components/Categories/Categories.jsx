@@ -24,7 +24,7 @@ function Categories() {
 
   const category = products?.filter((el) => el.id === +categoryId);
   const filterCategory = filteredProducts?.filter((el) => el.id === +categoryId);
-  console.log(category)
+  console.log(category);
 
   console.log(filteredProducts);
   return (
@@ -37,11 +37,11 @@ function Categories() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
-              <CategoryCard key={el.id} product={el} />
-            ))
+            <CategoryCard key={el.id} product={el} />
+          ))
           : category[0]?.Products?.map((el) => (
-              <CategoryCard key={el.id} product={el} />
-            ))}
+            <CategoryCard key={el.id} product={el} />
+          ))}
       </Box>
     </Box>
   );

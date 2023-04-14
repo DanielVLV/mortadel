@@ -38,7 +38,7 @@ function Products() {
           <Box component="main" sx={{ p: 3 }}>
 
             {filteredProducts ? filteredProducts.map((el) => (
-              <CategoryRow key={el.id} el={el} setOpen={setOpen}/>
+              <CategoryRow key={el.id} el={el} setOpen={setOpen} />
             )) : products?.map((el) => (
               <CategoryRow key={el.id} el={el} setOpen={setOpen} />
             ))}
