@@ -93,18 +93,7 @@ export default function Navbar() {
           О компании
         </TabPanel>
 
-        <TabPanel value="/products" index={1}>
-          Продукция меню
-        </TabPanel>
-        <TabPanel value="/auth" index={2}>
-          Регистрация/Войти
-        </TabPanel>
-        <TabPanel value="/contacts" index={3}>
-          Связаться с нами
-        </TabPanel>
-        <TabPanel value="/cart" index={4}>
-          Корзина
-        </TabPanel>
+
       </TabContext>
     </Box>
   );

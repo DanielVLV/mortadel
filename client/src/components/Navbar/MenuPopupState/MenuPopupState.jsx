@@ -23,7 +23,7 @@ export default function MenuPopupState() {
             Продукция попап
           </Button>
           <Menu {...bindMenu(popupState)}>
-            {categoriesArr?.map((el, index) => (
+            {categoriesArr?.map((el) => (
               <MenuItem key={el.id} sx={{ height: '36px', width: '400px' }} onClick={popupState.close}>
                 <Link sx={{ padding: 0 }} to={`/categories/${el.id}`}>{el.categoryName}</Link>
               </MenuItem>
