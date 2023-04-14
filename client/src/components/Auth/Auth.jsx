@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { GoogleLogin } from '@react-oauth/google';
-// import jwt_decode from 'jwt-decode';
 import { signUpUser } from '../../redux/user.slice';
 
 
 function Auth() {
-  // const user = useSelector((state) => state.UserSlice.value);
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -16,13 +15,7 @@ function Auth() {
   });
   const [isSignUp, setIsSignUp] = useState(true);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate('/');
-    }
-  }, [user]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,14 +31,10 @@ function Auth() {
   };
 
   const navigateClick = async (googleToken) => {
-    await fetch('http://localhost:3003/googlesignup', {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ googleToken }),
-    });
+    dispatch(signUpUser({
+      url: 'http://localhost:3003/googlesignup',
+      form: googleToken
+    }));
   };
 
   const handleInput = (event) => {
@@ -100,13 +89,9 @@ function Auth() {
           width="370px"
           height="56px"
           theme="filled_black"
-                                // shape='pill'
           logo_alignment="center"
           onSuccess={(credentialResponse) => {
-            // const userObject = jwt_decode(credentialResponse.credential);
-            // console.log(userObject);
             navigateClick(credentialResponse);
-          // navigate('/onelot')
           }}
           onError={() => {
             console.log('Login Failed');

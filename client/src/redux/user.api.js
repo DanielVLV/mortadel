@@ -7,8 +7,9 @@ export const signUpFetch = async ({ url, form }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ form }),
     });
+    console.log(response);
     const data = await response.json();
     if (data.msg) {
       throw new Error(data.msg);

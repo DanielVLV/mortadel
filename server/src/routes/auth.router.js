@@ -34,13 +34,20 @@ router.post('/signup', async (req, res) => {
 
 router.post('/googlesignup', async (req, res) => {
   try {
-    const { googleToken } = req.body;
-    const userObject = jwtDecode(googleToken.credential);
-    await User.create({
-      email: userObject.email,
-      name: userObject.name,
-      password: userObject.email,
-    });
+    const { form } = req.body;
+    const userObject = jwtDecode(form.credential);
+    const { email } = userObject;
+    const checkUser = await User.findOne({ where: { email }, raw: true });
+    if (!checkUser) {
+      const user = await User.create({
+        email: userObject.email,
+        name: userObject.name,
+        password: userObject.email,
+      });
+      res.json(user);
+    } else {
+      res.json(checkUser);
+    }
   } catch (error) {
     console.log(error);
   }
