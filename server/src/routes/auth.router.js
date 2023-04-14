@@ -1,3 +1,5 @@
+const jwtDecode = require('jwt-decode');
+
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 
@@ -8,11 +10,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
+  const {
+    name, email, phone, password,
+  } = req.body;
   try {
-    const {
-      name, email, phone, password,
-    } = req.body;
-    console.log(req.body);
     const checkEmail = await User.findOne({ where: { email } });
     if (!checkEmail) {
       const hash = await bcrypt.hash(password, 10);
@@ -26,6 +27,20 @@ router.post('/signup', async (req, res) => {
       res.json(user);
     }
     res.json({ msg: 'уже зарегистрирован' });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post('/googlesignup', async (req, res) => {
+  try {
+    const { googleToken } = req.body;
+    const userObject = jwtDecode(googleToken.credential);
+    await User.create({
+      email: userObject.email,
+      name: userObject.name,
+      password: userObject.email,
+    });
   } catch (error) {
     console.log(error);
   }
