@@ -31,12 +31,8 @@ const selectFilteredProducts = (payload) => {
 
 
   function filterProductsByTitle(originalArray, titlesArray) {
-
     const filteredArray = JSON.parse(JSON.stringify(originalArray));
-
-
     for (let i = 0; i < filteredArray.length; i += 1) {
-
       for (let j = 0; j < filteredArray[i].Products.length; j += 1) {
         const productTitle = filteredArray[i].Products[j].title;
         if (!titlesArray.includes(productTitle)) {
@@ -45,7 +41,6 @@ const selectFilteredProducts = (payload) => {
         }
       }
     }
-    // return the filtered array with the same structure as the original array
     return filteredArray.filter((category) => category.Products.length > 0);
   }
 

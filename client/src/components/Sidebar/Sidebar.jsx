@@ -18,7 +18,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux';
-import { searchProductsAction } from '../../redux/saga/searchInput/search.action';
+import { clearInputAction, searchProductsAction } from '../../redux/saga/searchInput/search.action';
 
 const drawerWidth = 200;
 
@@ -26,7 +26,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [tags, setTags] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-
+  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
 
   const dispatch = useDispatch();
   const getProductsFromState = useSelector((state) => state.ProductSlice.products);
@@ -41,16 +41,34 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }, []);
 
   useEffect(() => {
-    const arr = products
-      .map((category) => ({
-        ...category,
-        Products: category.Products.filter((product) =>
-          selectedTags.every((tagId) => product.Tags.some((tag) => tag.id === Number(tagId)))
-        ),
-      }))
-      .filter((category) => category.Products.length > 0);
-    setFilter(arr);
-  }, [selectedTags]);
+    if (!filteredProducts.length) {
+      console.log(filteredProducts, '><><>< IF CLAUSE');
+      const arr = products
+        .map((category) => ({
+          ...category,
+          Products: category.Products.filter((product) =>
+            selectedTags.every((tagId) => product.Tags.some((tag) => tag.id === Number(tagId)))
+          ),
+        }))
+        .filter((category) => category.Products.length > 0);
+
+      setFilter(arr);
+      // debugger;
+    } else {
+      console.log('ELSE USEEFFECT SIDEBAR');
+      const arr = filteredProducts
+        .map((category) => ({
+          ...category,
+          Products: category.Products.filter((product) =>
+            selectedTags.every((tagId) => product.Tags.some((tag) => tag.id === Number(tagId)))
+          ),
+        }))
+        .filter((category) => category.Products.length > 0);
+
+      setFilter(arr);
+    }
+
+  }, [selectedTags, filteredProducts]);
 
   const handleTag = (id, checked) => {
     if (checked) {
@@ -63,6 +81,18 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   function handleSearchInput(event) {
     setSearchInput(event.target.value);
     // console.log(event.target.value, 'лог с handleSearchInput');
+
+
+    if (event.target.value === '') {
+      // setFilter([]);
+      dispatch(clearInputAction());
+      setFilter(SAGATURBONITROFILTERED);
+      // debugger;
+      console.log('CLEAR INPUT ACTION');
+      return;
+    }
+
+    setFilter(SAGATURBONITROFILTERED);
 
     dispatch(searchProductsAction({ input: event.target.value, products: getProductsFromState }));
   }
