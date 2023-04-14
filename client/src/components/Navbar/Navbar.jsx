@@ -49,23 +49,20 @@ export default function Navbar() {
                 </Link>
               }
             />
-            {/* <Tab sx={{ padding: 0 }}
-            value="/products" label={<Link to="/categories">Продукция</Link>} /> */}
-            {user ? <Tab
-              sx={{ padding: 0 }}
-              value="/signout"
-              label={<Link to="/" variant="text" onClick={handleSignout}>Выйти</Link>}
-            /> : <Tab
-              sx={{ padding: 0 }}
-              value="/auth"
-              label={<Link to="/auth">Регистрация/Войти</Link>}
-            />}
-
             <Tab
               sx={{ padding: 0 }}
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
+            {user ? <Tab
+              sx={{ marginLeft: "auto", padding: 0 }}
+              value="/signout"
+              label={<Link to="/" variant="text" onClick={handleSignout}>Выйти</Link>}
+            /> : <Tab
+              sx={{ marginLeft: "auto", padding: 0 }}
+              value="/auth"
+              label={<Link to="/auth">Регистрация/Войти</Link>}
+            />}
             <Tab
               sx={{ padding: 0 }}
               value="/cart"

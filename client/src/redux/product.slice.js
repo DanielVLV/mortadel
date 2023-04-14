@@ -15,6 +15,12 @@ const ProductSlice = createSlice({
   initialState: {
     products: null,
     status: 'idle',
+    oneProduct: null
+  },
+  reducers: {
+    selectOneProduct(state, action) {
+      state.oneProduct = action.payload.product;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -28,5 +34,5 @@ const ProductSlice = createSlice({
   },
 });
 
-
+export const { selectOneProduct } = ProductSlice.actions;
 export default ProductSlice.reducer;

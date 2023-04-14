@@ -13,19 +13,21 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
+import { useSelector } from 'react-redux';
 import FormOrder from "../FormOrder/FormOrder";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function ModalWindow({ open, setOpen, product }) {
+function ModalWindow({ open, setOpen }) {
+  const product = useSelector((state) => state.ProductSlice.oneProduct);
   // const [open, setOpen] = React.useState(false);
 
   // const handleClickOpen = () => {
   //   setOpen(true);
   // };
-
+  console.log(product);
   const handleClose = () => {
     setOpen(false);
   };
@@ -39,17 +41,17 @@ function ModalWindow({ open, setOpen, product }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{product.title}</DialogTitle>
+        <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            <img src={product.img} />
-            Описание: {product.description}
+            <img src={product?.img} />
+            Описание: {product?.description}
             <br />
-            Состав: {product.fullDescription}
+            Состав: {product?.fullDescription}
             <br />
-            Вес: {product.weight}
+            Вес: {product?.weight}
             <br />
-            <FormOrder productId={product.id} />
+            <FormOrder productId={product?.id} />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

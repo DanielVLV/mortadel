@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable quotes */
 /* eslint-disable react/prop-types */
 import React from "react";
@@ -10,7 +11,7 @@ import ProductElement from "../ProductElement/ProductElement";
 
 import "./CategoryRow.css";
 
-function CategoryRow({ el }) {
+function CategoryRow({ el, setOpen }) {
   return (
     <div className="columnSwiperProducts">
       {el.Products.length && <h2>{el.categoryName}</h2>}
@@ -28,7 +29,7 @@ function CategoryRow({ el }) {
 
         {el.Products.map((product) => (
           <SwiperSlide>
-            <ProductElement key={product.id} product={product} />
+            <ProductElement key={product.id} product={product} setOpen={setOpen} />
           </SwiperSlide>
         ))}
       </Swiper>
