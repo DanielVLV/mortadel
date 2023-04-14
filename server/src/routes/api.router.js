@@ -28,7 +28,6 @@ router.get('/products', async (req, res) => {
       },
 
     });
-    console.log(products);
     res.json(products.map((product) => product.get()));
   } catch (err) {
     console.log({ msg: err.message });
