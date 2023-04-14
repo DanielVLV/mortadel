@@ -64,8 +64,21 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       return;
     }
 
-    if (filteredProducts) {
-      const arr = filteredProducts
+    if (filteredProducts && !isEmpty) {
+      const arr = SAGATURBONITROFILTERED
+        .map((category) => ({
+          ...category,
+          Products: category.Products.filter((product) =>
+            selectedTags.every((tagId) =>
+              product.Tags.some((tag) => tag.id === Number(tagId))
+            )
+          ),
+        }))
+        .filter((category) => category.Products.length > 0);
+
+      setFilter(arr);
+    }else if (filteredProducts && isEmpty) {
+      const arr = products
         .map((category) => ({
           ...category,
           Products: category.Products.filter((product) =>

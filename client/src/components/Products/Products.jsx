@@ -26,7 +26,7 @@ function Products() {
     setFilter(SAGATURBONITROFILTERED);
   }, [SAGATURBONITROFILTERED]);
 
-  // console.log(filteredProducts, "filteredProducts");
+  console.log(filteredProducts, "filteredProducts");
   return (
     <Box>
       <Grid container spacing={2}>
