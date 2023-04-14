@@ -17,20 +17,27 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
-import { useDispatch, useSelector } from 'react-redux';
-import { clearInputAction, searchProductsAction } from '../../redux/saga/searchInput/search.action';
+import { useDispatch, useSelector } from "react-redux";
+import {
+  clearInputAction,
+  searchProductsAction,
+} from "../../redux/saga/searchInput/search.action";
 
 const drawerWidth = 200;
 
 export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [tags, setTags] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
+  const [searchInput, setSearchInput] = useState("");
+  const [isEmpty, setInputCheck] = useState(true);
+  const SAGATURBONITROFILTERED = useSelector(
+    (state) => state.searchInputReducer.filteredProducts
+  );
 
   const dispatch = useDispatch();
-  const getProductsFromState = useSelector((state) => state.ProductSlice.products);
-
+  const getProductsFromState = useSelector(
+    (state) => state.ProductSlice.products
+  );
 
   useEffect(() => {
     fetch("http://localhost:3003/api/tags")
@@ -40,35 +47,58 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     return () => {};
   }, []);
 
+  //   useEffect(() => {
+  //   console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
+  //   setFilter(SAGATURBONITROFILTERED);
+  // }, [SAGATURBONITROFILTERED]);
+
   useEffect(() => {
-    if (!filteredProducts.length) {
-      console.log(filteredProducts, '><><>< IF CLAUSE');
-      const arr = products
+    if (!selectedTags.length && isEmpty) {
+      setFilter(null);
+      dispatch(clearInputAction());
+      return;
+    }
+
+    if (!selectedTags.length) {
+      setFilter(SAGATURBONITROFILTERED);
+      return;
+    }
+
+    if (filteredProducts) {
+      const arr = filteredProducts
         .map((category) => ({
           ...category,
           Products: category.Products.filter((product) =>
-            selectedTags.every((tagId) => product.Tags.some((tag) => tag.id === Number(tagId)))
+            selectedTags.every((tagId) =>
+              product.Tags.some((tag) => tag.id === Number(tagId))
+            )
           ),
         }))
         .filter((category) => category.Products.length > 0);
 
       setFilter(arr);
-      // debugger;
-    } else {
-      console.log('ELSE USEEFFECT SIDEBAR');
-      const arr = filteredProducts
+    } else if (selectedTags.length) {
+      const arr = products
         .map((category) => ({
           ...category,
           Products: category.Products.filter((product) =>
-            selectedTags.every((tagId) => product.Tags.some((tag) => tag.id === Number(tagId)))
+            selectedTags.every((tagId) =>
+              product.Tags.some((tag) => tag.id === Number(tagId))
+            )
           ),
         }))
         .filter((category) => category.Products.length > 0);
 
       setFilter(arr);
     }
+  }, [selectedTags, SAGATURBONITROFILTERED]);
 
-  }, [selectedTags, filteredProducts]);
+  // useEffect(() => {
+  //   console.log(
+  //     "SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS"
+  //   );
+  //   setFilter(SAGATURBONITROFILTERED);
+  // }, [SAGATURBONITROFILTERED]);
 
   const handleTag = (id, checked) => {
     if (checked) {
@@ -79,24 +109,59 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   };
 
   function handleSearchInput(event) {
+    setInputCheck(false);
     setSearchInput(event.target.value);
-    // console.log(event.target.value, 'лог с handleSearchInput');
+    if (event.target.value === "") {
+      setInputCheck(true);
+      console.log("SET FILTER PRODUCTS ПРИ ПУСТОМ ИНПУТЕ КЛАДЕТСЯ ПУСТАЯ САГА");
+      // setFilter(null)
+      // if(!selectedTags.length) {
+      if (selectedTags.length) {
+        const arr = products
+          .map((category) => ({
+            ...category,
+            Products: category.Products.filter((product) =>
+              selectedTags.every((tagId) =>
+                product.Tags.some((tag) => tag.id === Number(tagId))
+              )
+            ),
+          }))
+          .filter((category) => category.Products.length > 0);
 
+        setFilter(arr);
 
-    if (event.target.value === '') {
-      // setFilter([]);
-      dispatch(clearInputAction());
-      setFilter(SAGATURBONITROFILTERED);
-      // debugger;
-      console.log('CLEAR INPUT ACTION');
+        dispatch(
+          searchProductsAction({
+            input: event.target.value,
+            products: arr,
+          })
+        );
+      } else {
+        dispatch(clearInputAction());
+      }
+      // } else {
+      //   setFilter(products)
+      // }
+
+      console.log("CLEAR INPUT ACTION");
       return;
     }
-
-    setFilter(SAGATURBONITROFILTERED);
-
-    dispatch(searchProductsAction({ input: event.target.value, products: getProductsFromState }));
+    if (filteredProducts) {
+      dispatch(
+        searchProductsAction({
+          input: event.target.value,
+          products: filteredProducts,
+        })
+      );
+    } else {
+      dispatch(
+        searchProductsAction({
+          input: event.target.value,
+          products: getProductsFromState,
+        })
+      );
+    }
   }
-
 
   return (
     <Box sx={{ display: "flex" }}>

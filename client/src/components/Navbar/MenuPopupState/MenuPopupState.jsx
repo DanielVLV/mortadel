@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux';
 export default function MenuPopupState() {
 
   const categoriesArr = useSelector((state) => state.ProductSlice.products);
-  const categoriesArrProps = [];
-  categoriesArr?.map((el) => categoriesArrProps.push(el.categoryName));
+  // const categoriesArrProps = [];
+  // categoriesArr?.map((el) => categoriesArrProps.push(el.categoryName));
 
 
 
@@ -23,9 +23,9 @@ export default function MenuPopupState() {
             Продукция попап
           </Button>
           <Menu {...bindMenu(popupState)}>
-            {categoriesArrProps?.map((el, index) => (
-              <MenuItem key={index} sx={{ height: '36px', width: '400px' }} onClick={popupState.close}>
-                <Link sx={{ padding: 0 }} to={`/categories/${index}`}>{el}</Link>
+            {categoriesArr?.map((el, index) => (
+              <MenuItem key={el.id} sx={{ height: '36px', width: '400px' }} onClick={popupState.close}>
+                <Link sx={{ padding: 0 }} to={`/categories/${el.id}`}>{el.categoryName}</Link>
               </MenuItem>
             ))}
           </Menu>
