@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.125",
     "@mui/material": "^5.11.16",
+    "@pbe/react-yandex-maps": "^1.2.4",
     "@react-oauth/google": "^0.9.0",
     "@redux-saga/core": "^1.2.3",
     "@reduxjs/toolkit": "^1.9.3",
