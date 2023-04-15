@@ -14,6 +14,7 @@ router.post('/signup', async (req, res) => {
     name, email, phone, password,
   } = req.body;
   try {
+    console.log('email', req.body);
     const checkEmail = await User.findOne({ where: { email } });
     if (!checkEmail) {
       const hash = await bcrypt.hash(password, 10);
@@ -34,8 +35,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/googlesignup', async (req, res) => {
   try {
-    const { form } = req.body;
-    const userObject = jwtDecode(form.credential);
+    const userObject = jwtDecode(req.body.credential);
     const { email } = userObject;
     const checkUser = await User.findOne({ where: { email }, raw: true });
     if (!checkUser) {
