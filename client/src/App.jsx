@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-
 import { useDispatch } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./components/HomePage/HomePage";
@@ -16,17 +15,9 @@ import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { checkUser } from './redux/user.slice';
-// import Login from "./components/Auth/Login";
 
 
 function App() {
-  if (!localStorage.getItem("cart")) {
-    localStorage.setItem("cart", JSON.stringify([]));
-  }
-
-  console.log(localStorage.cart);
-  // const { categoryId } = useParams();
-  // console.log(categoryId);
   const dispatch = useDispatch();
 
   useEffect(() => {
