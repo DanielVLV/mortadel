@@ -1,33 +1,11 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
-import StarHalfIcon from "@mui/icons-material/StarHalf";
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import "./card.css";
-import { useSelector } from "react-redux";
+import StarHalfIcon from "@mui/icons-material/StarHalf";
 
-function CategoryCard({ product }) {
-  const user = useSelector((state) => state.UserSlice.value);
-  const productId = product.id;
-  const handleAddToFavs = async () => {
-    await fetch("http://localhost:3003/api/favs", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productId, user }),
-    });
-  };
-
+function FavouritesRow({ product }) {
   return (
     <Box style={{ border: "1px solid grey" }}>
       <Card>
@@ -41,15 +19,15 @@ function CategoryCard({ product }) {
                 }}
                 component="img"
                 height="140"
-                image={product?.img}
+                image={product["Product.img"]}
                 alt=""
               />
               <CardContent sx={{ flex: 1 }}>
                 <Typography gutterBottom variant="h5" align="center">
-                  {product?.title}
+                  {product["Product.title"]}
                 </Typography>
                 <Typography variant="h6" color="text.secondary" align="center">
-                  {product?.description}
+                  {product["Product.description"]}
                 </Typography>
               </CardContent>
             </Box>
@@ -62,16 +40,14 @@ function CategoryCard({ product }) {
               width: 200,
             }}
           >
-            <Button variant="outlined">Купить в 1 клик</Button>
-            {user && (
-              <Button
-                onClick={handleAddToFavs}
-                variant="contained"
-                endIcon={<StarHalfIcon />}
-              >
-                В избранное
-              </Button>
-            )}
+            <Button
+            //   onClick={handleAddToFavs}
+              variant="contained"
+              endIcon={<StarHalfIcon />}
+            >
+              Удалить из избранного
+            </Button>
+
             <Button variant="outlined">
               В корзину
               <ShoppingCartIcon />
@@ -83,4 +59,4 @@ function CategoryCard({ product }) {
   );
 }
 
-export default CategoryCard;
+export default FavouritesRow;
