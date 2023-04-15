@@ -1,14 +1,17 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-const */
 /* eslint-disable quotes */
-import React from "react";
+import React, { useState } from "react";
+import Switch from "@mui/material/Switch";
 import { useSelector } from "react-redux";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
 import CartForm from "./CartForm/CartForm";
 import CartRow from "./cartRow/CartRow";
+import Favourites from "./Favourites/Favourites";
 
 function Cart() {
   const cartArr = useSelector(getCart);
+  const [isCart, setCart] = useState(true);
 
   // удаление повторных элементов
   const uniqueArray = [...new Set(cartArr)];
@@ -19,12 +22,22 @@ function Cart() {
     count[item.id] = (count[item.id] || 0) + 1;
   }
 
-  // console.log("Уникальные элементы: ", uniqueArray[0]);
-  // console.log("Количество повторений для каждого элемента: ", count);
+  const handleChange = (id, checked) => {
+    if (checked) {
+      setCart(false);
+    } else {
+      setCart(true);
+    }
+  };
 
   return (
     <div>
-      <CartRow uniqueArray={uniqueArray} count={count} />
+      <Switch onChange={handleChange} />
+      {isCart ? (
+        <CartRow uniqueArray={uniqueArray} count={count} />
+      ) : (
+        <Favourites />
+      )}
 
       <CartForm count={count} />
     </div>

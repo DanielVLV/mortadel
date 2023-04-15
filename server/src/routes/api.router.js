@@ -1,9 +1,13 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const {
-  Category, Product, Cart, Tag, TagsProducts,
-} = require('../../db/models');
+  Category,
+  Product,
+  Cart,
+  Tag,
+  TagsProducts,
+} = require("../../db/models");
 
-router.get('/categories', async (req, res) => {
+router.get("/categories", async (req, res) => {
   try {
     const categories = await Category.findAll();
     res.json(categories.map((category) => category.get()));
@@ -12,21 +16,21 @@ router.get('/categories', async (req, res) => {
   }
 });
 
-router.get('/products', async (req, res) => {
+router.get("/products", async (req, res) => {
   try {
     const products = await Category.findAll({
-      attributes: ['id', 'categoryName'],
-      order: [[Product, 'categoryId', 'ASC']],
+      attributes: ["id", "categoryName"],
+      order: [[Product, "categoryId", "ASC"]],
       include: {
         model: Product,
         include: [
           {
             model: Tag,
             through: { attributes: [] },
-          }],
+          },
+        ],
         // attributes: [],
       },
-
     });
     res.json(products.map((product) => product.get()));
   } catch (err) {
@@ -34,7 +38,7 @@ router.get('/products', async (req, res) => {
   }
 });
 
-router.get('/products/tag', async (req, res) => {
+router.get("/products/tag", async (req, res) => {
   const { tagName } = req.body;
   try {
     const products = await Product.findAll({
@@ -54,7 +58,7 @@ router.get('/products/tag', async (req, res) => {
   }
 });
 
-router.get('/tags', async (req, res) => {
+router.get("/tags", async (req, res) => {
   try {
     const tags = await Tag.findAll();
     // console.log(tags);
@@ -63,13 +67,21 @@ router.get('/tags', async (req, res) => {
     console.log({ msg: err.message });
   }
 });
-router.post('/cart', async (req, res) => {
+router.post("/cart", async (req, res) => {
   const { userId } = req.body;
   try {
     const result = await Cart.create({
       userId,
     });
     res.json(result);
+  } catch (err) {
+    console.log({ msg: err.message });
+  }
+});
+
+router.post("/favs", async (req, res) => {
+  try {
+    console.log("success", req.body);
   } catch (err) {
     console.log({ msg: err.message });
   }

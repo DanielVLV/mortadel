@@ -77,7 +77,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         .filter((category) => category.Products.length > 0);
 
       setFilter(arr);
-    }else if (filteredProducts && isEmpty) {
+    } else if (filteredProducts && isEmpty) {
       const arr = products
         .map((category) => ({
           ...category,
