@@ -5,6 +5,7 @@ const {
   Cart,
   Tag,
   TagsProducts,
+  Favourites,
 } = require("../../db/models");
 
 router.get("/categories", async (req, res) => {
@@ -79,8 +80,27 @@ router.post("/cart", async (req, res) => {
   }
 });
 
+router.get("/favs", async (req, res) => {
+  try {
+    console.log(req.session.user);
+    const result = await Favourites.findAll({
+      raw: true,
+      where: { userId: 3 },
+      include: [Product],
+    });
+    console.log(result)
+    res.json(result);
+    // console.log("success", arr);
+  } catch (err) {
+    console.log({ msg: err.message });
+  }
+});
+
 router.post("/favs", async (req, res) => {
   try {
+    const { productId, user } = req.body;
+    await Favourites.create({ productId, userId: user.id });
+    res.sendStatus(200);
     console.log("success", req.body);
   } catch (err) {
     console.log({ msg: err.message });
