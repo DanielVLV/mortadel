@@ -82,13 +82,14 @@ router.post("/cart", async (req, res) => {
 
 router.get("/favs", async (req, res) => {
   try {
-    console.log(req.session.user);
+    const user = req.session.user;
+   
     const result = await Favourites.findAll({
       raw: true,
-      where: { userId: 3 },
+      where: { userId: user.id },
       include: [Product],
     });
-    console.log(result)
+    // console.log(result)
     res.json(result);
     // console.log("success", arr);
   } catch (err) {
@@ -104,6 +105,19 @@ router.post("/favs", async (req, res) => {
     console.log("success", req.body);
   } catch (err) {
     console.log({ msg: err.message });
+  }
+});
+
+router.delete("/favs", async (req, res) => {
+  try {
+    const { favId } = req.body;
+    const { user } = req.session;
+    console.log(favId, user);
+    await Favourites.destroy({ where: { id: favId } });
+    res.sendStatus(200);
+
+  } catch (error) {
+    console.log(error);
   }
 });
 

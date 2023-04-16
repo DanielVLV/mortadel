@@ -12,6 +12,7 @@ import Favourites from "./Favourites/Favourites";
 function Cart() {
   const cartArr = useSelector(getCart);
   const [isCart, setCart] = useState(true);
+  const user = useSelector((state) => state.UserSlice.value);
 
   // удаление повторных элементов
   const uniqueArray = [...new Set(cartArr)];
@@ -32,7 +33,7 @@ function Cart() {
 
   return (
     <div>
-      <Switch onChange={handleChange} />
+      {user && <Switch onChange={handleChange} />}
       {isCart ? (
         <CartRow uniqueArray={uniqueArray} count={count} />
       ) : (
