@@ -1,11 +1,35 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 
-function FavouritesRow({ product }) {
+function FavouritesRow({ product, setFavs }) {
+  const favId = product.id;
+  const handleFavDelete = async () => {
+    try {
+      const res = await fetch("http://localhost:3003/api/favs", {
+        method: "DELETE",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ favId }),
+      });
+      if (res.status === 200) {
+        setFavs((prev) => prev.filter((el) => el.id !== favId));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Box style={{ border: "1px solid grey" }}>
       <Card>
@@ -41,7 +65,7 @@ function FavouritesRow({ product }) {
             }}
           >
             <Button
-            //   onClick={handleAddToFavs}
+              onClick={handleFavDelete}
               variant="contained"
               endIcon={<StarHalfIcon />}
             >
