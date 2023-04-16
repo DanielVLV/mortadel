@@ -21,10 +21,10 @@ function Products() {
   const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
-  useEffect(() => {
-    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
-    setFilter(SAGATURBONITROFILTERED);
-  }, [SAGATURBONITROFILTERED]);
+  // useEffect(() => {
+  //   console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
+  //   setFilter(SAGATURBONITROFILTERED);
+  // }, [SAGATURBONITROFILTERED]);
 
   console.log(filteredProducts, "filteredProducts");
   return (
