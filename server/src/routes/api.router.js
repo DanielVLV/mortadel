@@ -85,7 +85,7 @@ router.get("/favs", async (req, res) => {
     const user = req.session.user;
    
     const result = await Favourites.findAll({
-      raw: true,
+      // raw: true,
       where: { userId: user.id },
       include: [Product],
     });
