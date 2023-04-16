@@ -13,11 +13,11 @@ function Favourites() {
       .then((res) => setFavs(res))
       .catch(console.error);
   }, []);
-  // console.log(allFavs);
+  console.log(allFavs);
   return (
     <div>
       {allFavs?.map((el) => (
-        <FavouritesRow key={el.id} product={el} setFavs={setFavs} />
+        <FavouritesRow key={el.id} favProduct={el.Product} setFavs={setFavs} />
       ))}
     </div>
   );

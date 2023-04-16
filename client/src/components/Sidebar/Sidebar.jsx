@@ -42,6 +42,11 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   );
 
   useEffect(() => {
+    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
+    setFilter(SAGATURBONITROFILTERED);
+  }, [SAGATURBONITROFILTERED]);
+
+  useEffect(() => {
     fetch("http://localhost:3003/api/tags")
       .then((data) => data.json())
       .then((res) => setTags(res))
@@ -150,7 +155,8 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       dispatch(
         searchProductsAction({
           input: event.target.value,
-          products: filteredProducts,
+          products: getProductsFromState,
+          // products: filteredProducts,
         })
       );
     } else {

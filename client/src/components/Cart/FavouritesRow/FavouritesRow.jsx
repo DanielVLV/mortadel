@@ -12,9 +12,13 @@ import {
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
+import { useDispatch, useSelector } from "react-redux";
+import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
 
-function FavouritesRow({ product, setFavs }) {
-  const favId = product.id;
+function FavouritesRow({ favProduct, setFavs }) {
+  const products = useSelector((state) => state.ProductSlice.products);
+  const favId = favProduct.id;
+  const dispatch = useDispatch();
   const handleFavDelete = async () => {
     try {
       const res = await fetch("http://localhost:3003/api/favs", {
@@ -30,6 +34,10 @@ function FavouritesRow({ product, setFavs }) {
       console.log(error);
     }
   };
+
+  const handleClickAddToCart = () => {
+    dispatch(addIntoCart(favProduct));
+  };
   return (
     <Box style={{ border: "1px solid grey" }}>
       <Card>
@@ -43,15 +51,15 @@ function FavouritesRow({ product, setFavs }) {
                 }}
                 component="img"
                 height="140"
-                image={product["Product.img"]}
+                image={favProduct.img}
                 alt=""
               />
               <CardContent sx={{ flex: 1 }}>
                 <Typography gutterBottom variant="h5" align="center">
-                  {product["Product.title"]}
+                  {favProduct.title}
                 </Typography>
                 <Typography variant="h6" color="text.secondary" align="center">
-                  {product["Product.description"]}
+                  {favProduct.description}
                 </Typography>
               </CardContent>
             </Box>
@@ -72,7 +80,7 @@ function FavouritesRow({ product, setFavs }) {
               Удалить из избранного
             </Button>
 
-            <Button variant="outlined">
+            <Button variant="outlined" onClick={handleClickAddToCart}>
               В корзину
               <ShoppingCartIcon />
             </Button>
