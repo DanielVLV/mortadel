@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
@@ -18,7 +19,7 @@ function Products() {
 
 
 
-  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
+  // const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
   // useEffect(() => {

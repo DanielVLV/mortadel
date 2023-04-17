@@ -13,7 +13,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import FormOrder from "../FormOrder/FormOrder";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -56,8 +56,6 @@ function ModalWindow({ open, setOpen }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Закрыть</Button>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
         </DialogActions>
       </Dialog>
     </div>
