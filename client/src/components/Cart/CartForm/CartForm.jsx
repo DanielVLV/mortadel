@@ -18,34 +18,33 @@ function CartForm({ count, summaryPrice }) {
     phone2: "",
     name: "",
   });
-  console.log('count', summaryPrice);
   const [openPayment, setOpenPayment] = useState(false);
-
-  // console.log(summaryPrice);
-
-  //   console.log(Object.entries(count));
+  const [isValid, setIsValid] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (form.phone !== form.phone2) {
+      setIsValid(true);
+      setForm({ phone: "", phone2: "", name: "" });
+    } else {
+      setOpenPayment(true);
 
-    setOpenPayment(true);
-    console.log(openPayment);
-    let fullOrder = "";
-    for (const [key, value] of Object.entries(count)) {
-      fullOrder += `Артикул ${key} в количестве ${value} штук, `;
+      let fullOrder = "";
+      for (const [key, value] of Object.entries(count)) {
+        fullOrder += `Артикул ${key} в количестве ${value} штук, `;
+      }
+
+      fetch(`${domainAddress}/mail/fullorder`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ form, fullOrder }),
+      });
+
+      setForm({ phone: "", phone2: "", name: "" });
     }
-    console.log(fullOrder);
-    fetch(`${domainAddress}/mail/fullorder`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ form, fullOrder }),
-    });
-
-    setForm({ phone: "", phone2: "", name: "" });
-
   };
 
   function handleInput(event) {
@@ -53,7 +52,6 @@ function CartForm({ count, summaryPrice }) {
   }
 
   return (
-    // <div>
     <form onSubmit={handleSubmit}>
       <FormControl id="inputGroup">
         <TextField
@@ -63,14 +61,18 @@ function CartForm({ count, summaryPrice }) {
           name="phone"
           onChange={handleInput}
           value={form.phone}
+          required
+
         />
         <TextField
           id="phoneRep"
           label="Повторить номер телефона"
           variant="outlined"
-          name="phoneRep"
+          name="phone2"
           onChange={handleInput}
           value={form.phone2}
+          required
+
         />
         <TextField
           id="name"
@@ -79,6 +81,7 @@ function CartForm({ count, summaryPrice }) {
           name="name"
           onChange={handleInput}
           value={form.name}
+          required
         />
         {summaryPrice ? (
           <Button type="submit" variant="contained" endIcon={<SendIcon />}>
@@ -89,6 +92,7 @@ function CartForm({ count, summaryPrice }) {
             Корзина пуста
           </Button>
         )}
+        {isValid && <div style={{ color: 'red' }}>Некокрректные данные</div>}
       </FormControl>
       <PaymentForm
         openPayment={openPayment}
@@ -96,7 +100,6 @@ function CartForm({ count, summaryPrice }) {
         summaryPrice={summaryPrice}
       />
     </form>
-    // </div>
   );
 }
 

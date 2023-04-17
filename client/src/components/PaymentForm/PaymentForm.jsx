@@ -5,6 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Dialog from "@mui/material/Dialog";
 import CheckoutForm from './CheckoutForm/CheckoutForm';
+import { domainAddress } from '../../constants/api';
 
 
 function PaymentForm({ openPayment, setOpenPayment, summaryPrice }) {
@@ -22,7 +23,7 @@ function PaymentForm({ openPayment, setOpenPayment, summaryPrice }) {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3003/stripe/config').then(async (res) => {
+    fetch(`${domainAddress}/stripe/config`).then(async (res) => {
       const { publishableKey } = await res.json();
 
       //   console.log(publishableKey);
@@ -31,7 +32,7 @@ function PaymentForm({ openPayment, setOpenPayment, summaryPrice }) {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3003/stripe/intention', {
+    fetch(`${domainAddress}/stripe/intention`, {
       method: 'POST',
       credentials: "include",
       headers: {
