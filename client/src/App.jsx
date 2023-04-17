@@ -56,8 +56,8 @@ function App() {
           <Route path="/auth" element={<Auth />} />
         </Route>
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/payment" element={<PaymentForm />} />
-        <Route path="/payment/completion" element={<Completion />} />
+        {/* <Route path="/payment" element={<PaymentForm />} /> */}
+        {/* <Route path="/payment/completion" element={<Completion />} /> */}
       </Routes>
       <Footer />
     </div>

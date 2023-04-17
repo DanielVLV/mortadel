@@ -19,23 +19,39 @@ function CheckoutForm() {
 
     setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/completion`,
         // return_url: 'http://localhost:3000/payment/completion'
       },
-      // redirect: 'if_required'
+      redirect: 'if_required'
     });
 
-    if (error.type === "card_error" || error.type === "validation_error") {
+
+    if (error) {
       setMessage(error.message);
+    } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+      const newLocal = `Payment status: ${paymentIntent.status} 🤑`;
+      // console.log(newLocal);
+      setMessage(newLocal);
+    } else if (paymentIntent && paymentIntent.status === 'insufficient_funds') {
+      const newLocal = `Payment status: ${paymentIntent.status} 😱`;
+      // console.log(newLocal);
+      setMessage(newLocal);
     } else {
       setMessage("An unexpected error occured.");
     }
 
+    // if (error.type === "card_error" || error.type === "validation_error") {
+    //   setMessage(error.message);
+    // }
+
     setIsProcessing(false);
+
+    console.log(isProcessing);
+    console.log(message);
   };
 
   return (

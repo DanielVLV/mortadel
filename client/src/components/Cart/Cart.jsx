@@ -1,14 +1,20 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable prefer-const */
 /* eslint-disable quotes */
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
 import CartForm from "./CartForm/CartForm";
 import CartRow from "./cartRow/CartRow";
 
 function Cart() {
+
   const cartArr = useSelector(getCart);
+
+
+
+  const summaryPrice = cartArr.map((el) => el.price)
+    .reduce((acc, curVal) => acc + curVal, 0);
 
   // удаление повторных элементов
   const uniqueArray = [...new Set(cartArr)];
@@ -24,9 +30,9 @@ function Cart() {
 
   return (
     <div>
-      <CartRow uniqueArray={uniqueArray} count={count} />
+      <CartRow uniqueArray={uniqueArray} count={count} summaryPrice={summaryPrice} />
 
-      <CartForm count={count} />
+      <CartForm count={count} summaryPrice={summaryPrice} />
     </div>
   );
 }

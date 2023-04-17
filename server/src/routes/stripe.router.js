@@ -9,14 +9,25 @@ router.get('/config', (req, res) => {
 });
 
 router.post('/intention', async (req, res) => {
+  // console.log(req.body, '<><<<<<<<<<<<<<<<<<<<<<<<<<<');
+  const { summaryPrice } = req.body;
+
   try {
     const paymentIntent = await stripe.paymentIntents.create({
+      // currency: 'rub',
       currency: 'eur',
-      amount: 100,
+      amount: `${summaryPrice}`,
+      // payment_method_types: ['card'],
       automatic_payment_methods: {
         enabled: true,
       },
     });
+
+    // const confirmedIntent = await stripe.paymentIntents.confirm(paymentIntent.client_secret, {
+    //   payment_method: 'pm_card_visa', // Replace with the ID of a test payment method
+    // });
+
+    // console.log(confirmedIntent);
     // console.log(paymentIntent, '<><><><>><<<<<<<<<<');
     res.send({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
