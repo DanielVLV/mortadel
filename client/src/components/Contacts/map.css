@@ -1,0 +1,6 @@
+.mapview {
+  position: absolute !important;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+};
