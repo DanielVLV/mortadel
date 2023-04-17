@@ -18,7 +18,9 @@ function Cart() {
   // удаление повторных элементов
   useEffect(() => {
     setUnique([...new Set(cartArr)]);
-  }, []);
+  }, [cartArr]);
+  console.log(cartArr, "cartArr");
+  console.log(uniqueArray, "unique");
 
   const uniqueArraySorted = uniqueArray.sort((a, b) => (a.id > b.id ? 1 : -1));
   // подсчет количества повторений каждого элемента
@@ -34,7 +36,6 @@ function Cart() {
       setCart(true);
     }
   };
-  console.log(uniqueArray);
 
   return (
     <div>
@@ -46,7 +47,7 @@ function Cart() {
         </>
       )}
       {isCart ? (
-        <CartRow uniqueArray={uniqueArraySorted} count={count} />
+        <CartRow uniqueArray={uniqueArraySorted} count={count} setUnique={setUnique} />
       ) : (
         <Favourites />
       )}
