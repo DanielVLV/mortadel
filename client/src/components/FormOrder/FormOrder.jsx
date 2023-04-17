@@ -17,8 +17,6 @@ function FormOrder({ productId }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
-    console.log(event.target.parentNode);
 
     fetch(`${domainAddress}/mail/order`, {
       method: 'POST',
@@ -43,7 +41,7 @@ function FormOrder({ productId }) {
         <TextField id="phone" label="Телефон" variant="outlined" name="phone" onChange={handleInput} value={form.phone} />
         <TextField id="name" label="Имя" variant="outlined" name="name" onChange={handleInput} value={form.name} />
         <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-          Оформить заказ
+          Оставить заявку
         </Button>
 
       </FormControl>
