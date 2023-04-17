@@ -15,6 +15,7 @@ function Categories() {
   const SAGATURBONITROFILTERED = useSelector(
     (state) => state.searchInputReducer.filteredProducts
   );
+
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
   useEffect(() => {
@@ -28,9 +29,8 @@ function Categories() {
   const filterCategory = filteredProducts?.filter(
     (el) => el.id === +categoryId
   );
-  console.log(category);
+  console.log(products);
 
-  console.log(filteredProducts);
   return (
     <Box style={{ display: "flex" }}>
       <Sidebar
@@ -44,7 +44,7 @@ function Categories() {
           ? filterCategory[0]?.Products?.map((el) => (
             <CategoryCard key={el.id} product={el} setOpen={setOpen} />
           ))
-          : category[0]?.Products?.map((el) => (
+          : category && category[0]?.Products?.map((el) => (
             <CategoryCard key={el.id} product={el} setOpen={setOpen} />
           ))}
       </Box>
