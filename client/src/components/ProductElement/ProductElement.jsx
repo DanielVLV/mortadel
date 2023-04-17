@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
-import { selectOneProduct } from "../../redux/product.slice";
+import { addFav, selectOneProduct } from "../../redux/product.slice";
 
 function ProductElement({ product, setOpen }) {
   const user = useSelector((state) => state.UserSlice.value);
@@ -21,15 +21,8 @@ function ProductElement({ product, setOpen }) {
   // };
   const dispatch = useDispatch();
 
-  const handleAddToFavs = async () => {
-    await fetch("http://localhost:3003/api/favs", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productId, user }),
-    });
+  const handleAddToFavs = () => {
+    dispatch(addFav({ productId, user }));
   };
 
   const handleClickOpen = () => {

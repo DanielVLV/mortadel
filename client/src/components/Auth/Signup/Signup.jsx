@@ -7,6 +7,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
 import { signUpUser } from '../../../redux/user.slice';
+import { domainAddress } from '../../../constants/api';
 
 function Signup() {
   const [form, setForm] = useState({
@@ -16,7 +17,9 @@ function Signup() {
     password: '',
   });
 
-  const paperStyle = { padding: 20, width: 300, margin: "0 auto" };
+  const paperStyle = {
+    padding: 20, height: '60vh', width: 300, margin: "0 auto"
+  };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
   const btnstyle = { margin: '8px 0' };
@@ -27,7 +30,7 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = 'http://localhost:3003/signup';
+    const url = `${domainAddress}/signup`;
     dispatch(signUpUser({ url, form }));
     setForm({
       name: '',
@@ -39,7 +42,7 @@ function Signup() {
 
   const navigateClick = async (googleToken) => {
     dispatch(signUpUser({
-      url: 'http://localhost:3003/googlesignup',
+      url: `${domainAddress}/googlesignup`,
       form: googleToken
     }));
   };

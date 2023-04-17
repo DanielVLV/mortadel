@@ -8,6 +8,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import LockRoundedIcon from '@mui/icons-material/LockRounded';
 import { signUpUser } from '../../../redux/user.slice';
+import { domainAddress } from '../../../constants/api';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 function Login() {
@@ -27,7 +28,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = 'http://localhost:3003/signin';
+    const url = `${domainAddress}/signin`;
     dispatch(signUpUser({ url, form }));
     setForm({
       email: '',
@@ -37,7 +38,7 @@ function Login() {
 
   const navigateClick = async (googleToken) => {
     dispatch(signUpUser({
-      url: 'http://localhost:3003/googlesignup',
+      url: `${domainAddress}/googlesignup`,
       form: googleToken
     }));
   };

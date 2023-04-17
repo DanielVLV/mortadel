@@ -13,23 +13,16 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectOneProduct } from "../../../redux/product.slice";
+import { addFav, selectOneProduct } from "../../../redux/product.slice";
 import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
-import { domainAddress } from '../../../constants/api';
+// import { domainAddress } from '../../../constants/api';
 
 function CategoryCard({ product, setOpen }) {
   const user = useSelector((state) => state.UserSlice.value);
   const productId = product.id;
   const dispatch = useDispatch();
-  const handleAddToFavs = async () => {
-    await fetch(`${domainAddress}/api/favs`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productId, user }),
-    });
+  const handleAddToFavs = () => {
+    dispatch(addFav({ productId, user }));
   };
 
   const handleClickOpen = () => {
