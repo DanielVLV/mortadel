@@ -38,7 +38,13 @@ function Cart() {
 
   return (
     <div>
-      {user && <Switch onChange={handleChange} />}
+      {user && (
+        <>
+          <span>Корзина</span>
+          <Switch onChange={handleChange} />
+          <span>Избранное</span>
+        </>
+      )}
       {isCart ? (
         <CartRow uniqueArray={uniqueArraySorted} count={count} />
       ) : (
