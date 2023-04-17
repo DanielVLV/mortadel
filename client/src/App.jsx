@@ -16,6 +16,8 @@ import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { checkUser } from './redux/user.slice';
+import PaymentForm from "./components/PaymentForm/PaymentForm";
+import Completion from "./components/PaymentForm/Completion/Completion";
 // import Login from "./components/Auth/Login";
 
 
@@ -54,6 +56,8 @@ function App() {
           <Route path="/auth" element={<Auth />} />
         </Route>
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/payment" element={<PaymentForm />} />
+        <Route path="/payment/completion" element={<Completion />} />
       </Routes>
       <Footer />
     </div>
