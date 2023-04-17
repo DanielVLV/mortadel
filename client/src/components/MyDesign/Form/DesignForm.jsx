@@ -43,6 +43,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           name="phone"
           onChange={handleInput}
           value={form.phone}
+          required
         />
         <TextField
           id="phoneRep"
@@ -50,6 +51,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           variant="outlined"
           name="phoneRep"
           onChange={handleInput}
+          required
         />
         <TextField
           id="name"
@@ -58,6 +60,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           name="name"
           onChange={handleInput}
           value={form.name}
+          required
         />
         <Button type="submit" variant="contained" endIcon={<SendIcon />}>
           Оформить заказ

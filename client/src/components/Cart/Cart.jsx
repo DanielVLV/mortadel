@@ -52,7 +52,12 @@ function Cart() {
         </>
       )}
       {isCart ? (
-        <CartRow uniqueArray={uniqueArraySorted} count={count} summaryPrice={summaryPrice} setUnique={setUnique}/>
+        <CartRow
+          uniqueArray={uniqueArraySorted}
+          count={count}
+          summaryPrice={summaryPrice}
+          setUnique={setUnique}
+        />
 
       ) : (
         <Favourites />

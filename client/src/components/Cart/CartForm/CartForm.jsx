@@ -60,6 +60,7 @@ function CartForm({ count, summaryPrice }) {
           name="phone"
           onChange={handleInput}
           value={form.phone}
+          // inputProps={{ maxLength: 20, pattern: /^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/ }}
           required
 
         />
@@ -80,6 +81,7 @@ function CartForm({ count, summaryPrice }) {
           name="name"
           onChange={handleInput}
           value={form.name}
+          inputProps={{ maxLength: 20 }}
           required
         />
         {summaryPrice ? (
