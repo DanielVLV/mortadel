@@ -16,9 +16,6 @@ import { getProducts } from "./redux/product.slice";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { checkUser } from './redux/user.slice';
 
-import PaymentForm from "./components/PaymentForm/PaymentForm";
-import Completion from "./components/PaymentForm/Completion/Completion";
-
 import MyDesign from "./components/MyDesign/MyDesign";
 
 
