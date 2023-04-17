@@ -15,9 +15,9 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { useDispatch, useSelector } from "react-redux";
 import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
 
-function FavouritesRow({ favProduct, setFavs }) {
+function FavouritesRow({ favProduct, setFavs, el }) {
   const products = useSelector((state) => state.ProductSlice.products);
-  const favId = favProduct.id;
+  const favId = el.id;
   const dispatch = useDispatch();
   const handleFavDelete = async () => {
     try {

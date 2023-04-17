@@ -17,7 +17,7 @@ function Favourites() {
   return (
     <div>
       {allFavs?.map((el) => (
-        <FavouritesRow key={el.id} favProduct={el.Product} setFavs={setFavs} />
+        <FavouritesRow key={el.id} favProduct={el.Product} setFavs={setFavs} el={el} />
       ))}
     </div>
   );

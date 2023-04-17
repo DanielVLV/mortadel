@@ -113,7 +113,8 @@ router.delete("/favs", async (req, res) => {
     const { favId } = req.body;
     const { user } = req.session;
     console.log(favId, user);
-    await Favourites.destroy({ where: { id: favId } });
+    const a = await Favourites.destroy({ where: { id: favId } });
+    console.log(a)
     res.sendStatus(200);
 
   } catch (error) {
