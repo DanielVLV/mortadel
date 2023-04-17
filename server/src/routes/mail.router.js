@@ -3,8 +3,6 @@ const mailer = require('../nodemailer/nodemailer');
 
 router.post('/order', async (req, res) => {
   try {
-    console.log(req.body);
-
     const message = {
     //   from: 'Mailer test <nettie12@ethereal.email>',
       to: ['mortadeltest@mail.ru'],
@@ -24,8 +22,6 @@ router.post('/order', async (req, res) => {
 
 router.post('/fullorder', async (req, res) => {
   try {
-    console.log(req.body);
-
     const message = {
     //   from: 'Mailer test <nettie12@ethereal.email>',
       to: ['mortadeltest@mail.ru'],
