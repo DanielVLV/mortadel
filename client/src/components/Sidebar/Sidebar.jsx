@@ -23,6 +23,7 @@ import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
+import { domainAddress } from '../../constants/api';
 
 const drawerWidth = 200;
 
@@ -47,7 +48,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }, [SAGATURBONITROFILTERED]);
 
   useEffect(() => {
-    fetch("http://localhost:3003/api/tags")
+    fetch(`${domainAddress}/api/tags`)
       .then((data) => data.json())
       .then((res) => setTags(res))
       .catch(console.error);

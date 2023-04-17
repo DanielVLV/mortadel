@@ -1,6 +1,23 @@
 .mapview {
-  /* position: absolute !important; */
   top: 0;
   height: 100vh;
   width: 100vw;
-};
+}
+
+.descriptionMap {
+  display: block;
+  color: rgb(169, 140, 106);
+  font-size: 10px;
+  line-height: 17px;
+}
+
+.balloon p {
+  font-size: 13px;
+}
+
+.balloon b {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgb(233, 88, 16);
+  
+}
