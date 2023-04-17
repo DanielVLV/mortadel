@@ -15,6 +15,7 @@ import Contacts from "./components/Contacts/Contacts";
 import { getProducts } from "./redux/product.slice";
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { checkUser } from './redux/user.slice';
+import MyDesign from "./components/MyDesign/MyDesign";
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
         </Route>
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/design" element={<MyDesign />} />
       </Routes>
       <Footer />
     </div>
