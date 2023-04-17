@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable quotes */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
@@ -18,15 +19,15 @@ function Products() {
 
 
 
-  const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
+  // const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
-  useEffect(() => {
-    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
-    setFilter(SAGATURBONITROFILTERED);
-  }, [SAGATURBONITROFILTERED]);
+  // useEffect(() => {
+  //   console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
+  //   setFilter(SAGATURBONITROFILTERED);
+  // }, [SAGATURBONITROFILTERED]);
 
-  // console.log(filteredProducts, "filteredProducts");
+  console.log(filteredProducts, "filteredProducts");
   return (
     <Box>
       <Grid container spacing={2}>
@@ -38,7 +39,7 @@ function Products() {
           <Box component="main" sx={{ p: 3 }}>
 
             {filteredProducts ? filteredProducts.map((el) => (
-              <CategoryRow key={el.id} el={el} setOpen={setOpen}/>
+              <CategoryRow key={el.id} el={el} setOpen={setOpen} />
             )) : products?.map((el) => (
               <CategoryRow key={el.id} el={el} setOpen={setOpen} />
             ))}

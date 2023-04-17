@@ -16,12 +16,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import { Link, useLocation } from "react-router-dom";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
+import { domainAddress } from '../../constants/api';
 
 const drawerWidth = 200;
 
@@ -30,6 +32,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [isEmpty, setInputCheck] = useState(true);
+  const location = useLocation().pathname;
   const SAGATURBONITROFILTERED = useSelector(
     (state) => state.searchInputReducer.filteredProducts
   );
@@ -40,17 +43,17 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3003/api/tags")
+    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
+    setFilter(SAGATURBONITROFILTERED);
+  }, [SAGATURBONITROFILTERED]);
+
+  useEffect(() => {
+    fetch(`${domainAddress}/api/tags`)
       .then((data) => data.json())
       .then((res) => setTags(res))
       .catch(console.error);
     return () => {};
   }, []);
-
-  //   useEffect(() => {
-  //   console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
-  //   setFilter(SAGATURBONITROFILTERED);
-  // }, [SAGATURBONITROFILTERED]);
 
   useEffect(() => {
     if (!selectedTags.length && isEmpty) {
@@ -64,8 +67,21 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       return;
     }
 
-    if (filteredProducts) {
-      const arr = filteredProducts
+    if (filteredProducts && !isEmpty) {
+      const arr = SAGATURBONITROFILTERED
+        .map((category) => ({
+          ...category,
+          Products: category.Products.filter((product) =>
+            selectedTags.every((tagId) =>
+              product.Tags.some((tag) => tag.id === Number(tagId))
+            )
+          ),
+        }))
+        .filter((category) => category.Products.length > 0);
+
+      setFilter(arr);
+    } else if (filteredProducts && isEmpty) {
+      const arr = products
         .map((category) => ({
           ...category,
           Products: category.Products.filter((product) =>
@@ -93,12 +109,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     }
   }, [selectedTags, SAGATURBONITROFILTERED]);
 
-  // useEffect(() => {
-  //   console.log(
-  //     "SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS"
-  //   );
-  //   setFilter(SAGATURBONITROFILTERED);
-  // }, [SAGATURBONITROFILTERED]);
 
   const handleTag = (id, checked) => {
     if (checked) {
@@ -114,8 +124,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     if (event.target.value === "") {
       setInputCheck(true);
       console.log("SET FILTER PRODUCTS ПРИ ПУСТОМ ИНПУТЕ КЛАДЕТСЯ ПУСТАЯ САГА");
-      // setFilter(null)
-      // if(!selectedTags.length) {
+
       if (selectedTags.length) {
         const arr = products
           .map((category) => ({
@@ -139,9 +148,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       } else {
         dispatch(clearInputAction());
       }
-      // } else {
-      //   setFilter(products)
-      // }
 
       console.log("CLEAR INPUT ACTION");
       return;
@@ -150,7 +156,8 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       dispatch(
         searchProductsAction({
           input: event.target.value,
-          products: filteredProducts,
+          products: getProductsFromState,
+          // products: filteredProducts,
         })
       );
     } else {
@@ -196,6 +203,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               value={searchInput}
               onChange={(event) => handleSearchInput(event)}
             />
+            {location !== "/categories" && <Link to="/categories">Все категории</Link>}
             {tags?.map((el) => (
               <ListItem key={el.id} disablePadding>
                 <ListItemButton>

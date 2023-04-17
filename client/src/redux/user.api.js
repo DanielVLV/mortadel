@@ -1,3 +1,4 @@
+import { domainAddress } from '../constants/api';
 
 export const signUpFetch = async ({ url, form }) => {
   try {
@@ -7,7 +8,7 @@ export const signUpFetch = async ({ url, form }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ form }),
+      body: JSON.stringify(form),
     });
     console.log(response);
     const data = await response.json();
@@ -23,7 +24,7 @@ export const signUpFetch = async ({ url, form }) => {
 
 export const checkUserFetch = async () => {
   try {
-    const res = await fetch('http://localhost:3003', {
+    const res = await fetch(domainAddress, {
       credentials: 'include',
     });
     const user = await res.json();
@@ -36,7 +37,7 @@ export const checkUserFetch = async () => {
 
 export const signoutFetch = async (user) => {
   try {
-    const res = await fetch('http://localhost:3003/signout', { credentials: 'include' });
+    const res = await fetch(`${domainAddress}/signout`, { credentials: 'include' });
 
     if (res.status === 200) {
       return null;

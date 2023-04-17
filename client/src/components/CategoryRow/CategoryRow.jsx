@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 import ProductElement from "../ProductElement/ProductElement";
 
 import "./CategoryRow.css";
@@ -14,7 +15,7 @@ import "./CategoryRow.css";
 function CategoryRow({ el, setOpen }) {
   return (
     <div className="columnSwiperProducts">
-      {el.Products.length && <h2>{el.categoryName}</h2>}
+      {el.Products.length && <Link to={`/categories/${el.id}`}><h2>{el.categoryName}</h2></Link>}
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

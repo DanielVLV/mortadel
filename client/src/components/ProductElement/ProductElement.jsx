@@ -6,17 +6,24 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
-import { selectOneProduct } from '../../redux/product.slice';
+import { addFav, selectOneProduct } from "../../redux/product.slice";
 
 function ProductElement({ product, setOpen }) {
+  const user = useSelector((state) => state.UserSlice.value);
+  const productId = product.id;
   // const handleClick = () => {
   //   console.log("productproductproduct", product.id);
   // };
   const dispatch = useDispatch();
+
+  const handleAddToFavs = () => {
+    dispatch(addFav({ productId, user }));
+  };
 
   const handleClickOpen = () => {
     dispatch(selectOneProduct({ product }));
@@ -26,6 +33,7 @@ function ProductElement({ product, setOpen }) {
   const handleClickAddToCart = () => {
     dispatch(addIntoCart(product));
   };
+
   return (
     <Card sx={{ width: 800 }}>
       <CardActionArea onClick={handleClickOpen}>
@@ -37,10 +45,21 @@ function ProductElement({ product, setOpen }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small">Купить</Button>
+        <Button size="small" onClick={handleClickOpen}>
+          Купить
+        </Button>
         <Button size="small" onClick={handleClickAddToCart}>
           В корзину
         </Button>
+        {user && (
+          <Button
+            onClick={handleAddToFavs}
+            variant="outlined"
+            endIcon={<StarHalfIcon />}
+          >
+            В избранное
+          </Button>
+        )}
       </CardActions>
       {/* <ModalWindow open={open} setOpen={setOpen} product={product} /> */}
     </Card>

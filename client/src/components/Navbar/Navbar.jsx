@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Tab, Box } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import TelegramIcon from '@mui/icons-material/Telegram';
 import Badge from "@mui/material/Badge";
 
 import MenuPopupState from "./MenuPopupState/MenuPopupState";
@@ -59,6 +60,7 @@ export default function Navbar() {
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
+            <Link to="https://t.me/goncharovp" target="_blank"><TelegramIcon color="primary" fontSize="large" /></Link>
             {user ? (
               <Tab
                 sx={{ marginLeft: "auto", padding: 0 }}
@@ -93,18 +95,7 @@ export default function Navbar() {
           О компании
         </TabPanel>
 
-        <TabPanel value="/products" index={1}>
-          Продукция меню
-        </TabPanel>
-        <TabPanel value="/auth" index={2}>
-          Регистрация/Войти
-        </TabPanel>
-        <TabPanel value="/contacts" index={3}>
-          Связаться с нами
-        </TabPanel>
-        <TabPanel value="/cart" index={4}>
-          Корзина
-        </TabPanel>
+
       </TabContext>
     </Box>
   );

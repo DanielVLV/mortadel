@@ -7,17 +7,13 @@ import { useSelector } from "react-redux";
 import CartSingleProduct from "../cartSingleProduct/CartSingleProduct";
 import { getCart } from "../../../redux/CartRedux/cart.selectors";
 
-function CartRow({ uniqueArray, count, summaryPrice }) {
-
-  // const productSummaryList = useSelector(getCart);
-  // const summaryPrice = productSummaryList.map((el) => el.price)
-  //   .reduce((acc, curVal) => acc + curVal, 0);
+function CartRow({ uniqueArray, count, setUnique, summaryPrice }) {
 
   return (
     <>
       {uniqueArray.map((singleProduct) => {
         return (
-          <CartSingleProduct singleProduct={singleProduct} count={count} />
+          <CartSingleProduct singleProduct={singleProduct} count={count} setUnique={setUnique} />
         );
       })}
       <div>{`Итоговая сумма заказа: ${summaryPrice}`}</div>

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.imgPosition {
+    display: flex;
+    justify-content: space-around;
+}
+
+.print {
+    position: absolute;
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+.radioInput {
+    min-width: 100px;
+    display: flex;
+}
+
+
+

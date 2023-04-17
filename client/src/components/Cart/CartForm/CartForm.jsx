@@ -9,6 +9,8 @@ import React, { useState } from "react";
 import { TextField, FormControl, Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import PaymentForm from "../../PaymentForm/PaymentForm";
+import { domainAddress } from '../../../constants/api';
+
 
 function CartForm({ count, summaryPrice }) {
   const [form, setForm] = useState({
@@ -34,7 +36,7 @@ function CartForm({ count, summaryPrice }) {
       fullOrder += `Артикул ${key} в количестве ${value} штук, `;
     }
     console.log(fullOrder);
-    fetch("http://localhost:3003/mail/fullorder", {
+    fetch(`${domainAddress}/mail/fullorder`, {
       method: "POST",
       credentials: "include",
       headers: {
