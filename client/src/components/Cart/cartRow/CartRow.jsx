@@ -5,12 +5,12 @@
 import React from "react";
 import CartSingleProduct from "../cartSingleProduct/CartSingleProduct";
 
-function CartRow({ uniqueArray, count }) {
+function CartRow({ uniqueArray, count, setUnique }) {
   return (
     <>
       {uniqueArray.map((singleProduct) => {
         return (
-          <CartSingleProduct singleProduct={singleProduct} count={count} />
+          <CartSingleProduct singleProduct={singleProduct} count={count} setUnique={setUnique} />
         );
       })}
     </>

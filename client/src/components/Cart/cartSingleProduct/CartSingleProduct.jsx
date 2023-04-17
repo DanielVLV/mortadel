@@ -11,12 +11,14 @@ import {
 } from "../../../redux/CartRedux/cart.actions";
 import { getCart } from "../../../redux/CartRedux/cart.selectors";
 
-function CartSingleProduct({ singleProduct, count }) {
+function CartSingleProduct({ singleProduct, count, setUnique }) {
   const dispatch = useDispatch();
+  
   const cartArr = useSelector(getCart);
   const hadleClickRemove = () => {
     const index = cartArr.findIndex((el) => el.id === singleProduct.id);
     dispatch(removeFromCart(index));
+    setUnique([...new Set(cartArr)]);
   };
 
   const handleClickAdd = () => {
