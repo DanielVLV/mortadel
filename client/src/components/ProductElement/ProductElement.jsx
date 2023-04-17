@@ -45,9 +45,6 @@ function ProductElement({ product, setOpen }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" onClick={handleClickOpen}>
-          Купить
-        </Button>
         <Button size="small" onClick={handleClickAddToCart}>
           В корзину
         </Button>

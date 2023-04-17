@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgPosition {
+    display: flex;
+    justify-content: space-around;
+}
+
+.print {
+    position: absolute;
+    opacity: 0.6;
+    border-radius: 20px;
+}
+
+.radioInput {
+    min-width: 100px;
+    display: flex;
+}
+
+
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mySwiper {
+    width: 320px;
+    height: 320px;
+    border-radius: 20px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+

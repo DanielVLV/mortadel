@@ -1,117 +1,246 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
-import './MyDesign.css';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from "swiper/react";
+import { EffectCards, Pagination, Navigation } from "swiper";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Box from "@mui/material/Box";
+
+import styles from "./MyDesign.module.css";
+import DesignForm from "./Form/DesignForm";
 
 function MyDesign() {
-  const [selectedImage, setSelectedImage] = useState('./img/0.png');
-  const [craftPaper, setcraftPaper] = useState('./img/paper1.png');
+  const [selectedImage, setSelectedImage] = useState("./img/0.png");
+  const [craftPaper, setcraftPaper] = useState("./img/paper1.png");
+
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const handleSlideChange = (swiper) => {
+    setActiveSlideIndex(swiper.activeIndex);
+  };
+  console.log(activeSlideIndex);
 
   return (
-    <div className="container">
-      <div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/1.png" id="Пантера" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Пантера">Пантера</label>
+    <div className={styles.container}>
+      <Box
+        sx={{
+          display: "flex",
+          "& > *": {
+            // m: 1,
+          },
+        }}
+      >
+        <ButtonGroup
+          orientation="vertical"
+          aria-label="vertical contained button group"
+          variant="text"
+        >
+          <Button
+            value="./img/1.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Пантера
+          </Button>
+          <Button
+            value="./img/2.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Дракон
+          </Button>
+          <Button
+            value="./img/4.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Тигр
+          </Button>
+          <Button
+            value="./img/3.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Пума
+          </Button>
+          <Button
+            value="./img/5.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Сердечко
+          </Button>
+          <Button
+            value="./img/6.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Нота
+          </Button>
+          <Button
+            value="./img/7.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Корона
+          </Button>
+          <Button
+            value="./img/8.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Волк
+          </Button>
+          <Button
+            value="./img/11.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Самурай
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          "& > *": {
+            m: 1,
+          },
+        }}
+      >
+        <ButtonGroup
+          orientation="vertical"
+          aria-label="vertical contained button group"
+          variant="text"
+        >
+          <Button
+            value="./img/12.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Микрофон
+          </Button>
+          <Button
+            value="./img/13.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Кружка
+          </Button>
+          <Button
+            value="./img/14.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Пиво
+          </Button>
+          <Button
+            value="./img/15.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Космос
+          </Button>
+          <Button
+            value="./img/16.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Бургер
+          </Button>
+          <Button
+            value="./img/17.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Пенное
+          </Button>
+          <Button
+            value="./img/18.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Пикник
+          </Button>
+          <Button
+            value="./img/20.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Роза
+          </Button>
+          <Button
+            value="./img/21.png"
+            onClick={(e) => setSelectedImage(e.target.value)}
+          >
+            Мяч
+          </Button>
+        </ButtonGroup>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          "& > *": {
+            m: 1,
+          },
+        }}
+      >
+        <div className={styles.imgPosition}>
+          <img style={{ borderRadius: "20px" }} src={craftPaper} alt="test" />
+          <img className={styles.print} src={selectedImage} alt="img" />
         </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/2.png" id="Дракон" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Дракон">Дракон</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/4.png" id="Тигр" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Тигр">Тигр</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/3.png" id="Пума" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Пума">Пума</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/5.png" id="Сердечко" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Сердечко">Сердечко</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/6.png" id="Нота" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Нота">Нота</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/7.png" id="Корона" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Корона">Корона</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/8.png" id="Волк" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Волк">Волк</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/9.png" id="Лапки" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Лапки">Лапки</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/11.png" id="Самурай" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Самурай">Самурай</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/12.png" id="Микрофон" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Микрофон">Микрофон</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/13.png" id="Кружка" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Кружка">Кружка</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/14.png" id="Пиво" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Пиво">Пиво</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/15.png" id="Космос" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Космос">Космос</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/16.png" id="Бургер" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Бургер">Бургер</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/17.png" id="Пенное" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Пенное">Пенное</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/18.png" id="Пикник" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Пикник">Пикник</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/20.png" id="Роза" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Роза">Роза</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/21.png" id="Мяч" onChange={(e) => setSelectedImage(e.target.value)} />
-          <label htmlFor="Мяч">Мяч</label>
-        </div>
-      </div>
-      <div className="imgPosition">
-        <img style={{ borderRadius: '20px' }} src={craftPaper} alt="test" />
-        <img className="print" src={selectedImage} alt="img" />
-      </div>
-      <div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/paper1.png" id="Стандарт" onChange={(e) => setcraftPaper(e.target.value)} />
-          <label htmlFor="Стандарт">Стандарт</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/paper2.png" id="Яркий" onChange={(e) => setcraftPaper(e.target.value)} />
-          <label htmlFor="Яркий">Яркий</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/paper3.png" id="Зеленый" onChange={(e) => setcraftPaper(e.target.value)} />
-          <label htmlFor="Зеленый">Зеленый</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/paper4.png" id="Синий" onChange={(e) => setcraftPaper(e.target.value)} />
-          <label htmlFor="Синий">Синий</label>
-        </div>
-        <div className="radioInput">
-          <input type="radio" name="image" value="./img/paper5.png" id="Хаки" onChange={(e) => setcraftPaper(e.target.value)} />
-          <label htmlFor="Хаки">Хаки</label>
-        </div>
-      </div>
+        <ButtonGroup
+          orientation="vertical"
+          aria-label="vertical contained button group"
+          variant="text"
+        >
+          <Button
+            value="./img/paper1.png"
+            onClick={(e) => setcraftPaper(e.target.value)}
+          >
+            Стандарт
+          </Button>
+          <Button
+            value="./img/paper2.png"
+            onClick={(e) => setcraftPaper(e.target.value)}
+          >
+            Яркий
+          </Button>
+          <Button
+            value="./img/paper3.png"
+            onClick={(e) => setcraftPaper(e.target.value)}
+          >
+            Зеленый
+          </Button>
+          <Button
+            value="./img/paper4.png"
+            onClick={(e) => setcraftPaper(e.target.value)}
+          >
+            Синий
+          </Button>
+        </ButtonGroup>
+      </Box>
+
+      <Swiper
+        effect="cards"
+        grabCursor
+        className={styles.mySwiper}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation
+        modules={[EffectCards, Pagination, Navigation]}
+        onSlideChange={handleSlideChange}
+      >
+        <SwiperSlide>
+          {" "}
+          {({ isActive }) => console.log("312312313123")}
+          <img src="./img/bouquet1.png" alt="img" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="./img/bouquet2.png" alt="img" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="./img/bouquet3.png" alt="img" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="./img/bouquet4.png" alt="img" />
+        </SwiperSlide>
+      </Swiper>
+      <DesignForm
+        selectedImage={selectedImage}
+        craftPaper={craftPaper}
+        activeSlideIndex={activeSlideIndex}
+      />
     </div>
   );
 }

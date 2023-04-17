@@ -50,8 +50,10 @@ function CheckoutForm() {
 
     setIsProcessing(false);
 
-    console.log(isProcessing);
-    console.log(message);
+    setTimeout(() => {
+
+      window.location.href = 'http://localhost:3000/';
+    }, 1500);
   };
 
   return (

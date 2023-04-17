@@ -33,7 +33,6 @@ function CartForm({ count, summaryPrice }) {
       for (const [key, value] of Object.entries(count)) {
         fullOrder += `Артикул ${key} в количестве ${value} штук, `;
       }
-
       fetch(`${domainAddress}/mail/fullorder`, {
         method: "POST",
         credentials: "include",
