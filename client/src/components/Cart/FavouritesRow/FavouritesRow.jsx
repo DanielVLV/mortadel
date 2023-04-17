@@ -28,7 +28,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
         body: JSON.stringify({ favId }),
       });
       if (res.status === 200) {
-        setFavs((prev) => prev.filter((el) => el.id !== favId));
+        setFavs((prev) => prev.filter((elem) => elem.id !== favId));
       }
     } catch (error) {
       console.log(error);
