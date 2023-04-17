@@ -5,6 +5,7 @@ import { TextField, FormControl, Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 
 import './FormOrder.css';
+import { domainAddress } from '../../constants/api';
 
 function FormOrder({ productId }) {
 
@@ -19,7 +20,7 @@ function FormOrder({ productId }) {
     console.log(form);
     console.log(event.target.parentNode);
 
-    fetch('http://localhost:3003/mail/order', {
+    fetch(`${domainAddress}/mail/order`, {
       method: 'POST',
       credentials: 'include',
       headers: {

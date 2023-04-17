@@ -1,16 +1,11 @@
-import { Modal } from '@mui/material';
 import {
   Clusterer, Map, Placemark, YMaps
 } from '@pbe/react-yandex-maps';
 import React from 'react';
+import { SHOP } from '../../constants/api';
 import './map.css';
 
 function Contacts() {
-  const array = [[55.75, 37.57], [55.85, 37.57]];
-  // const mapview = {
-  //   position: "absolute !important", top: 0, height: "100vh", width: "100vw"
-  // };
-
   return (
     <YMaps>
       <Map
@@ -27,15 +22,15 @@ function Contacts() {
           options={{
             preset: "islands#circleIcon",
             groupByCoordinates: false,
+            maxZoom: 11,
           }}
         >
-          {array.map((coordinates) => (
+          {SHOP?.map((point) => (
             <Placemark
-              key={coordinates}
-              geometry={coordinates}
+              key={point.coord}
+              geometry={point.coord}
               options={
                 {
-                  // preset: 'islands#circleIcon', // список темплейтов на сайте яндекса
                   iconLayout: 'default#image',
                   iconImageHref: "icon2.png",
                   iconImageSize: [35, 45],
@@ -43,10 +38,14 @@ function Contacts() {
 }
               properties={
               {
-                hintContent: <Modal />,
+                hintContent: `<div class="balloon">
+                <p class="description">Магазин: ${point.name}</p>            
+                <b>Адрес: ${point.address}</b>
+              </div>
+                `,
               }
 }
-              // onClick={() => { console.log('ddfdfdf'); }}
+
             />
           ))}
         </Clusterer>
