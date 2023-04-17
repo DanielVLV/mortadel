@@ -1,34 +1,26 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/button-has-type */
-/* eslint-disable quotes */
-import React, { useState } from "react";
-import { TextField, FormControl, Button } from "@mui/material";
+import { Button, FormControl, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
-import PaymentForm from "../../PaymentForm/PaymentForm";
-import { domainAddress } from '../../../constants/api';
+import React, { useState } from "react";
+import { domainAddress } from "../../../constants/api";
 
-
-function CartForm({ count, summaryPrice }) {
+function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
   const [form, setForm] = useState({
     phone: "",
     name: "",
   });
 
-  const [openPayment, setOpenPayment] = useState(false);
+  function handleInput(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setOpenPayment(true);
-    console.log(openPayment);
-    let fullOrder = "";
-    for (const [key, value] of Object.entries(count)) {
-      fullOrder += `Артикул ${key} в количестве ${value} штук, `;
-    }
+    const fullOrder = `Вариант букета №${
+      activeSlideIndex + 1
+    }, бумага: ${craftPaper}, принт: ${selectedImage}`;
+
     console.log(fullOrder);
     fetch(`${domainAddress}/mail/fullorder`, {
       method: "POST",
@@ -40,15 +32,8 @@ function CartForm({ count, summaryPrice }) {
     });
 
     setForm({ phone: "", name: "" });
-
   };
-
-  function handleInput(event) {
-    setForm({ ...form, [event.target.name]: event.target.value });
-  }
-
   return (
-    // <div>
     <form onSubmit={handleSubmit}>
       <FormControl id="inputGroup">
         <TextField
@@ -65,7 +50,6 @@ function CartForm({ count, summaryPrice }) {
           variant="outlined"
           name="phoneRep"
           onChange={handleInput}
-          //   value={form.phone}
         />
         <TextField
           id="name"
@@ -79,14 +63,8 @@ function CartForm({ count, summaryPrice }) {
           Оформить заказ
         </Button>
       </FormControl>
-      <PaymentForm
-        openPayment={openPayment}
-        setOpenPayment={setOpenPayment}
-        summaryPrice={summaryPrice}
-      />
     </form>
-    // </div>
   );
 }
 
-export default CartForm;
+export default DesignForm;

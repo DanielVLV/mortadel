@@ -15,12 +15,8 @@ function Categories() {
   const SAGATURBONITROFILTERED = useSelector(
     (state) => state.searchInputReducer.filteredProducts
   );
-  // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
 
   useEffect(() => {
-    console.log(
-      "SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS"
-    );
     setFilter(SAGATURBONITROFILTERED);
   }, [SAGATURBONITROFILTERED]);
 
@@ -28,9 +24,7 @@ function Categories() {
   const filterCategory = filteredProducts?.filter(
     (el) => el.id === +categoryId
   );
-  console.log(category);
 
-  console.log(filteredProducts);
   return (
     <Box style={{ display: "flex" }}>
       <Sidebar

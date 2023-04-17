@@ -68,7 +68,6 @@ function CategoryCard({ product, setOpen }) {
               width: 200,
             }}
           >
-            <Button variant="outlined" onClick={handleClickOpen}>Купить в 1 клик</Button>
             {user && (
               <Button
                 onClick={handleAddToFavs}
