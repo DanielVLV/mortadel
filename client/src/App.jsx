@@ -46,6 +46,7 @@ function App() {
           <Route path="/auth" element={<Auth />} />
         </Route>
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/*" element={<HomePage />} />
         <Route path="/design" element={<MyDesign />} />
       </Routes>
       <Footer />

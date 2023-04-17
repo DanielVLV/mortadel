@@ -12,13 +12,17 @@ import {
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./card.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectOneProduct } from "../../../redux/product.slice";
+import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
+import { domainAddress } from '../../../constants/api';
 
-function CategoryCard({ product }) {
+function CategoryCard({ product, setOpen }) {
   const user = useSelector((state) => state.UserSlice.value);
   const productId = product.id;
+  const dispatch = useDispatch();
   const handleAddToFavs = async () => {
-    await fetch("http://localhost:3003/api/favs", {
+    await fetch(`${domainAddress}/api/favs`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -26,6 +30,15 @@ function CategoryCard({ product }) {
       },
       body: JSON.stringify({ productId, user }),
     });
+  };
+
+  const handleClickOpen = () => {
+    dispatch(selectOneProduct({ product }));
+    setOpen(true);
+  };
+
+  const handleClickAddToCart = () => {
+    dispatch(addIntoCart(product));
   };
 
   return (
@@ -62,7 +75,7 @@ function CategoryCard({ product }) {
               width: 200,
             }}
           >
-            <Button variant="outlined">Купить в 1 клик</Button>
+            <Button variant="outlined" onClick={handleClickOpen}>Купить в 1 клик</Button>
             {user && (
               <Button
                 onClick={handleAddToFavs}
@@ -72,7 +85,7 @@ function CategoryCard({ product }) {
                 В избранное
               </Button>
             )}
-            <Button variant="outlined">
+            <Button variant="outlined" onClick={handleClickAddToCart}>
               В корзину
               <ShoppingCartIcon />
             </Button>

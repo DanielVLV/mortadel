@@ -1,50 +1,54 @@
 import {
-  Clusterer, GeolocationControl, Map, Placemark, RouteButton, YMaps
+  Clusterer, Map, Placemark, YMaps
 } from '@pbe/react-yandex-maps';
 import React from 'react';
+import { SHOP } from '../../constants/api';
+import './map.css';
 
 function Contacts() {
-  const array = [[55.75, 37.57], [55.85, 37.57]];
   return (
     <YMaps>
       <Map
+        className="mapview"
         defaultState={{
           center: [55.75, 37.57],
-          zoom: 9,
+          zoom: 11,
           controls: ["zoomControl", "fullscreenControl"],
 
         }}
         modules={["control.ZoomControl", "control.FullscreenControl", 'geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
-        <GeolocationControl options={{ float: "left" }} />
         <Clusterer
           options={{
-            preset: "islands#circleDotIcon",
+            preset: "islands#circleIcon",
             groupByCoordinates: false,
+            maxZoom: 11,
           }}
         >
-          {array.map((coordinates) => (
+          {SHOP?.map((point) => (
             <Placemark
-              key={coordinates}
-              geometry={coordinates}
+              key={point.coord}
+              geometry={point.coord}
               options={
                 {
-                  // preset: 'islands#circleIcon', // список темплейтов на сайте яндекса
                   iconLayout: 'default#image',
                   iconImageHref: "icon2.png",
-                  // iconColor: 'red', // цвет иконки, можно также задавать в hex
+                  iconImageSize: [35, 45],
                 }
 }
               properties={
               {
-                hintContent: '<div>Я появляюсь при наведении на метку</div>',
+                hintContent: `<div class="balloon">
+                <p class="description">Магазин: ${point.name}</p>            
+                <b>Адрес: ${point.address}</b>
+              </div>
+                `,
               }
 }
-              onClick={() => { console.log('ddfdfdf'); }}
+
             />
           ))}
         </Clusterer>
-        <RouteButton options={{ float: "right" }} />
       </Map>
     </YMaps>
   );

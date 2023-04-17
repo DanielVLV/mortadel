@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
   Category,
   Product,
@@ -6,9 +6,9 @@ const {
   Tag,
   TagsProducts,
   Favourites,
-} = require("../../db/models");
+} = require('../../db/models');
 
-router.get("/categories", async (req, res) => {
+router.get('/categories', async (req, res) => {
   try {
     const categories = await Category.findAll();
     res.json(categories.map((category) => category.get()));
@@ -17,11 +17,11 @@ router.get("/categories", async (req, res) => {
   }
 });
 
-router.get("/products", async (req, res) => {
+router.get('/products', async (req, res) => {
   try {
     const products = await Category.findAll({
-      attributes: ["id", "categoryName"],
-      order: [[Product, "categoryId", "ASC"]],
+      attributes: ['id', 'categoryName'],
+      order: [[Product, 'categoryId', 'ASC']],
       include: {
         model: Product,
         include: [
@@ -39,7 +39,7 @@ router.get("/products", async (req, res) => {
   }
 });
 
-router.get("/products/tag", async (req, res) => {
+router.get('/products/tag', async (req, res) => {
   const { tagName } = req.body;
   try {
     const products = await Product.findAll({
@@ -59,7 +59,7 @@ router.get("/products/tag", async (req, res) => {
   }
 });
 
-router.get("/tags", async (req, res) => {
+router.get('/tags', async (req, res) => {
   try {
     const tags = await Tag.findAll();
     // console.log(tags);
@@ -68,7 +68,7 @@ router.get("/tags", async (req, res) => {
     console.log({ msg: err.message });
   }
 });
-router.post("/cart", async (req, res) => {
+router.post('/cart', async (req, res) => {
   const { userId } = req.body;
   try {
     const result = await Cart.create({
@@ -80,15 +80,18 @@ router.post("/cart", async (req, res) => {
   }
 });
 
-router.get("/favs", async (req, res) => {
+router.get('/favs', async (req, res) => {
   try {
-    console.log(req.session.user);
+
+    const user = req.session.user;
+
+
     const result = await Favourites.findAll({
-      raw: true,
-      where: { userId: 3 },
+      // raw: true,
+      where: { userId: user.id },
       include: [Product],
     });
-    console.log(result)
+    // console.log(result)
     res.json(result);
     // console.log("success", arr);
   } catch (err) {
@@ -96,14 +99,27 @@ router.get("/favs", async (req, res) => {
   }
 });
 
-router.post("/favs", async (req, res) => {
+router.post('/favs', async (req, res) => {
   try {
     const { productId, user } = req.body;
-    await Favourites.create({ productId, userId: user.id });
+    await Favourites.findOrCreate({ where: { productId, userId: user.id } });
     res.sendStatus(200);
-    console.log("success", req.body);
+    console.log('success', req.body);
   } catch (err) {
     console.log({ msg: err.message });
+  }
+});
+
+router.delete('/favs', async (req, res) => {
+  try {
+    const { favId } = req.body;
+    const { user } = req.session;
+    console.log(favId, user);
+    const a = await Favourites.destroy({ where: { id: favId } });
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
   }
 });
 
