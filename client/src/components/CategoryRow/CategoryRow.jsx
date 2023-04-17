@@ -7,10 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 import ProductElement from "../ProductElement/ProductElement";
 
 import "./CategoryRow.css";
-import { Link } from "react-router-dom";
 
 function CategoryRow({ el, setOpen }) {
   return (

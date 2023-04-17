@@ -16,13 +16,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+import { Link, useLocation } from "react-router-dom";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
-import { Link, useLocation } from "react-router-dom";
 
 const drawerWidth = 200;
 

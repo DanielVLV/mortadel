@@ -16,7 +16,7 @@ function Cart() {
 
   // удаление повторных элементов
   const uniqueArray = [...new Set(cartArr)];
-  const uniqueArraySorted = uniqueArray.sort((a, b) => a.id > b.id ? 1 : -1);
+  const uniqueArraySorted = uniqueArray.sort((a, b) => (a.id > b.id ? 1 : -1));
   // подсчет количества повторений каждого элемента
   const count = {};
   for (let item of cartArr) {

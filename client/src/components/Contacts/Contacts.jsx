@@ -1,25 +1,31 @@
+import { Modal } from '@mui/material';
 import {
-  Clusterer, GeolocationControl, Map, Placemark, RouteButton, YMaps
+  Clusterer, Map, Placemark, YMaps
 } from '@pbe/react-yandex-maps';
 import React from 'react';
+import './map.css';
 
 function Contacts() {
   const array = [[55.75, 37.57], [55.85, 37.57]];
+  // const mapview = {
+  //   position: "absolute !important", top: 0, height: "100vh", width: "100vw"
+  // };
+
   return (
     <YMaps>
       <Map
+        className="mapview"
         defaultState={{
           center: [55.75, 37.57],
-          zoom: 9,
+          zoom: 11,
           controls: ["zoomControl", "fullscreenControl"],
 
         }}
         modules={["control.ZoomControl", "control.FullscreenControl", 'geoObject.addon.balloon', 'geoObject.addon.hint']}
       >
-        <GeolocationControl options={{ float: "left" }} />
         <Clusterer
           options={{
-            preset: "islands#circleDotIcon",
+            preset: "islands#circleIcon",
             groupByCoordinates: false,
           }}
         >
@@ -32,19 +38,18 @@ function Contacts() {
                   // preset: 'islands#circleIcon', // список темплейтов на сайте яндекса
                   iconLayout: 'default#image',
                   iconImageHref: "icon2.png",
-                  // iconColor: 'red', // цвет иконки, можно также задавать в hex
+                  iconImageSize: [35, 45],
                 }
 }
               properties={
               {
-                hintContent: '<div>Я появляюсь при наведении на метку</div>',
+                hintContent: <Modal />,
               }
 }
-              onClick={() => { console.log('ddfdfdf'); }}
+              // onClick={() => { console.log('ddfdfdf'); }}
             />
           ))}
         </Clusterer>
-        <RouteButton options={{ float: "right" }} />
       </Map>
     </YMaps>
   );
