@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { productsFetch } from './product.api';
+import { favFetch, productsFetch } from './product.api';
 
 export const getProducts = createAsyncThunk(
   'product/get',
@@ -10,12 +10,21 @@ export const getProducts = createAsyncThunk(
   },
 );
 
+export const addFav = createAsyncThunk(
+  'product/fav',
+  async ({ productId, user }) => {
+    const response = await favFetch({ productId, user });
+    return response;
+  },
+);
+
 const ProductSlice = createSlice({
   name: 'product',
   initialState: {
     products: null,
     status: 'idle',
-    oneProduct: null
+    oneProduct: null,
+    loaded: false
   },
   reducers: {
     selectOneProduct(state, action) {
@@ -30,6 +39,13 @@ const ProductSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, action) => {
         state.status = 'idle';
         state.products = action.payload;
+      })
+      .addCase(addFav.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(addFav.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loaded = action.payload;
       });
   },
 });
