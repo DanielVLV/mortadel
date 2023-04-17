@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Tab, Box } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import Badge from "@mui/material/Badge";
 

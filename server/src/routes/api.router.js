@@ -82,9 +82,7 @@ router.post('/cart', async (req, res) => {
 
 router.get('/favs', async (req, res) => {
   try {
-
-    const user = req.session.user;
-
+    const { user } = req.session;
 
     const result = await Favourites.findAll({
       // raw: true,
@@ -115,8 +113,7 @@ router.delete('/favs', async (req, res) => {
     const { favId } = req.body;
     const { user } = req.session;
     console.log(favId, user);
-    const a = await Favourites.destroy({ where: { id: favId } });
-
+    await Favourites.destroy({ where: { id: favId } });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);

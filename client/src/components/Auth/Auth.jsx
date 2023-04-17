@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import './auth.css';
 
 function SignInOutContainer() {
   const [value, setValue] = useState(0);
