@@ -15,9 +15,10 @@ import { domainAddress } from '../../../constants/api';
 function CartForm({ count, summaryPrice }) {
   const [form, setForm] = useState({
     phone: "",
+    phone2: "",
     name: "",
   });
-
+  console.log('count', summaryPrice);
   const [openPayment, setOpenPayment] = useState(false);
 
   // console.log(summaryPrice);
@@ -29,8 +30,6 @@ function CartForm({ count, summaryPrice }) {
 
     setOpenPayment(true);
     console.log(openPayment);
-    // console.log(form);
-    // console.log(event.target.parentNode);
     let fullOrder = "";
     for (const [key, value] of Object.entries(count)) {
       fullOrder += `Артикул ${key} в количестве ${value} штук, `;
@@ -45,7 +44,7 @@ function CartForm({ count, summaryPrice }) {
       body: JSON.stringify({ form, fullOrder }),
     });
 
-    setForm({ phone: "", name: "" });
+    setForm({ phone: "", phone2: "", name: "" });
 
   };
 
@@ -67,11 +66,11 @@ function CartForm({ count, summaryPrice }) {
         />
         <TextField
           id="phoneRep"
-          label="ТелефонПовтор"
+          label="Повторить номер телефона"
           variant="outlined"
           name="phoneRep"
           onChange={handleInput}
-          //   value={form.phone}
+          value={form.phone2}
         />
         <TextField
           id="name"
@@ -81,9 +80,15 @@ function CartForm({ count, summaryPrice }) {
           onChange={handleInput}
           value={form.name}
         />
-        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-          Оформить заказ
-        </Button>
+        {summaryPrice ? (
+          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+            Оформить заказ
+          </Button>
+        ) : (
+          <Button variant="contained" disabled>
+            Корзина пуста
+          </Button>
+        )}
       </FormControl>
       <PaymentForm
         openPayment={openPayment}

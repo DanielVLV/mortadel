@@ -16,8 +16,6 @@ function Cart() {
   const [isCart, setCart] = useState(true);
   const user = useSelector((state) => state.UserSlice.value);
 
-
-
   const summaryPrice = cartArr.map((el) => el.price)
     .reduce((acc, curVal) => acc + curVal, 0);
 
