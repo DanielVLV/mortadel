@@ -6,10 +6,13 @@ const FileStore = require('session-file-store')(session);
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+
 const cors = require('./src/middleware/cors');
+
 const AuthRouter = require('./src/routes/auth.router');
 const ApiRouter = require('./src/routes/api.router');
 const MailRouter = require('./src/routes/mail.router');
+const StripeRouter = require('./src/routes/stripe.router');
 
 const app = express();
 const { PORT, COOKIE_SEKRET } = process.env;
@@ -36,11 +39,14 @@ app.use(express.static(path.resolve('public')));
 app.use('/', AuthRouter);
 app.use('/api', ApiRouter);
 app.use('/mail', MailRouter);
+app.use('/stripe', StripeRouter);
 
 app.use('*', (req, res) => { res.sendStatus(404); });
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(process.cwd(), 'public')));
+
+// console.log(typeof process.env.STRIPE_SECRET_KEY);
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен порт: ${PORT}`);

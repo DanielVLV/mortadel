@@ -10,10 +10,16 @@ import CartRow from "./cartRow/CartRow";
 import Favourites from "./Favourites/Favourites";
 
 function Cart() {
+
   const cartArr = useSelector(getCart);
   const [uniqueArray, setUnique] = useState([]);
   const [isCart, setCart] = useState(true);
   const user = useSelector((state) => state.UserSlice.value);
+
+
+
+  const summaryPrice = cartArr.map((el) => el.price)
+    .reduce((acc, curVal) => acc + curVal, 0);
 
   // удаление повторных элементов
   useEffect(() => {
@@ -39,6 +45,7 @@ function Cart() {
 
   return (
     <div>
+
       {user && (
         <>
           <span>Корзина</span>
@@ -47,12 +54,14 @@ function Cart() {
         </>
       )}
       {isCart ? (
-        <CartRow uniqueArray={uniqueArraySorted} count={count} setUnique={setUnique} />
+        <CartRow uniqueArray={uniqueArraySorted} count={count} summaryPrice={summaryPrice} setUnique={setUnique}/>
+
       ) : (
         <Favourites />
       )}
 
-      <CartForm count={count} />
+
+      <CartForm count={count} summaryPrice={summaryPrice} />
     </div>
   );
 }

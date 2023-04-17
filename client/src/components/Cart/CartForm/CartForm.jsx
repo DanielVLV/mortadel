@@ -8,20 +8,29 @@
 import React, { useState } from "react";
 import { TextField, FormControl, Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import PaymentForm from "../../PaymentForm/PaymentForm";
 import { domainAddress } from '../../../constants/api';
 
-function CartForm({ count }) {
+
+function CartForm({ count, summaryPrice }) {
   const [form, setForm] = useState({
     phone: "",
     name: "",
   });
 
+  const [openPayment, setOpenPayment] = useState(false);
+
+  // console.log(summaryPrice);
+
   //   console.log(Object.entries(count));
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
-    console.log(event.target.parentNode);
+
+    setOpenPayment(true);
+    console.log(openPayment);
+    // console.log(form);
+    // console.log(event.target.parentNode);
     let fullOrder = "";
     for (const [key, value] of Object.entries(count)) {
       fullOrder += `Артикул ${key} в количестве ${value} штук, `;
@@ -37,6 +46,7 @@ function CartForm({ count }) {
     });
 
     setForm({ phone: "", name: "" });
+
   };
 
   function handleInput(event) {
@@ -44,6 +54,7 @@ function CartForm({ count }) {
   }
 
   return (
+    // <div>
     <form onSubmit={handleSubmit}>
       <FormControl id="inputGroup">
         <TextField
@@ -74,6 +85,11 @@ function CartForm({ count }) {
           Оформить заказ
         </Button>
       </FormControl>
+      <PaymentForm
+        openPayment={openPayment}
+        setOpenPayment={setOpenPayment}
+        summaryPrice={summaryPrice}
+      />
     </form>
     // </div>
   );
