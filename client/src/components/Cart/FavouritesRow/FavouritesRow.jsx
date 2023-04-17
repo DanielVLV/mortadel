@@ -14,6 +14,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { useDispatch, useSelector } from "react-redux";
 import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
+import { domainAddress } from '../../../constants/api';
 
 function FavouritesRow({ favProduct, setFavs, el }) {
   const products = useSelector((state) => state.ProductSlice.products);
@@ -21,7 +22,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
   const dispatch = useDispatch();
   const handleFavDelete = async () => {
     try {
-      const res = await fetch("http://localhost:3003/api/favs", {
+      const res = await fetch(`${domainAddress}/api/favs`, {
         method: "DELETE",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
