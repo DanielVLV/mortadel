@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
 
+import { useMediaQuery, useTheme } from "@mui/material";
 import styles from "./MyDesign.module.css";
 import DesignForm from "./Form/DesignForm";
 
@@ -21,6 +22,10 @@ function MyDesign() {
   const handleSlideChange = (swiper) => {
     setActiveSlideIndex(swiper.activeIndex);
   };
+
+  const theme = useTheme();
+  const isRequireAdaptaption = useMediaQuery(theme.breakpoints.down('lg'));
+
 
   return (
     <div className={styles.alldivDesign}>
@@ -36,59 +41,70 @@ function MyDesign() {
               }}
             >
               <ButtonGroup
+                sx={{ maxWidth: "300px" }}
                 orientation="vertical"
                 aria-label="vertical contained button group"
                 variant="text"
               >
                 <Button
+                  style={isRequireAdaptaption ? ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })
+                    : ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })}
                   value="./img/1.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пантера
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/2.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Дракон
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/4.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Тигр
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/3.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пума
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/5.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Сердечко
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/6.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Нота
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/7.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Корона
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/8.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Волк
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/11.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -110,54 +126,63 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/12.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Микрофон
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/13.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Кружка
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/14.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пиво
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/15.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Космос
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/16.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Бургер
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/17.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пенное
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/18.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пикник
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/20.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Роза
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/21.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -167,14 +192,13 @@ function MyDesign() {
             </Box>
           </div>
         </div>
+        <div className={styles.imgPosition}>
+          <img className={styles.craftPaperStyle} src={craftPaper} alt="test" />
+          <img className={styles.print} src={selectedImage} alt="img" />
+        </div>
         <Box
           className={styles.boxPaperStyle}
         >
-
-          <div className={styles.imgPosition}>
-            <img className={styles.craftPaperStyle} src={craftPaper} alt="test" />
-            <img className={styles.print} src={selectedImage} alt="img" />
-          </div>
           <div className={styles.text}>
             Цвет упаковки
             <div>
@@ -184,25 +208,28 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
-                  className={styles.textButton}
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper1.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Стандарт
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper2.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Яркий
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper3.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Зеленый
                 </Button>
                 <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper4.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
@@ -229,23 +256,26 @@ function MyDesign() {
           onSlideChange={handleSlideChange}
         >
           <SwiperSlide>
-            <img src="./img/bouquet11.png" alt="img" />
+            <img src="./img/bouquet1.png" alt="img" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="./img/bouquet12.png" alt="img" />
+            <img src="./img/bouquet2.png" alt="img" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="./img/bouquet13.png" alt="img" />
+            <img src="./img/bouquet3.png" alt="img" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="./img/bouquet14.png" alt="img" />
+            <img src="./img/bouquet4.png" alt="img" />
           </SwiperSlide>
         </Swiper>
-        <DesignForm
-          selectedImage={selectedImage}
-          craftPaper={craftPaper}
-          activeSlideIndex={activeSlideIndex}
-        />
+        <div className={styles.designFormStyle}>
+          <DesignForm
+            style={{ fontSize: '12px' }}
+            selectedImage={selectedImage}
+            craftPaper={craftPaper}
+            activeSlideIndex={activeSlideIndex}
+          />
+        </div>
       </div>
     </div>
   );
