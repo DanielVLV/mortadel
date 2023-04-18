@@ -12,7 +12,6 @@ import { CardActionArea } from "@mui/material";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
 import { addFav, selectOneProduct } from "../../redux/product.slice";
-import styles from './productElement.module.css';
 
 function ProductElement({ product, setOpen }) {
   const user = useSelector((state) => state.UserSlice.value);
