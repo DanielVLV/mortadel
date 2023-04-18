@@ -1,8 +1,8 @@
 .columnHomePage {
-    display: flex;
-    align-items: start;
-    justify-content: space-evenly;
-    width: 1200px;
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  width: 1200px;
 }
 
 .mySwiper {
@@ -11,42 +11,42 @@
 }
 
 .columnText {
-    max-width: 45%;
-    font-size: 20px;
-    text-align: left;
+  max-width: 45%;
+  font-size: 20px;
+  text-align: left;
 }
 
 .columnSwiper {
-    max-width: 30%;
-    max-height: 30%;
-    
-  }
+  max-width: 30%;
+  max-height: 30%;
+
+}
 
 
 .leftColumn {
-    max-width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .rightColumn {
-    max-width: 50%;
-    font-size: 20px;
-    text-align: left;
-    
+  max-width: 50%;
+  font-size: 20px;
+  text-align: left;
+
 }
+
 .rightColumn p {
   width: 90%;
 }
 
 .logo {
-    max-width: 50%;
+  max-width: 50%;
 }
 
 .homePageContainer {
   color: #e0d6bd;
-  height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,58 +60,57 @@
 }
 
 #app {
-    height: 100%;
-  }
-  html,
-  body {
-    position: relative;
-    height: 100%;
-  }
-  
-  body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .swiper {
-    max-width: 50%;
-    max-height: 30%;
-  }
-  
-  .imgSwiper {
-    border-radius: 20px;
-  }
+  height: 100%;
+}
 
-  .swiper-slide {
-    border-radius: 20px;
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .swiper {
-    margin-left: auto;
-    margin-right: auto;
-  }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
 
-  .swiper .swiper-initialized .swiper-horizontal .mySwiper .swiper-backface-hidden {
-    margin-left: 30px;
-  }
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
 
-  
+.swiper {
+  max-width: 50%;
+  max-height: 30%;
+}
+
+.imgSwiper {
+  border-radius: 20px;
+}
+
+.swiper-slide {
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper .swiper-initialized .swiper-horizontal .mySwiper .swiper-backface-hidden {
+  margin-left: 30px;
+}

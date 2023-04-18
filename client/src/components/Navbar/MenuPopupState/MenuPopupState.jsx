@@ -21,7 +21,7 @@ export default function MenuPopupState() {
           <Button
             sx={{
               display: 'flex',
-              bgcolor: 'DarkViolet',
+              bgcolor: '#D1875d2',
               minWidth: '5px',
               width: '10px',
               height: '40px',

@@ -1,5 +1,11 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+}
+
+.body {
+  flex-grow: 2
 }
 
 .App-logo {
