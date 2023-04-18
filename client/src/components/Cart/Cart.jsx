@@ -16,8 +16,6 @@ function Cart() {
   const [isCart, setCart] = useState(true);
   const user = useSelector((state) => state.UserSlice.value);
 
-
-
   const summaryPrice = cartArr.map((el) => el.price)
     .reduce((acc, curVal) => acc + curVal, 0);
 
@@ -54,7 +52,12 @@ function Cart() {
         </>
       )}
       {isCart ? (
-        <CartRow uniqueArray={uniqueArraySorted} count={count} summaryPrice={summaryPrice} setUnique={setUnique}/>
+        <CartRow
+          uniqueArray={uniqueArraySorted}
+          count={count}
+          summaryPrice={summaryPrice}
+          setUnique={setUnique}
+        />
 
       ) : (
         <Favourites />

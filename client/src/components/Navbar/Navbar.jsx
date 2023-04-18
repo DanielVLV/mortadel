@@ -18,7 +18,6 @@ export default function Navbar() {
   const location = useLocation();
   const cartItems = useSelector(getCart);
   const dispatch = useDispatch();
-  const path = location.pathname;
 
   const [value, setValue] = useState(location.pathname);
   const user = useSelector((state) => state.UserSlice.value);
@@ -45,15 +44,14 @@ export default function Navbar() {
               label={<Link to="/">О компании</Link>}
             />
             <Tab
-              label={
-                path.includes("/categories") ? (
-                  <MenuPopupState />
-                ) : (
-                  <Link to="/categories">
-                    <MenuPopupState />
-                  </Link>
-                )
-              }
+              sx={{ padding: 0 }}
+              value="/categories"
+              label={<Link to="/categories">Продукция</Link>}
+            />
+            <Tab
+              sx={{ padding: 0 }}
+              value=""
+              label={<MenuPopupState />}
             />
             <Tab
               sx={{ padding: 0 }}
@@ -61,6 +59,11 @@ export default function Navbar() {
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
             <Link to="https://t.me/goncharovp" target="_blank"><TelegramIcon color="primary" fontSize="large" /></Link>
+            <Tab
+              sx={{ marginLeft: "auto", padding: 0 }}
+              value="/design"
+              label={<Link to="/design">Оформить подарок</Link>}
+            />
             {user ? (
               <Tab
                 sx={{ marginLeft: "auto", padding: 0 }}

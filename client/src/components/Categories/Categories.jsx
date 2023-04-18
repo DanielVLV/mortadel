@@ -32,13 +32,12 @@ function Categories() {
         filteredProducts={filteredProducts}
         products={products}
       />
-      {" "}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
             <CategoryCard key={el.id} product={el} setOpen={setOpen} />
           ))
-          : category[0]?.Products?.map((el) => (
+          : category && category[0]?.Products?.map((el) => (
             <CategoryCard key={el.id} product={el} setOpen={setOpen} />
           ))}
       </Box>

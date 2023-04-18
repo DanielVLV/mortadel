@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 import CartSingleProduct from "../cartSingleProduct/CartSingleProduct";
 import { getCart } from "../../../redux/CartRedux/cart.selectors";
 
-function CartRow({ uniqueArray, count, setUnique, summaryPrice }) {
+function CartRow({
+  uniqueArray, count, setUnique, summaryPrice
+}) {
 
   return (
     <>

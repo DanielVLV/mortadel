@@ -38,8 +38,8 @@ function FormOrder({ productId }) {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl id="inputGroup">
-        <TextField id="phone" label="Телефон" variant="outlined" name="phone" onChange={handleInput} value={form.phone} />
-        <TextField id="name" label="Имя" variant="outlined" name="name" onChange={handleInput} value={form.name} />
+        <TextField id="phone" label="Телефон" variant="outlined" name="phone" onChange={handleInput} value={form.phone} required />
+        <TextField id="name" label="Имя" variant="outlined" name="name" onChange={handleInput} value={form.name} required />
         <Button type="submit" variant="contained" endIcon={<SendIcon />}>
           Оставить заявку
         </Button>
