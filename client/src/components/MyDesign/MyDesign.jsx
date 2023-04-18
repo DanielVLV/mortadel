@@ -170,6 +170,7 @@ function MyDesign() {
         <Box
           className={styles.boxPaperStyle}
         >
+
           <div className={styles.imgPosition}>
             <img className={styles.craftPaperStyle} src={craftPaper} alt="test" />
             <img className={styles.print} src={selectedImage} alt="img" />
