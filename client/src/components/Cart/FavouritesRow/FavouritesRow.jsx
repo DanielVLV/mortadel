@@ -59,7 +59,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
               image={favProduct.img}
               alt=""
             />
-            <CardContent sx={{ flex: 1, m: 0 }}>
+            <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
               <Typography gutterBottom variant="h6" align="center">
                 {favProduct.title}
               </Typography>
