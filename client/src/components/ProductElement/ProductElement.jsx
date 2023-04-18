@@ -12,6 +12,7 @@ import { CardActionArea } from "@mui/material";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
 import { addFav, selectOneProduct } from "../../redux/product.slice";
+import styles from './productElement.module.css';
 
 function ProductElement({ product, setOpen }) {
   const user = useSelector((state) => state.UserSlice.value);
@@ -35,9 +36,20 @@ function ProductElement({ product, setOpen }) {
   };
 
   return (
-    <Card sx={{ width: 800 }}>
-      <CardActionArea onClick={handleClickOpen}>
-        <CardMedia sx={{ height: 140 }} image={product.img} />
+    <Card sx={{
+      width: 800,
+      // padding: '15px',
+      '&:hover': {
+        transform: 'translateY(-10px)',
+        transition: 'transform 0.2s ease-in-out',
+        boxShadow: '3px 3px 10px rgba(54, 54, 54, 0.669)',
+      },
+    }}
+    >
+      <CardActionArea
+        onClick={handleClickOpen}
+      >
+        <CardMedia className={styles.oneProductCard} sx={{ height: 140 }} image={product.img} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {product.title}

@@ -9,23 +9,23 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import ProductElement from "../ProductElement/ProductElement";
+import styles from './categoryRow.css';
 
-import "./CategoryRow.css";
 
 function CategoryRow({ el, setOpen }) {
   return (
-    <div className="columnSwiperProducts">
+    <div className={styles.columnSwiperProducts}>
       {el.Products.length && <Link to={`/categories/${el.id}`}><h2>{el.categoryName}</h2></Link>}
       <Swiper
         slidesPerView={3}
-        spaceBetween={30}
+        spaceBetween={60}
         loop
         pagination={{
           clickable: true,
         }}
         navigation
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className={styles.mySwiper}
       >
 
         {el.Products.map((product) => (
