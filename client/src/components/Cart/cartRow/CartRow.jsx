@@ -21,7 +21,7 @@ function CartRow({ uniqueArray, count, setUnique, summaryPrice }) {
             key={singleProduct.id}
             singleProduct={singleProduct}
             count={count}
-            // setUnique={setUnique}
+            setUnique={setUnique}
           />
         );
       })}
