@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable quotes */
@@ -5,7 +6,7 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { TabContext, TabList } from "@mui/lab";
 import { Tab, Box } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -14,6 +15,7 @@ import Badge from "@mui/material/Badge";
 import MenuPopupState from "./MenuPopupState/MenuPopupState";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
 import { signoutUser } from "../../redux/user.slice";
+import './Navbar.css';
 
 export default function Navbar() {
   const location = useLocation();
@@ -31,59 +33,76 @@ export default function Navbar() {
     dispatch(signoutUser(user));
   };
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", bgcolor: '#353757' }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          padding: 0,
+          textDecoration: 'none',
+          '& div a': {
+            color: 'Gold',
+            fontSize: '16px'
+          },
+          '& div a:hover': {
+            color: 'DarkOrange',
+          },
+        }}
+        >
           <TabList
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
           >
             <Tab
-              sx={{ padding: 0 }}
               value="/"
               label={<Link to="/">О компании</Link>}
             />
             <Tab
-              sx={{ padding: 0 }}
               value="/categories"
-              label={<Link to="/categories">Продукция</Link>}
+              label={<div style={{
+                display: 'flex',
+                alignItems: 'center',
+
+              }}
+              >
+                <Link to="/categories">Продукция</Link>
+                <MenuPopupState />
+              </div>}
             />
             <Tab
-              sx={{ padding: 0 }}
-              value=""
-              label={<MenuPopupState />}
-            />
-            <Tab
-              sx={{ padding: 0 }}
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
-            <Link to="https://t.me/goncharovp" target="_blank"><TelegramIcon color="primary" fontSize="large" /></Link>
+            <Link to="https://t.me/goncharovp" target="_blank">
+              <TelegramIcon
+                sx={{
+                  '&:hover': {
+                    color: 'DarkOrange',
+                    transform: 'scale(1.5)',
+                    transition: 'transform 0.3s ease-in-out'
+                  }
+                }}
+                color="primary"
+                fontSize="large"
+              />
+            </Link>
             <Tab
-              sx={{ marginLeft: "auto", padding: 0 }}
+              sx={{
+                marginLeft: "auto",
+              }}
               value="/design"
               label={<Link to="/design">Оформить подарок</Link>}
             />
-            {user ? (
-              <Tab
-                sx={{ marginLeft: "auto", padding: 0 }}
-                value="/signout"
-                label={
-                  <Link to="/" variant="text" onClick={handleSignout}>
-                    Выйти
-                  </Link>
-                }
-              />
-            ) : (
-              <Tab
-                sx={{ marginLeft: "auto", padding: 0 }}
-                value="/auth"
-                label={<Link to="/auth">Регистрация/Войти</Link>}
-              />
-            )}
             <Tab
-              sx={{ padding: 0 }}
+              sx={{
+                padding: 0,
+                textDecoration: 'none',
+                '& a': { color: '#1C243B', fontSize: '16px' },
+                '& a:hover': {
+                  color: 'orange',
+                },
+              }}
               value="/cart"
               label={
                 <Link to="/cart">
@@ -93,10 +112,25 @@ export default function Navbar() {
                 </Link>
               }
             />
+            {user ? (
+              <Tab
+                sx={{ marginLeft: "auto", }}
+                value="/signout"
+                label={
+                  <Link to="/" variant="text" onClick={handleSignout}>
+                    Выйти
+                  </Link>
+                }
+              />
+            ) : (
+              <Tab
+                sx={{ marginLeft: "auto", }}
+                value="/auth"
+                label={<Link to="/auth">Регистрация/Войти</Link>}
+              />
+            )}
           </TabList>
         </Box>
-
-
       </TabContext>
     </Box>
   );
