@@ -6,23 +6,34 @@ import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+// import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+import HeightTwoToneIcon from '@material-ui/icons/HeightTwoTone';
 import './menuPopupState.css';
 
 export default function MenuPopupState() {
 
   const categoriesArr = useSelector((state) => state.ProductSlice.products);
-  // const categoriesArrProps = [];
-  // categoriesArr?.map((el) => categoriesArrProps.push(el.categoryName));
-
-
 
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button sx={{ bgcolor: 'red' }} variant="contained" {...bindTrigger(popupState)}>
-            <DensityMediumIcon />
+          <Button
+            sx={{
+              display: 'flex',
+              bgcolor: 'DarkViolet',
+              minWidth: '5px',
+              width: '10px',
+              height: '40px',
+              '&:hover': {
+                bgcolor: 'DarkOrange',
+                color: 'blue',
+              },
+            }}
+            variant="contained"
+            {...bindTrigger(popupState)}
+          >
+            <HeightTwoToneIcon />
           </Button>
           <Menu {...bindMenu(popupState)}>
             {categoriesArr?.map((el) => (
