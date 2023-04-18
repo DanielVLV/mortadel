@@ -6,11 +6,12 @@ import { domainAddress } from "../../../constants/api";
 import { validatePhone } from '../../../js/api.functions';
 
 function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
-  const [form, setForm] = useState({
+  const initialState = {
     phone: "",
     phone2: "",
     name: "",
-  });
+  };
+  const [form, setForm] = useState(initialState);
   const [isValid, setIsValid] = useState(false);
   const [phoneError, setPhoneError] = useState('');
   const [isSended, seIsSended] = useState(false);
@@ -26,7 +27,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
     event.preventDefault();
     if (form.phone !== form.phone2) {
       setIsValid(true);
-      setForm({ phone: "", phone2: "", name: "" });
+      setForm(initialState);
     } else if (validatePhone(form.phone)) {
 
       const fullOrder = `Вариант букета №${
@@ -42,11 +43,11 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
         body: JSON.stringify({ form, fullOrder }),
       });
 
-      setForm({ phone: "", phone2: "", name: "" });
+      setForm(initialState);
       seIsSended(true);
     } else {
       setPhoneError('Некорректный номер телефона');
-      setForm({ phone: "", phone2: "", name: "" });
+      setForm(initialState);
     }
   };
   return (
