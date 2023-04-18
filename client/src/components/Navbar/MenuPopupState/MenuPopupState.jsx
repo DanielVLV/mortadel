@@ -7,7 +7,7 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import DensityMediumIcon from '@mui/icons-material/DensityMedium';
-import HeightTwoToneIcon from '@material-ui/icons/HeightTwoTone';
+import HeightTwoToneIcon from '@mui/icons-material/HeightTwoTone';
 import './menuPopupState.css';
 
 export default function MenuPopupState() {
