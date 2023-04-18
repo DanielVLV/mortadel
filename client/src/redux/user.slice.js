@@ -31,6 +31,12 @@ const UserSlice = createSlice({
   initialState: {
     value: null,
     status: 'idle',
+    error: null
+  },
+  reducers: {
+    clearError(state) {
+      state.error = null;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -39,7 +45,13 @@ const UserSlice = createSlice({
       })
       .addCase(signUpUser.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value = action.payload;
+        console.log(action);
+        if (action.payload.id) {
+          state.value = action.payload;
+          state.error = null;
+        } else {
+          state.error = action.payload.message;
+        }
       })
       .addCase(checkUser.pending, (state) => {
         state.status = 'loading';
@@ -58,3 +70,5 @@ const UserSlice = createSlice({
   },
 });
 export default UserSlice.reducer;
+export const { clearError } = UserSlice.actions;
+
