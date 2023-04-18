@@ -3,7 +3,7 @@ import { Button, FormControl, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useState } from "react";
 import { domainAddress } from "../../../constants/api";
-import validatePhone from '../../../js/api.functions';
+import { validatePhone } from '../../../js/api.functions';
 
 function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
   const [form, setForm] = useState({

@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 import './FormOrder.css';
 import { domainAddress } from '../../constants/api';
-import validatePhone from '../../js/api.functions';
+import { validatePhone } from '../../js/api.functions';
 
 function FormOrder({
   productId, setOpen, phoneError, setPhoneError, form, setForm

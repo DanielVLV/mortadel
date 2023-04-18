@@ -10,7 +10,7 @@ import { TextField, FormControl, Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import PaymentForm from "../../PaymentForm/PaymentForm";
 import { domainAddress } from '../../../constants/api';
-import validatePhone from '../../../js/api.functions';
+import { validatePhone } from '../../../js/api.functions';
 
 
 function CartForm({ count, summaryPrice }) {
