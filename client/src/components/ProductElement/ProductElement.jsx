@@ -48,7 +48,7 @@ function ProductElement({ product, setOpen }) {
       <CardActionArea
         onClick={handleClickOpen}
       >
-        <CardMedia className={styles.oneProductCard} sx={{ height: 140 }} image={product.img} />
+        <CardMedia className="oneProductCard" sx={{ height: 140 }} image={product.img} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {product.title}
