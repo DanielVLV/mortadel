@@ -1,6 +1,16 @@
 .alldivDesign{
   /* background-image: url(../../../public/background.jpg); */
-  background-color:  #F2DAB3BA;
+  /* background-color:  #F0F1F5; */
+  /* background-image: linear-gradient(to bottom, #F6E4C8, #D3BFA0); */
+
+  /* background: -webkit-linear-gradient(left, #4e4e52 20px, transparent 1%) center, -webkit-linear-gradient(#4e4e52 20px, transparent 1%) center, #635f5f;
+  background: linear-gradient(90deg, #4e4e52 20px, transparent 1%) center, linear-gradient(#4e4e52 20px, transparent 1%) center, #635f5f;
+  background-size: 22px 22px; */
+
+ height: 100%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+  background-blend-mode: multiply;
+
 }
 
 .container {
@@ -9,6 +19,7 @@ flex-wrap: wrap;
 justify-content: center;
 padding-top: 30px;
 margin-bottom: 30px;
+
 }
 
 .boxPrint{
@@ -19,7 +30,6 @@ margin-bottom: 30px;
 
 .boxPaperStyle{
   display: flex;
-  margin: 0 10px 0 10px;
 }
 
 .button {
@@ -30,14 +40,28 @@ margin-bottom: 30px;
 .imgPosition {
     display: flex;
     justify-content: space-around;
+    background-color: #F0F1F5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+                0 0 10px rgba(0, 0, 0, 0.107);
+                /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+                background-blend-mode: multiply; */
 }
 
 .text {
   font-weight: bolder;
   font-size: 15px;
-  color: rgb(255, 123, 0);
-  margin-left: 10px;
+  /* color: rgb(255, 123, 0); */
+  margin: 0 10px 0 10px;
   cursor: default;
+  background-color: #F0F1F5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+              0 0 10px rgba(0, 0, 0, 0.107);
+               /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+              background-blend-mode: multiply; */
 }
 
 .print {
@@ -53,6 +77,22 @@ margin-bottom: 30px;
   margin-top: 20px;
   justify-content: center;
   padding-bottom: 30px;
+}
+
+.inputGroop {
+
+}
+
+.designFormStyle {
+  display: flex;
+  background-color: #F0F1F5;
+  /* padding: 37px; */
+  margin: 20px;
+   border-radius: 10px;
+  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+              0 0 10px rgba(0, 0, 0, 0.107);
+            /*  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+              background-blend-mode: multiply; */
 }
 
 #app { height: 100% }
@@ -96,9 +136,16 @@ body {
     width: 420px;
     height: 320px;
     border-radius: 20px;
-    margin: 0;
+    margin: 10px;
+    background-color: #F0F1F5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+                0 0 10px rgba(0, 0, 0, 0.107); 
     /* box-shadow: 0 0 30px rgba(129, 225, 242, 0.4),
                 0 0 20px rgba(104, 219, 248, 0.2); */
+                /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+                background-blend-mode: multiply; */
 }
 
 .swiper-slide {
@@ -116,7 +163,11 @@ body {
 }
 
 .craftPaperStyle {
-  border-radius: 20px; 
+  /* border-radius: 20px;  */
+  border-radius: 10px;
+  border: #E8E8EC;
+  /* box-shadow: 0 0 30px rgba(2, 1, 1, 0.235),
+              0 0 20px rgba(0, 0, 0, 0.148); */
 }
 
 /* @media (max-width: 767px) {
@@ -125,14 +176,20 @@ body {
   }  
 }
 */
+
 @media (min-width: 768px) and (max-width: 1100px) { 
 
   .craftPaperStyle {
-    max-width: 400px;
+    max-width: 380px;
+  }
+
+  .text {
+    padding: 7px;
   }
 
   .print {
-    max-width: 400px;
+    max-width: 380px;
+    color: rgb(62, 19, 19)
   }
 
   .mySwiper {
