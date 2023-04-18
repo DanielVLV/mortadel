@@ -5,7 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
 /* eslint-disable prefer-arrow-callback */
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -22,14 +22,15 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function ModalWindow({ open, setOpen }) {
   const product = useSelector((state) => state.ProductSlice.oneProduct);
-  // const [open, setOpen] = React.useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [form, setForm] = useState({
+    phone: '', name: '',
+  });
 
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-  console.log(product);
   const handleClose = () => {
+    setPhoneError('');
     setOpen(false);
+    setForm({ phone: "", name: "" });
   };
 
   return (
@@ -51,7 +52,15 @@ function ModalWindow({ open, setOpen }) {
             <br />
             Вес: {product?.weight}
             <br />
-            <FormOrder productId={product?.id} />
+            <FormOrder
+              productId={product?.id}
+              open={open}
+              setOpen={setOpen}
+              phoneError={phoneError}
+              setPhoneError={setPhoneError}
+              form={form}
+              setForm={setForm}
+            />
           </DialogContentText>
         </DialogContent>
         <DialogActions>

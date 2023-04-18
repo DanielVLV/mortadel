@@ -15,9 +15,6 @@ function Products() {
 
   const [filteredProducts, setFilter] = useState(null);
   const [open, setOpen] = useState(false);
-  console.log(open);
-
-
 
   // const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
   // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
@@ -27,7 +24,6 @@ function Products() {
   //   setFilter(SAGATURBONITROFILTERED);
   // }, [SAGATURBONITROFILTERED]);
 
-  console.log(filteredProducts, "filteredProducts");
   return (
     <Box>
       <Grid container spacing={2}>
