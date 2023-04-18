@@ -58,7 +58,7 @@ function CartForm({ count, summaryPrice }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl id="inputGroup">
+      <FormControl id="inputGroup" sx={{ ml: 4 }}>
         <TextField
           id="phone"
           label="Телефон"
