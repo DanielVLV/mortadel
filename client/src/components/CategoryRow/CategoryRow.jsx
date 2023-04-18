@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import ProductElement from "../ProductElement/ProductElement";
-import styles from './categoryRow.css';
+import styles from './CategoryRow.css';
 
 
 function CategoryRow({ el, setOpen }) {

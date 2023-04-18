@@ -37,19 +37,21 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/categories" element={<Products />} />
-        <Route path="/categories/:categoryId" element={<Categories />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route element={<ProtectedRoute flag redirectTo="/" />}>
-          <Route path="/auth" element={<Auth />} />
-        </Route>
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/design" element={<MyDesign />} />
-        <Route path="/*" element={<HomePage />} />
+      <div className="body">
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/categories" element={<Products />} />
+          <Route path="/categories/:categoryId" element={<Categories />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route element={<ProtectedRoute flag redirectTo="/" />}>
+            <Route path="/auth" element={<Auth />} />
+          </Route>
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/design" element={<MyDesign />} />
+          <Route path="/*" element={<HomePage />} />
 
-      </Routes>
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
