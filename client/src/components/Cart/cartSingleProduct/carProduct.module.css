@@ -5,6 +5,7 @@
     /* text-align: end; */
 }
 
-/* .buttonContainer span {
-text-align: end;
-} */
+.buttonContainer span {
+vertical-align: bottom;
+font-size: 25px;
+}
