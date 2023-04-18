@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable quotes */
 import React, { useState } from "react";
@@ -94,9 +95,6 @@ export default function Navbar() {
             />
           </TabList>
         </Box>
-        <TabPanel value="/" index={0}>
-          О компании
-        </TabPanel>
 
 
       </TabContext>
