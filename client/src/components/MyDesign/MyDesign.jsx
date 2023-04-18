@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
 
+import { useMediaQuery, useTheme } from "@mui/material";
 import styles from "./MyDesign.module.css";
 import DesignForm from "./Form/DesignForm";
 
@@ -22,222 +23,260 @@ function MyDesign() {
     setActiveSlideIndex(swiper.activeIndex);
   };
 
+  const theme = useTheme();
+  const isRequireAdaptaption = useMediaQuery(theme.breakpoints.down('lg'));
+
+
   return (
-    <div className={styles.container}>
-      <Box
-        sx={{
-          display: "flex",
-          "& > *": {
-            // m: 1,
-          },
-        }}
-      >
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="vertical contained button group"
-          variant="text"
-        >
-          <Button
-            value="./img/1.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Пантера
-          </Button>
-          <Button
-            value="./img/2.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Дракон
-          </Button>
-          <Button
-            value="./img/4.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Тигр
-          </Button>
-          <Button
-            value="./img/3.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Пума
-          </Button>
-          <Button
-            value="./img/5.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Сердечко
-          </Button>
-          <Button
-            value="./img/6.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Нота
-          </Button>
-          <Button
-            value="./img/7.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Корона
-          </Button>
-          <Button
-            value="./img/8.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Волк
-          </Button>
-          <Button
-            value="./img/11.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Самурай
-          </Button>
-        </ButtonGroup>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          "& > *": {
-            m: 1,
-          },
-        }}
-      >
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="vertical contained button group"
-          variant="text"
-        >
-          <Button
-            value="./img/12.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Микрофон
-          </Button>
-          <Button
-            value="./img/13.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Кружка
-          </Button>
-          <Button
-            value="./img/14.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Пиво
-          </Button>
-          <Button
-            value="./img/15.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Космос
-          </Button>
-          <Button
-            value="./img/16.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Бургер
-          </Button>
-          <Button
-            value="./img/17.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Пенное
-          </Button>
-          <Button
-            value="./img/18.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Пикник
-          </Button>
-          <Button
-            value="./img/20.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Роза
-          </Button>
-          <Button
-            value="./img/21.png"
-            onClick={(e) => setSelectedImage(e.target.value)}
-          >
-            Мяч
-          </Button>
-        </ButtonGroup>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          "& > *": {
-            m: 1,
-          },
-        }}
-      >
+    <div className={styles.alldivDesign}>
+      <div className={styles.container}>
+        <div className={styles.text}>
+          Выбери принт
+          <div className={styles.boxPrint}>
+            <Box
+              sx={{
+                display: "flex",
+                "& > *": {
+                },
+              }}
+            >
+              <ButtonGroup
+                sx={{ maxWidth: "300px" }}
+                orientation="vertical"
+                aria-label="vertical contained button group"
+                variant="text"
+              >
+                <Button
+                  style={isRequireAdaptaption ? ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })
+                    : ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })}
+                  value="./img/1.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Пантера
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/2.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Дракон
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/4.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Тигр
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/3.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Пума
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/5.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Сердечко
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/6.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Нота
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/7.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Корона
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/8.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Волк
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/11.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Самурай
+                </Button>
+              </ButtonGroup>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                "& > *": {
+                  m: 1,
+                },
+              }}
+            >
+              <ButtonGroup
+                orientation="vertical"
+                aria-label="vertical contained button group"
+                variant="text"
+              >
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/12.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Микрофон
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/13.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Кружка
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/14.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Пиво
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/15.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Космос
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/16.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Бургер
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/17.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Пенное
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/18.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Пикник
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/20.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Роза
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/21.png"
+                  onClick={(e) => setSelectedImage(e.target.value)}
+                >
+                  Мяч
+                </Button>
+              </ButtonGroup>
+            </Box>
+          </div>
+        </div>
         <div className={styles.imgPosition}>
-          <img style={{ borderRadius: "20px" }} src={craftPaper} alt="test" />
+          <img className={styles.craftPaperStyle} src={craftPaper} alt="test" />
           <img className={styles.print} src={selectedImage} alt="img" />
         </div>
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="vertical contained button group"
-          variant="text"
+        <Box
+          className={styles.boxPaperStyle}
         >
-          <Button
-            value="./img/paper1.png"
-            onClick={(e) => setcraftPaper(e.target.value)}
-          >
-            Стандарт
-          </Button>
-          <Button
-            value="./img/paper2.png"
-            onClick={(e) => setcraftPaper(e.target.value)}
-          >
-            Яркий
-          </Button>
-          <Button
-            value="./img/paper3.png"
-            onClick={(e) => setcraftPaper(e.target.value)}
-          >
-            Зеленый
-          </Button>
-          <Button
-            value="./img/paper4.png"
-            onClick={(e) => setcraftPaper(e.target.value)}
-          >
-            Синий
-          </Button>
-        </ButtonGroup>
-      </Box>
-
-      <Swiper
-        effect="cards"
-        grabCursor
-        className={styles.mySwiper}
-        keyboard={{
-          enabled: true,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation
-        modules={[EffectCards, Pagination, Navigation]}
-        onSlideChange={handleSlideChange}
-      >
-        <SwiperSlide>
-          <img src="./img/bouquet1.png" alt="img" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img/bouquet2.png" alt="img" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img/bouquet3.png" alt="img" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="./img/bouquet4.png" alt="img" />
-        </SwiperSlide>
-      </Swiper>
-      <DesignForm
-        selectedImage={selectedImage}
-        craftPaper={craftPaper}
-        activeSlideIndex={activeSlideIndex}
-      />
+          <div className={styles.text}>
+            Цвет упаковки
+            <div>
+              <ButtonGroup
+                orientation="vertical"
+                aria-label="vertical contained button group"
+                variant="text"
+              >
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/paper1.png"
+                  onClick={(e) => setcraftPaper(e.target.value)}
+                >
+                  Стандарт
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/paper2.png"
+                  onClick={(e) => setcraftPaper(e.target.value)}
+                >
+                  Яркий
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/paper3.png"
+                  onClick={(e) => setcraftPaper(e.target.value)}
+                >
+                  Зеленый
+                </Button>
+                <Button
+                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  value="./img/paper4.png"
+                  onClick={(e) => setcraftPaper(e.target.value)}
+                >
+                  Синий
+                </Button>
+              </ButtonGroup>
+            </div>
+          </div>
+        </Box>
+      </div>
+      <div className={styles.filling}>
+        <Swiper
+          effect="cards"
+          grabCursor
+          className={styles.mySwiper}
+          keyboard={{
+            enabled: true,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation
+          modules={[EffectCards, Pagination, Navigation]}
+          onSlideChange={handleSlideChange}
+        >
+          <SwiperSlide>
+            <img src="./img/bouquet1.png" alt="img" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="./img/bouquet2.png" alt="img" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="./img/bouquet3.png" alt="img" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="./img/bouquet4.png" alt="img" />
+          </SwiperSlide>
+        </Swiper>
+        <div className={styles.designFormStyle}>
+          <DesignForm
+            style={{ fontSize: '12px' }}
+            selectedImage={selectedImage}
+            craftPaper={craftPaper}
+            activeSlideIndex={activeSlideIndex}
+          />
+        </div>
+      </div>
     </div>
   );
 }

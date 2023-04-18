@@ -10,7 +10,6 @@ export const signUpFetch = async ({ url, form }) => {
       },
       body: JSON.stringify(form),
     });
-    console.log(response);
     const data = await response.json();
     if (data.msg) {
       throw new Error(data.msg);
@@ -18,7 +17,7 @@ export const signUpFetch = async ({ url, form }) => {
     return data;
   } catch (error) {
     console.log(error);
-    return null;
+    return error;
   }
 };
 
