@@ -6,7 +6,8 @@ import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+// import DensityMediumIcon from '@mui/icons-material/DensityMedium';
+import HeightTwoToneIcon from '@material-ui/icons/HeightTwoTone';
 import './menuPopupState.css';
 
 export default function MenuPopupState() {
@@ -22,7 +23,7 @@ export default function MenuPopupState() {
       {(popupState) => (
         <>
           <Button sx={{ bgcolor: 'red' }} variant="contained" {...bindTrigger(popupState)}>
-            <DensityMediumIcon />
+            <HeightTwoToneIcon />
           </Button>
           <Menu {...bindMenu(popupState)}>
             {categoriesArr?.map((el) => (
