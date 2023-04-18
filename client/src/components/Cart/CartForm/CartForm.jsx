@@ -10,6 +10,7 @@ import { TextField, FormControl, Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import PaymentForm from "../../PaymentForm/PaymentForm";
 import { domainAddress } from '../../../constants/api';
+import validatePhone from '../../../js/api.functions';
 
 
 function CartForm({ count, summaryPrice }) {
@@ -20,13 +21,14 @@ function CartForm({ count, summaryPrice }) {
   });
   const [openPayment, setOpenPayment] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (form.phone !== form.phone2) {
       setIsValid(true);
       setForm({ phone: "", phone2: "", name: "" });
-    } else {
+    } else if (validatePhone(form.phone)) {
       setOpenPayment(true);
 
       let fullOrder = "";
@@ -43,12 +45,16 @@ function CartForm({ count, summaryPrice }) {
       });
 
       setForm({ phone: "", phone2: "", name: "" });
+    } else {
+      setPhoneError('Некорректный номер телефона');
+      setForm({ phone: "", phone2: "", name: "" });
     }
   };
 
   function handleInput(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -60,8 +66,9 @@ function CartForm({ count, summaryPrice }) {
           name="phone"
           onChange={handleInput}
           value={form.phone}
-          // inputProps={{ maxLength: 20, pattern: /^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/ }}
           required
+          error={!!phoneError}
+          helperText={phoneError}
 
         />
         <TextField
@@ -93,7 +100,7 @@ function CartForm({ count, summaryPrice }) {
             Корзина пуста
           </Button>
         )}
-        {isValid && <div style={{ color: 'red' }}>Некокрректные данные</div>}
+        {isValid && <div style={{ color: 'red' }}>Проверьте введенные данные</div>}
       </FormControl>
       <PaymentForm
         openPayment={openPayment}

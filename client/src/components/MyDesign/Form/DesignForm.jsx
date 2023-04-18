@@ -21,7 +21,6 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
       activeSlideIndex + 1
     }, бумага: ${craftPaper}, принт: ${selectedImage}`;
 
-    console.log(fullOrder);
     fetch(`${domainAddress}/mail/fullorder`, {
       method: "POST",
       credentials: "include",
