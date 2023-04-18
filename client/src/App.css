@@ -5,7 +5,8 @@
 }
 
 .body {
-  flex-grow: 2
+  min-height: 88vh;
+  /* flex: 2; */
 }
 
 .App-logo {

@@ -1,14 +1,15 @@
 .footerAllDiv {
-    display: flex; 
+    display: flex;
     justify-content: space-around;
+    background-color: #353757;
 }
 
 .text {
     text-decoration: none;
-    color: black;
+    color: Gold;
 }
 
 .text:hover {
     font-weight: bolder;
-    color: rgb(68, 22, 22);
+    color: DarkOrange;
 }
