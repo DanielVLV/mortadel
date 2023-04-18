@@ -18,8 +18,6 @@ import { checkUser } from './redux/user.slice';
 
 import MyDesign from "./components/MyDesign/MyDesign";
 
-
-
 function App() {
   const dispatch = useDispatch();
 

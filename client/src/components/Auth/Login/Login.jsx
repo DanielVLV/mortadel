@@ -5,37 +5,51 @@ import {
   Grid, Paper, TextField, Button, Typography, Avatar
 } from '@mui/material';
 import { GoogleLogin } from '@react-oauth/google';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LockRoundedIcon from '@mui/icons-material/LockRounded';
-import { signUpUser } from '../../../redux/user.slice';
+import { clearError, signUpUser } from '../../../redux/user.slice';
 import { domainAddress } from '../../../constants/api';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { validateEmail } from '../../../js/api.functions';
 
 function Login() {
+  const error = useSelector((state) => state.UserSlice.error);
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
+  const [emailError, setEmailError] = useState('');
+  const dispatch = useDispatch();
 
   const paperStyle = {
     padding: 20, height: '60vh', width: 300, margin: "0 auto"
   };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
+
   const handleInput = (event) => {
+    if (error) { dispatch(clearError()); }
+    setEmailError('');
     setForm({ ...form, [event.target.name]: event.target.value });
   };
-  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const url = `${domainAddress}/signin`;
-    dispatch(signUpUser({ url, form }));
-    setForm({
-      email: '',
-      password: '',
-    });
+    if (validateEmail(form.email)) {
+      const url = `${domainAddress}/signin`;
+      dispatch(signUpUser({ url, form }));
+      setForm({
+        email: '',
+        password: '',
+      });
+    } else {
+      setEmailError('Некорректный email');
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+      });
+    }
   };
-
   const navigateClick = async (googleToken) => {
     dispatch(signUpUser({
       url: `${domainAddress}/googlesignup`,
@@ -54,8 +68,17 @@ function Login() {
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>
 
-          <TextField fullWidth label="Email" name="email" placeholder="Введите свой email" value={form?.email} onChange={handleInput} />
-          <TextField fullWidth label="Пароль" name="password" placeholder="Введите пароль" value={form?.password} onChange={handleInput} />
+          <TextField
+            fullWidth
+            label="Email"
+            name="email"
+            placeholder="Введите свой email"
+            value={form?.email}
+            onChange={handleInput}
+            error={!!emailError}
+            helperText={emailError}
+          />
+          <TextField fullWidth label="Пароль" name="password" placeholder="Введите пароль" value={form?.password} onChange={handleInput} inputProps={{ minLength: 8 }} />
           <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth>Вход</Button>
         </form>
 
@@ -78,6 +101,7 @@ function Login() {
             }}
           />
         </Typography>
+        {error && <div style={{ color: 'red' }}>Неверная пара email/пароль</div>}
       </Paper>
     </Grid>
   );
