@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable quotes */
 import React, { useState } from "react";
@@ -31,60 +32,44 @@ export default function Navbar() {
     dispatch(signoutUser(user));
   };
   return (
-    <Box sx={{ width: "100%", bgcolor: '#F6E5C8' }}>
+    <Box sx={{ width: "100%", bgcolor: '#353757' }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          padding: 0,
+          textDecoration: 'none',
+          '& div a': {
+            color: 'Gold',
+            fontSize: '16px'
+          },
+          '& div a:hover': {
+            color: 'DarkOrange',
+          },
+        }}
+        >
           <TabList
             value={value}
             onChange={handleChange}
             aria-label="basic tabs example"
           >
             <Tab
-              sx={{
-                padding: 0,
-                textDecoration: 'none',
-                '& a': { color: '#1C243B', fontSize: '16px' },
-                '& a:hover': {
-                  color: 'yellowgreen',
-                },
-              }}
-              // style={{ color: 'green' }}
               value="/"
               label={<Link to="/">О компании</Link>}
             />
             <Tab
-              sx={{
-                padding: 0,
-                textDecoration: 'none',
-                '& a': { color: '#1C243B', fontSize: '16px' },
-                '& a:hover': {
-                  color: 'yellowgreen',
-                },
-              }}
               value="/categories"
-              label={<Link to="/categories">Продукция</Link>}
+              label={<div style={{
+                display: 'flex',
+                alignItems: 'center',
+
+              }}
+              >
+                <Link to="/categories">Продукция</Link>
+                <MenuPopupState />
+              </div>}
             />
             <Tab
-              sx={{
-                padding: 0,
-                textDecoration: 'none',
-                '& a': { color: '#1C243B', fontSize: '16px' },
-                '& a:hover': {
-                  color: 'yellowgreen',
-                },
-              }}
-              value=""
-              label={<MenuPopupState />}
-            />
-            <Tab
-              sx={{
-                padding: 0,
-                textDecoration: 'none',
-                '& a': { color: '#1C243B', fontSize: '16px' },
-                '& a:hover': {
-                  color: 'yellowgreen',
-                },
-              }}
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
@@ -92,70 +77,29 @@ export default function Navbar() {
               <TelegramIcon
                 sx={{
                   '&:hover': {
-                    color: 'yellowgreen',
-                  },
-                  '& a:hover': {
-                    color: 'yellowgreen',
-                  },
+                    color: 'DarkOrange',
+                    transform: 'scale(1.5)',
+                    transition: 'transform 0.3s ease-in-out'
+                  }
                 }}
                 color="primary"
                 fontSize="large"
               />
-
             </Link>
             <Tab
               sx={{
                 marginLeft: "auto",
-                padding: 0,
-                textDecoration: 'none',
-                '& a': { color: '#1C243B', fontSize: '16px' },
-                '& a:hover': {
-                  color: 'yellowgreen',
-                },
               }}
               value="/design"
               label={<Link to="/design">Оформить подарок</Link>}
             />
-            {user ? (
-              <Tab
-                sx={{
-                  marginLeft: "auto",
-                  padding: 0,
-                  textDecoration: 'none',
-                  '& a': { color: '#1C243B', fontSize: '16px' },
-                  '& a:hover': {
-                    color: 'yellowgreen',
-                  },
-                }}
-                value="/signout"
-                label={
-                  <Link to="/" variant="text" onClick={handleSignout}>
-                    Выйти
-                  </Link>
-                }
-              />
-            ) : (
-              <Tab
-                sx={{
-                  marginLeft: "auto",
-                  padding: 0,
-                  textDecoration: 'none',
-                  '& a': { color: '#1C243B', fontSize: '16px' },
-                  '& a:hover': {
-                    color: 'yellowgreen',
-                  },
-                }}
-                value="/auth"
-                label={<Link to="/auth">Регистрация/Войти</Link>}
-              />
-            )}
             <Tab
               sx={{
                 padding: 0,
                 textDecoration: 'none',
                 '& a': { color: '#1C243B', fontSize: '16px' },
                 '& a:hover': {
-                  color: 'yellowgreen',
+                  color: 'orange',
                 },
               }}
               value="/cart"
@@ -167,6 +111,23 @@ export default function Navbar() {
                 </Link>
               }
             />
+            {user ? (
+              <Tab
+                sx={{ marginLeft: "auto", }}
+                value="/signout"
+                label={
+                  <Link to="/" variant="text" onClick={handleSignout}>
+                    Выйти
+                  </Link>
+                }
+              />
+            ) : (
+              <Tab
+                sx={{ marginLeft: "auto", }}
+                value="/auth"
+                label={<Link to="/auth">Регистрация/Войти</Link>}
+              />
+            )}
           </TabList>
         </Box>
       </TabContext>

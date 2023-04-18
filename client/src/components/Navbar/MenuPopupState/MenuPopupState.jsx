@@ -13,16 +13,26 @@ import './menuPopupState.css';
 export default function MenuPopupState() {
 
   const categoriesArr = useSelector((state) => state.ProductSlice.products);
-  // const categoriesArrProps = [];
-  // categoriesArr?.map((el) => categoriesArrProps.push(el.categoryName));
-
-
 
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button sx={{ bgcolor: 'red' }} variant="contained" {...bindTrigger(popupState)}>
+          <Button
+            sx={{
+              display: 'flex',
+              bgcolor: 'DarkViolet',
+              minWidth: '5px',
+              width: '10px',
+              height: '40px',
+              '&:hover': {
+                bgcolor: 'DarkOrange',
+                color: 'blue',
+              },
+            }}
+            variant="contained"
+            {...bindTrigger(popupState)}
+          >
             <HeightTwoToneIcon />
           </Button>
           <Menu {...bindMenu(popupState)}>
