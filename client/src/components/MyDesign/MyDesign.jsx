@@ -21,7 +21,6 @@ function MyDesign() {
   const handleSlideChange = (swiper) => {
     setActiveSlideIndex(swiper.activeIndex);
   };
-  console.log(activeSlideIndex);
 
   return (
     <div className={styles.container}>
@@ -222,8 +221,6 @@ function MyDesign() {
         onSlideChange={handleSlideChange}
       >
         <SwiperSlide>
-          {" "}
-          {({ isActive }) => console.log("312312313123")}
           <img src="./img/bouquet1.png" alt="img" />
         </SwiperSlide>
         <SwiperSlide>

@@ -21,7 +21,7 @@ export default function MenuPopupState() {
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button sx={{ bgcolor: '#8e5f00' }} variant="contained" {...bindTrigger(popupState)}>
+          <Button sx={{ bgcolor: 'red' }} variant="contained" {...bindTrigger(popupState)}>
             <DensityMediumIcon />
           </Button>
           <Menu {...bindMenu(popupState)}>
