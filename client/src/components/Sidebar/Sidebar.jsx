@@ -20,14 +20,39 @@ import ListItemButton from "@mui/material/ListItemButton";
 import { Link, useLocation } from "react-router-dom";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "@emotion/styled";
 import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
-import { domainAddress } from '../../constants/api';
-import './Sidebar.css';
+import { domainAddress } from "../../constants/api";
+import "./Sidebar.css";
 
 const drawerWidth = 200;
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#ffd700",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#ffd700",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#ffd700",
+      borderRadius: 12,
+    },
+    "&:hover fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "& .MuiInputBase-input": {
+      color: "#ffd700",
+    },
+  },
+});
 
 export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [tags, setTags] = useState();
@@ -69,16 +94,14 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     }
 
     if (filteredProducts && !isEmpty) {
-      const arr = SAGATURBONITROFILTERED
-        .map((category) => ({
-          ...category,
-          Products: category.Products.filter((product) =>
-            selectedTags.every((tagId) =>
-              product.Tags.some((tag) => tag.id === Number(tagId))
-            )
-          ),
-        }))
-        .filter((category) => category.Products.length > 0);
+      const arr = SAGATURBONITROFILTERED.map((category) => ({
+        ...category,
+        Products: category.Products.filter((product) =>
+          selectedTags.every((tagId) =>
+            product.Tags.some((tag) => tag.id === Number(tagId))
+          )
+        ),
+      })).filter((category) => category.Products.length > 0);
 
       setFilter(arr);
     } else if (filteredProducts && isEmpty) {
@@ -182,27 +205,29 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
             position: "static",
             width: drawerWidth,
             boxSizing: "border-box",
-            borderRadius: '20px',
+            borderRadius: "20px",
             backgroundColor: "rgba(67, 71, 92, 0.801)",
-            border: '2px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 60px var(--metal)',
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
           },
         }}
       >
         <Box
           sx={{
             overflow: "auto",
-            borderRadius: '20px',
-            color: 'Gold',
+            borderRadius: "20px",
+            color: "Gold",
             // padding: '30px',
-            backgroundColor: 'rgba(67, 71, 92, 0.135)',
-            border: '2px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 60px var(--metal)',
+            backgroundColor: "rgba(67, 71, 92, 0.135)",
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
           }}
         >
           <List>
-            <TextField
-              id="outlined-textarea"
+            <CssTextField
+              // label="Custom CSS"
+              id="custom-css-outlined-input"
+              // id="outlined-textarea"
               type="text"
               label="Поиск по товарам"
               placeholder="Поиск"
@@ -217,28 +242,26 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
                 <FormControlLabel
                   sx={{
                     "& > label > *": {
-                      fontFamily: 'Lato Medium, sans-serif',
-                      fontSize: '18px',
-                      color: 'gold'
-                    }
+                      fontFamily: "Lato Medium, sans-serif",
+                      fontSize: "18px",
+                      color: "gold",
+                    },
                   }}
                   control={
                     <div className="checkbox-css">
                       <input
-                          // id="check2"
+                        // id="check2"
                         type="checkbox"
                         value={el.id}
                         onChange={(e) =>
-                          handleTag(e.target.value, e.target.checked)}
+                          handleTag(e.target.value, e.target.checked)
+                        }
                       />
                       <label htmlFor="check2" />
                     </div>
-                    }
+                  }
                   label={el.tagName}
                 />
-
-
-
               </ListItem>
             ))}
           </List>
