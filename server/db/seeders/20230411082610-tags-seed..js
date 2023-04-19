@@ -11,25 +11,19 @@ module.exports = {
      * }], {});
     */
     await queryInterface.bulkInsert('Tags', [{
-      tagName: 'Вареная',
+      tagName: 'Свинина',
     },
     {
-      tagName: 'Сырокопченая',
+      tagName: 'Говядина',
     },
     {
-      tagName: 'Варено-копченая',
+      tagName: 'Индейка',
     },
     {
-      tagName: 'Полукопченая',
+      tagName: 'Острая',
     },
     {
-      tagName: 'Деликатесы',
-    },
-    {
-      tagName: 'Тушенка',
-    },
-    {
-      tagName: 'Сосиски-Сардельки',
+      tagName: 'Диетическая',
     },
     ], {});
   },

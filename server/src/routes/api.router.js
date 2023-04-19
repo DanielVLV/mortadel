@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const {
-  Category, Product, Cart, Tag,
+  Category,
+  Product,
+  Cart,
+  Tag,
+  TagsProducts,
+  Favourites,
 } = require('../../db/models');
 
 router.get('/categories', async (req, res) => {
@@ -19,9 +24,14 @@ router.get('/products', async (req, res) => {
       order: [[Product, 'categoryId', 'ASC']],
       include: {
         model: Product,
+        include: [
+          {
+            model: Tag,
+            through: { attributes: [] },
+          },
+        ],
         // attributes: [],
       },
-
     });
     res.json(products.map((product) => product.get()));
   } catch (err) {
@@ -52,7 +62,7 @@ router.get('/products/tag', async (req, res) => {
 router.get('/tags', async (req, res) => {
   try {
     const tags = await Tag.findAll();
-    console.log(tags);
+    // console.log(tags);
     res.json(tags.map((tag) => tag.get()));
   } catch (err) {
     console.log({ msg: err.message });
@@ -67,6 +77,46 @@ router.post('/cart', async (req, res) => {
     res.json(result);
   } catch (err) {
     console.log({ msg: err.message });
+  }
+});
+
+router.get('/favs', async (req, res) => {
+  try {
+    const { user } = req.session;
+
+    const result = await Favourites.findAll({
+      // raw: true,
+      where: { userId: user.id },
+      include: [Product],
+    });
+    // console.log(result)
+    res.json(result);
+    // console.log("success", arr);
+  } catch (err) {
+    console.log({ msg: err.message });
+  }
+});
+
+router.post('/favs', async (req, res) => {
+  try {
+    const { productId, user } = req.body;
+    const newObjFavs = await Favourites.findOrCreate({ where: { productId, userId: user.id } });
+    res.json(newObjFavs);
+    console.log('success', req.body);
+  } catch (err) {
+    console.log({ msg: err.message });
+  }
+});
+
+router.delete('/favs', async (req, res) => {
+  try {
+    const { favId } = req.body;
+    const { user } = req.session;
+    console.log(favId, user);
+    await Favourites.destroy({ where: { id: favId } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
   }
 });
 

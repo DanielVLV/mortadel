@@ -1,0 +1,120 @@
+
+body {
+  font-family: sans-serif;
+}
+/*************** form *****************/
+label {
+  clear: both;
+  display: inline-block;
+}
+input:focus,
+input.focus,
+input:focus + label:before,
+input.focus + label:before {
+  -webkit-box-shadow: 0 0 0 4px #fb5;
+  -moz-box-shadow: 0 0 0 4px #fb5;
+  box-shadow: 0 0 0 4px #fb5;
+}
+/********** radio and checkbox *************/
+.checkbox-css {
+  xposition: relative;
+  /* change the border colour to a non-white colour to see how the magic works */
+}
+.checkbox-css input {
+  opacity: 0;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+.checkbox-css label {
+  position: relative;
+  margin: 1em 0 ;
+  padding: 0 0 0 40px;
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.checkbox-css label:before,
+.checkbox-css label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: border-width 0.3s 0s ease;
+  border-radius: 50%;
+}
+.checkbox-css label:before {
+  border: 2px solid #01285f;
+  background: transparent;
+  width: 30px;
+  height: 30px;
+}
+.checkbox-css label:after {
+  width: 22px;
+  height: 22px;
+  margin: 4px;
+  border: 11px solid #FFF;
+  background: transparent;
+}
+.checkbox-css input:checked + label:after {
+  border-width: 5px;
+}
+.checkbox-css input:checked + label:before {
+  background-color: #4a8c31;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='104' height='104' viewBox='0 0 104 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%2384b53a' d='M0 0h104v104H0z' /%3E%3Cpath fill='%234a8c31' d='M104 21C70 24 29 37 0 52v49h104V21z' /%3E%3Cpath fill='%237bb5de' d='M0 73c34-13 70-18 104-18v49H0V73z' /%3E%3Cpath fill='%23297bb5' d='M0 91c39-8 73-8 104-3v16H0V91z' /%3E%3C/svg%3E");
+  background-size: cover;
+  background-origin: border-box;
+}
+.checkbox-css label:before {
+  border-radius: 0 20%;
+  border-width: 2px;
+}
+.checkbox-css label:after {
+  border-radius: 0 18%;
+  border-width: 0px 22px 0px 0px;
+  /* to enable faux tick draw animation effect */
+  margin: 4px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M0 0v32h32V0H0zm24 9l2 2-12 12-6-6 2-2 4 4z'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-origin: border-box;
+}
+.checkbox-css input:checked + label:after {
+  border-width: 0;
+}
+@media (min-width: 768px) {
+  .checkbox-css input {
+    width: 40px;
+    height: 40px;
+  }
+  .checkbox-css label {
+    padding: 0 0 0 50px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .checkbox-css label:before {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+  .checkbox-css label:after {
+    width: 28px;
+    height: 28px;
+    margin: 6px;
+    border-width: 14px;
+  }
+  .checkbox-css input:checked + label:after {
+    border-width: 7px;
+  }
+  .checkbox-css label:after {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-width: 0 28px 0 0;
+  }
+  .checkbox-css input:checked + label:after {
+    border-width: 0;
+  }
+}
+.css-j204z7-MuiFormControlLabel-root .MuiFormControlLabel-label {
+  font-size: 20px;
+}

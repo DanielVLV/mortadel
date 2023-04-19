@@ -1,0 +1,11 @@
+.buttonContainer {
+    display:flexbox;
+    justify-content: center;
+    align-items: center;
+    /* text-align: end; */
+}
+
+.buttonContainer span {
+vertical-align: bottom;
+font-size: 25px;
+}
