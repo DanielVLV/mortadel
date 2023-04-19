@@ -6,6 +6,7 @@
 
 .body {
   min-height: 88vh;
+  /* display: flex; */
   /* flex: 2; */
 }
 

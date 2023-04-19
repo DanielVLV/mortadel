@@ -49,7 +49,16 @@ function Categories() {
         filteredProducts={filteredProducts}
         products={products}
       />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box
+        component="main"
+        sx={{
+ display: "flex",
+flexDirection: "column",
+        alignItems: "center",
+flexGrow: 1,
+p: 3
+        }}
+      >
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
               <CategoryCard
