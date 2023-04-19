@@ -79,7 +79,7 @@ export default function Navbar() {
                 sx={{
                   '&:hover': {
                     color: 'DarkOrange',
-                    transform: 'scale(1.5)',
+                    transform: 'scale(1.3)',
                     transition: 'transform 0.3s ease-in-out'
                   }
                 }}
