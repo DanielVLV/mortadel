@@ -1,5 +1,8 @@
 .gridContainer {
-    background: url(../../../public/background1.jpg) no-repeat center center fixed;
-    background-size: cover;
+  background: url(../../../public/background1.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
+.adds {
+    color: rgba(84, 90, 121, 0.938)
+}
