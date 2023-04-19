@@ -121,7 +121,14 @@ function CategoryCard({
               {user &&
                 (isInFav ? (
                   <Button
-                    sx={{ mt: 7, mr: 3 }}
+                    sx={{ mt: 7,
+                      mr: 3,
+                      ml: 3,
+                      color: 'gold',
+                      backgroundColor: "rgba(82, 122, 83, 0.801)",
+                      "&:hover": {
+                        backgroundColor: "rgba(154, 89, 89, 0.801)"
+                      } }}
                     onClick={handleFavDelete}
                     variant="contained"
                     endIcon={<StarHalfIcon />}
@@ -130,7 +137,11 @@ function CategoryCard({
                   </Button>
                 ) : (
                   <Button
-                    sx={{ mt: 7, mr: 3 }}
+                    sx={{ mt: 7,
+                      mr: 3,
+                      ml: 3,
+                      color: 'gold',
+                      "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" } }}
                     onClick={handleAddToFavs}
                     variant="outlined"
                     endIcon={<StarHalfIcon />}
