@@ -18,7 +18,6 @@ import { addFav, selectOneProduct } from "../../redux/product.slice";
 
 import { domainAddress } from "../../constants/api";
 
-
 function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
   const user = useSelector((state) => state.UserSlice.value);
   const productId = product.id;
@@ -82,10 +81,10 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
     <Card
       sx={{
         width: 800,
-        backgroundColor: 'rgba(67, 71, 92, 0.3)',
-        border: '2px solid rgba(255, 255, 255, 0.1)',
-        boxShadow: '0 0 60px var(--metal)',
-        borderRadius: '20px',
+        backgroundColor: "rgba(67, 71, 92, 0.3)",
+        border: "2px solid rgba(255, 255, 255, 0.1)",
+        boxShadow: "0 0 60px var(--metal)",
+        borderRadius: "20px",
         // padding: '15px',
         "&:hover": {
           transform: "translateY(-10px)",
@@ -94,19 +93,15 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         },
       }}
     >
-      <CardActionArea
-        onClick={handleClickOpen}
-        sx={{ minHeight: '335px' }}
-      >
+      <CardActionArea onClick={handleClickOpen} sx={{ minHeight: "335px" }}>
         <CardMedia
-        className="oneProductCard"
-          sx={{ height: 180, borderRadius: '20px' }}
-      >
+          className="oneProductCard"
+          sx={{ height: 180, borderRadius: "20px" }}
           image={product.img}
         />
         <CardContent>
           <Typography
-            sx={{ fontFamily: 'Lato Medium, sans-serif', }}
+            sx={{ fontFamily: "Lato Medium, sans-serif" }}
             gutterBottom
             variant="h5"
             component="div"
@@ -116,7 +111,11 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         </CardContent>
       </CardActionArea>
       <CardActions
-        sx={{ minHeight: '36px', display: 'flex', justifyContent: 'space-between' }}
+        sx={{
+          minHeight: "36px",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
       >
         <Button size="small" onClick={handleClickAddToCart}>
           В корзину
@@ -124,7 +123,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         {user &&
           (isInFav ? (
             <Button
-              sx={{ fontSize: '12px' }}
+              sx={{ fontSize: "12px" }}
               onClick={handleFavDelete}
               variant="contained"
               endIcon={<StarHalfIcon />}
@@ -133,7 +132,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             </Button>
           ) : (
             <Button
-              sx={{ }}
+              sx={{}}
               onClick={handleAddToFavs}
               variant="outlined"
               endIcon={<StarHalfIcon />}

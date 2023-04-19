@@ -12,7 +12,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import CategoryRow from "../CategoryRow/CategoryRow";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { domainAddress } from "../../constants/api";
-import stylesProduct from './products.module.css';
+import stylesProduct from "./products.module.css";
 
 function Products() {
   const products = useSelector((state) => state.ProductSlice.products);
@@ -31,13 +31,13 @@ function Products() {
   }, []);
 
   return (
-   <Box style={{ display: "flex" }}>
-      <Grid style={{ display: "flex" }} container spacing={2}>
+    <Box style={{ display: "flex" }}>
+      <Grid
+        // style={{ display: "flex" }}
         container
         spacing={2}
         className={stylesProduct.gridContainer}
       >
-
         <Grid item xs={2}>
           <Sidebar
             setFilter={setFilter}
