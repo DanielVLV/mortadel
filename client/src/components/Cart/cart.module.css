@@ -3,3 +3,9 @@
   justify-content: center;
 }
 
+.allDivCart {
+  background: url(../../../public/background1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+

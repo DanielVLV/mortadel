@@ -52,7 +52,7 @@ function Cart() {
   };
 
   return (
-    <div>
+    <div className={styles.allDivCart}>
       {user && (
         <>
           <span>Корзина</span>
