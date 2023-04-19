@@ -17,8 +17,8 @@ function CategoryRow({ el, setOpen, setFavs, allFavs, loading }) {
   return (
     <div className={styles.columnSwiperProducts}>
       {el.Products.length && (
-        <Link to={`/categories/${el.id}`}>
-          <h2>{el.categoryName}</h2>
+        <Link style={{ padding: 0 }} to={`/categories/${el.id}`}>
+          <div style={{ fontSize: '20px', color: 'black', fontWeight: 'bold' }}>{el.categoryName}</div>
         </Link>
       )}
       <Swiper
@@ -30,10 +30,10 @@ function CategoryRow({ el, setOpen, setFavs, allFavs, loading }) {
         }}
         navigation
         modules={[Pagination, Navigation]}
-        className={styles.mySwiper}
+        className={styles.mySwiperCategory}
       >
         {el.Products.map((product) => (
-          <SwiperSlide>
+          <SwiperSlide className={styles.categoryOneCardBackground}>
             <ProductElement
               key={product.id}
               product={product}

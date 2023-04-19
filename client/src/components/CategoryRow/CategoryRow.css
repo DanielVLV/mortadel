@@ -1,30 +1,16 @@
-/* .swiper-wrapper {
-    width: 1200px;
-    /* max-width: 40%; */
-/* max-height: 30%; */
-/* } */
 
-.css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root {
-  min-height: 330px;
+
+.categoryTitleText {
+  margin: 0;
+  font-size: 20px;
+}
+
+.link {
+  margin: 20px;
 }
 
 #app {
   height: 100%;
-}
-
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
 }
 
 h2 {
@@ -45,7 +31,9 @@ h2 {
   border-radius: 20px;
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background-color: rgba(67, 71, 92, 0.135);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
 
   /* Center slide text vertically */
   display: flex;
@@ -63,4 +51,8 @@ h2 {
 .swiper {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mySwiperCategory {
+
 }
