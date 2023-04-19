@@ -1,5 +1,7 @@
 .gridContainer {
     background: url(../../../public/background1.jpg) no-repeat center center fixed;
     background-size: cover;
-}
+    display: flex;
+    /* justify-content: center; */
+} 
 

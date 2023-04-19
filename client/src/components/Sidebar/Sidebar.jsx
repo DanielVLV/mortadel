@@ -19,6 +19,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Link, useLocation } from "react-router-dom";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearInputAction,
@@ -27,9 +28,11 @@ import {
 import { domainAddress } from '../../constants/api';
 import './Sidebar.css';
 
-const drawerWidth = 200;
+const drawerWidth = 100;
 
-export default function Sidebar({ setFilter, products, filteredProducts }) {
+export default function Sidebar({
+  setFilter, products, filteredProducts
+}) {
   const [tags, setTags] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchInput, setSearchInput] = useState("");
@@ -38,6 +41,13 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   const SAGATURBONITROFILTERED = useSelector(
     (state) => state.searchInputReducer.filteredProducts
   );
+  const [bar, setBar] = useState(false);
+  let flag;
+  if (bar) { flag = 'sa'; } else { flag = 'none'; }
+  const handleChangeBar = () => {
+    setBar(!bar);
+  };
+
 
   const dispatch = useDispatch();
   const getProductsFromState = useSelector(
@@ -167,81 +177,100 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }
 
   return (
-    <Box sx={{ display: "flex", position: "fixed" }}>
-      <CssBaseline />
-      <AppBar />
-      <Drawer
-        variant="permanent"
+    <>
+      <ManageSearchOutlinedIcon
         sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            marginTop: '145px',
-            maxHeight: '595px',
-            minWidth: '300px',
-            position: "fixed",
-            width: drawerWidth,
-            boxSizing: "border-box",
-            borderRadius: '20px',
-            backgroundColor: 'rgba(67, 71, 92, 0.135)',
-            border: '2px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 60px var(--metal)',
+          marginLeft: 4,
+          bgcolor: 'transparent',
+          color: '#353757',
+          fontSize: '2.5rem',
+          // marginRight: 'auto',
+          // position: 'absolute',
+          // transform: 'translate(-800px, -8px)',
+          // '& .MuiSvgIcon-root': {
+          //   fontSize: '200px',
+          // },
+          '&:hover': {
+            color: 'DarkOrange',
+            transform: 'scale(1.2)',
+            transition: 'transform 0.3s ease-in-out'
           },
         }}
-      >
-        <Box
+        onClick={handleChangeBar}
+      />
+      <Box sx={{ }}>
+        <CssBaseline />
+        <AppBar />
+        <Drawer
+          variant="permanent"
           sx={{
-            overflow: "auto",
-            borderRadius: '20px',
-            padding: '30px',
-            backgroundColor: 'rgba(67, 71, 92, 0.135)',
-            border: '2px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 60px var(--metal)',
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              marginTop: '145px',
+              maxHeight: '595px',
+              // minWidth: '300px',
+              display: flag,
+              // position: "fixed",
+              boxSizing: "border-box",
+              borderRadius: '20px',
+              backgroundColor: 'rgba(67, 71, 92, 0.135)',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 0 60px var(--metal)',
+            },
           }}
         >
-          <List>
-            <TextField
-              id="outlined-textarea"
-              type="text"
-              label="Поиск по товарам"
-              placeholder="Поиск"
-              multiline
-              size="small"
-              name="searchInput"
-              value={searchInput}
-              onChange={(event) => handleSearchInput(event)}
-            />
-            {tags?.map((el) => (
-              <ListItem key={el.id}>
-                <FormControlLabel
-                  sx={{
-                    "& > label > *": {
-                      fontFamily: 'Lato Medium, sans-serif',
-                      fontSize: '18px',
-                    }
-                  }}
-                  control={
-                    <div className="checkbox-css">
-                      <input
+          <Box
+            sx={{
+              overflow: "auto",
+              borderRadius: '20px',
+              padding: '30px',
+              backgroundColor: 'rgba(67, 71, 92, 0.135)',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 0 60px var(--metal)',
+            }}
+          >
+            <List>
+              <TextField
+                id="outlined-textarea"
+                type="text"
+                label="Поиск по товарам"
+                placeholder="Поиск"
+                multiline
+                size="small"
+                name="searchInput"
+                value={searchInput}
+                onChange={(event) => handleSearchInput(event)}
+              />
+              {tags?.map((el) => (
+                <ListItem key={el.id}>
+                  <FormControlLabel
+                    sx={{
+                      "& > label > *": {
+                        fontFamily: 'Lato Medium, sans-serif',
+                        fontSize: '18px',
+                      }
+                    }}
+                    control={
+                      <div className="checkbox-css">
+                        <input
                           // id="check2"
-                        type="checkbox"
-                        value={el.id}
-                        onChange={(e) =>
-                          handleTag(e.target.value, e.target.checked)}
-                      />
-                      <label htmlFor="check2" />
-                    </div>
+                          type="checkbox"
+                          value={el.id}
+                          onChange={(e) =>
+                            handleTag(e.target.value, e.target.checked)}
+                        />
+                        <label htmlFor="check2" />
+                      </div>
                     }
-                  label={el.tagName}
-                />
+                    label={el.tagName}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+      </Box>
+    </>
 
-
-
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-    </Box>
   );
 }
