@@ -81,7 +81,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
     <Card
       sx={{
         width: 800,
-        backgroundColor: "rgba(67, 71, 92, 0.3)",
+        backgroundColor: "rgba(67, 71, 92, 0.801)",
         border: "2px solid rgba(255, 255, 255, 0.1)",
         boxShadow: "0 0 60px var(--metal)",
         borderRadius: "20px",
@@ -101,7 +101,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         />
         <CardContent>
           <Typography
-            sx={{ fontFamily: "Lato Medium, sans-serif" }}
+            sx={{ fontFamily: "Lato Medium, sans-serif", color: 'gold' }}
             gutterBottom
             variant="h5"
             component="div"
@@ -117,13 +117,22 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
           justifyContent: "space-between",
         }}
       >
-        <Button size="small" onClick={handleClickAddToCart}>
+        <Button
+          size="small"
+          onClick={handleClickAddToCart}
+          sx={{ color: 'gold', }}
+        >
           В корзину
         </Button>
         {user &&
           (isInFav ? (
             <Button
-              sx={{ fontSize: "12px" }}
+              sx={{ fontSize: "11px",
+                color: 'gold',
+                backgroundColor: "rgba(82, 122, 83, 0.801)",
+                "&:hover": {
+                  backgroundColor: "rgba(154, 89, 89, 0.801)"
+                } }}
               onClick={handleFavDelete}
               variant="contained"
               endIcon={<StarHalfIcon />}
@@ -132,7 +141,9 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             </Button>
           ) : (
             <Button
-              sx={{}}
+              sx={{ color: 'gold',
+                "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" }
+              }}
               onClick={handleAddToFavs}
               variant="outlined"
               endIcon={<StarHalfIcon />}

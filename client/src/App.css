@@ -4,6 +4,8 @@
 @font-face {
   font-family: 'Lato Medium';
   src: url('./fonts/Lato/Lato-Medium.ttf');
+        backgroundColor: rgb(36, 39, 56),
+
 }
 
 
