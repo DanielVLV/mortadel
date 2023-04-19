@@ -32,6 +32,7 @@ function HomePage() {
             slidesPerView={1}
             spaceBetween={30}
             loop
+            style={{ padding: '0px' }}
             pagination={{
               clickable: true,
             }}

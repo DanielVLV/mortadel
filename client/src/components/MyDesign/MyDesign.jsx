@@ -29,6 +29,38 @@ function MyDesign() {
 
   return (
     <div className={styles.alldivDesign}>
+      <div id={styles.particleContainer}>
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+        <div className={styles.particle} />
+      </div>
       <div className={styles.container}>
         <div className={styles.text}>
           Выбери принт
