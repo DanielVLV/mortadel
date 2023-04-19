@@ -29,7 +29,7 @@ import {
 import { domainAddress } from "../../constants/api";
 import "./Sidebar.css";
 
-const drawerWidth = 100;
+const drawerWidth = 200;
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "#ffd700",
@@ -212,18 +212,20 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         }}
         onClick={handleChangeBar}
       />
-      <Box sx={{ }}>
+      <Box sx={{ display: "flex", position: "fixed" }}>
         <CssBaseline />
         <AppBar />
         <Drawer
           variant="permanent"
           sx={{
+            width: drawerWidth,
             flexShrink: 0,
             "& .MuiDrawer-paper": {
+              width: drawerWidth,
               display: flag,
               boxSizing: "border-box",
               borderRadius: '20px',
-              backgroundColor: 'rgba(67, 71, 92, 0.135)',
+              backgroundColor: 'rgba(67, 71, 92, 0.801)',
               border: '2px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 0 60px var(--metal)',
             },
@@ -234,7 +236,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               overflow: "auto",
               borderRadius: '20px',
               color: "Gold",
-              padding: '30px',
               backgroundColor: 'rgba(67, 71, 92, 0.135)',
               border: '2px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 0 60px var(--metal)',
@@ -242,7 +243,10 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
           >
             <List>
               <CssTextField
-                id="outlined-textarea"
+                InputLabelProps={{
+                  style: { color: "#ffd700" },
+                }}
+                id="custom-css-outlined-input"
                 type="text"
                 label="Поиск по товарам"
                 placeholder="Поиск"
