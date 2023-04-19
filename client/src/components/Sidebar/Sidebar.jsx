@@ -236,8 +236,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               overflow: "auto",
               borderRadius: '20px',
               color: "Gold",
-              
-              padding: '30px',
               backgroundColor: 'rgba(67, 71, 92, 0.135)',
               border: '2px solid rgba(255, 255, 255, 0.1)',
               boxShadow: '0 0 60px var(--metal)',
