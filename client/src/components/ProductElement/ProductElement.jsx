@@ -16,7 +16,6 @@ import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { addIntoCart } from "../../redux/CartRedux/cart.actions";
 import { addFav, selectOneProduct } from "../../redux/product.slice";
 
-import styles from "./productElement.module.css";
 import { domainAddress } from "../../constants/api";
 
 
@@ -93,7 +92,6 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
     >
       <CardActionArea onClick={handleClickOpen}>
         <CardMedia
-          className={styles.oneProductCard}
           sx={{ height: 140 }}
           image={product.img}
         />
