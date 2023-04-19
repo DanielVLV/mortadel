@@ -225,9 +225,10 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         >
           <List>
             <CssTextField
-              // label="Custom CSS"
+              InputLabelProps={{
+                style: { color: "#ffd700" },
+              }}
               id="custom-css-outlined-input"
-              // id="outlined-textarea"
               type="text"
               label="Поиск по товарам"
               placeholder="Поиск"
