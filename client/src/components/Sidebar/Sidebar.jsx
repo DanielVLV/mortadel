@@ -43,7 +43,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   );
 
   useEffect(() => {
-    console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
     setFilter(SAGATURBONITROFILTERED);
   }, [SAGATURBONITROFILTERED]);
 
@@ -109,7 +108,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     }
   }, [selectedTags, SAGATURBONITROFILTERED]);
 
-
   const handleTag = (id, checked) => {
     if (checked) {
       setSelectedTags([...selectedTags, id]);
@@ -123,7 +121,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     setSearchInput(event.target.value);
     if (event.target.value === "") {
       setInputCheck(true);
-      console.log("SET FILTER PRODUCTS ПРИ ПУСТОМ ИНПУТЕ КЛАДЕТСЯ ПУСТАЯ САГА");
 
       if (selectedTags.length) {
         const arr = products
@@ -148,8 +145,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       } else {
         dispatch(clearInputAction());
       }
-
-      console.log("CLEAR INPUT ACTION");
       return;
     }
     if (filteredProducts) {
@@ -157,7 +152,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         searchProductsAction({
           input: event.target.value,
           products: getProductsFromState,
-          // products: filteredProducts,
         })
       );
     } else {
@@ -203,7 +197,6 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               value={searchInput}
               onChange={(event) => handleSearchInput(event)}
             />
-            {location !== "/categories" && <Link to="/categories">Все категории</Link>}
             {tags?.map((el) => (
               <ListItem key={el.id} disablePadding>
                 <ListItemButton>
