@@ -26,11 +26,11 @@ font-family: 'Comfortaa', sans-serif;
   text-align: center;
 }
 
-.body {
-  min-height: 88vh;
-  /* display: flex; */
+/* .body { */
+  /* min-height: 88vh; */
+  /* align-items: center; */
   /* flex: 2; */
-}
+/* } */
 
 .App-logo {
   height: 40vmin;

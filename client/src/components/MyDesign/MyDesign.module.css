@@ -6,8 +6,7 @@
 .alldivDesign{
   background: url(../../../public/background1.jpg) no-repeat center center fixed;
   background-size: cover;
- z-index: -2;
-
+  height: 100vh;
 }
 
 .container {

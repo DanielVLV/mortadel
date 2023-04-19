@@ -19,9 +19,7 @@
 .columnSwiper {
   max-width: 30%;
   max-height: 30%;
-
 }
-
 
 .leftColumn {
   max-width: 50%;
@@ -34,7 +32,6 @@
   max-width: 50%;
   font-size: 20px;
   text-align: left;
-
 }
 
 .rightColumn p {
@@ -47,7 +44,8 @@
 
 .homePageContainer {
   color: #e0d6bd;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
+  height: 100vh;
   /* height: 88vh; */
   /* height: 100%; */
   display: flex;
@@ -60,7 +58,7 @@
 
 h1,
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -93,8 +91,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
 
 .swiper {
   max-width: 50%;
@@ -129,6 +125,10 @@ body {
   margin-right: auto;
 }
 
-.swiper .swiper-initialized .swiper-horizontal .mySwiper .swiper-backface-hidden {
+.swiper
+  .swiper-initialized
+  .swiper-horizontal
+  .mySwiper
+  .swiper-backface-hidden {
   margin-left: 30px;
 }
