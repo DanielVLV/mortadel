@@ -47,6 +47,7 @@
 
 .homePageContainer {
   color: #e0d6bd;
+  font-family: 'Comfortaa', sans-serif;
   /* height: 88vh; */
   height: 100%;
   display: flex;
@@ -54,6 +55,19 @@
   align-items: center;
   justify-content: center;
   background-image: url(../../../public/background.jpg);
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 40px;
 }
 
 .homePageContainer h1 {
@@ -73,12 +87,13 @@ body {
 
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
 }
+
+
 
 .swiper {
   max-width: 50%;

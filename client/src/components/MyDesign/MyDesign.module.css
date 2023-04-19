@@ -1,4 +1,9 @@
-.alldivDesign{
+@font-face {
+  font-family: 'Lato Medium';
+  src: url('../../fonts/Lato/Lato-Medium.ttf');
+}
+
+.alldivDesign {
   /* background-image: url(../../../public/background.jpg); */
   /* background-color:  #F0F1F5; */
   /* background-image: linear-gradient(to bottom, #F6E4C8, #D3BFA0); */
@@ -7,28 +12,27 @@
   background: linear-gradient(90deg, #4e4e52 20px, transparent 1%) center, linear-gradient(#4e4e52 20px, transparent 1%) center, #635f5f;
   background-size: 22px 22px; */
 
- height: 100%;
+  height: 100%;
   background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
   background-blend-mode: multiply;
-
 }
 
 .container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-padding-top: 30px;
-margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
 
 }
 
-.boxPrint{
+.boxPrint {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.boxPaperStyle{
+.boxPaperStyle {
   display: flex;
 }
 
@@ -38,20 +42,21 @@ margin-bottom: 30px;
 }
 
 .imgPosition {
-    display: flex;
-    justify-content: space-around;
-    background-color: #F0F1F5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-                0 0 10px rgba(0, 0, 0, 0.107);
-                /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+  display: flex;
+  justify-content: space-around;
+  background-color: #F0F1F5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+    0 0 10px rgba(0, 0, 0, 0.107);
+  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
                 background-blend-mode: multiply; */
 }
 
 .text {
+  font-family: 'Lato Medium', sans-serif;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 20px;
   color: rgb(62, 19, 19);
   margin: 0 10px 0 10px;
   cursor: default;
@@ -59,15 +64,20 @@ margin-bottom: 30px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-              0 0 10px rgba(0, 0, 0, 0.107);
-               /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+    0 0 10px rgba(0, 0, 0, 0.107);
+  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
               background-blend-mode: multiply; */
 }
 
+/* .buttonParent>div>; {
+  font-family: 'Lato Medium', sans-serif;
+  font-size: '15px',
+} */
+
 .print {
-    position: absolute;
-    opacity: 0.6;
-    border-radius: 20px;
+  position: absolute;
+  opacity: 0.6;
+  border-radius: 20px;
 }
 
 .filling {
@@ -79,23 +89,24 @@ margin-bottom: 30px;
   padding-bottom: 30px;
 }
 
-.inputGroop {
-
-}
+/* .inputGroop {} */
 
 .designFormStyle {
   display: flex;
   background-color: #F0F1F5;
   /* padding: 37px; */
   margin: 20px;
-   border-radius: 10px;
+  border-radius: 10px;
   box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-              0 0 10px rgba(0, 0, 0, 0.107);
-            /*  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+    0 0 10px rgba(0, 0, 0, 0.107);
+  /*  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
               background-blend-mode: multiply; */
 }
 
-#app { height: 100% }
+#app {
+  height: 100%
+}
+
 html,
 body {
   position: relative;
@@ -104,7 +115,6 @@ body {
 
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
@@ -113,7 +123,6 @@ body {
 
 body {
   background: #fff;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
@@ -133,18 +142,18 @@ body {
 }
 
 .mySwiper {
-    width: 420px;
-    height: 320px;
-    border-radius: 20px;
-    margin: 10px;
-    background-color: #F0F1F5;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-                0 0 10px rgba(0, 0, 0, 0.107); 
-    /* box-shadow: 0 0 30px rgba(129, 225, 242, 0.4),
+  width: 420px;
+  height: 320px;
+  border-radius: 20px;
+  margin: 10px;
+  background-color: #F0F1F5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
+    0 0 10px rgba(0, 0, 0, 0.107);
+  /* box-shadow: 0 0 30px rgba(129, 225, 242, 0.4),
                 0 0 20px rgba(104, 219, 248, 0.2); */
-                /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
+  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
                 background-blend-mode: multiply; */
 }
 
@@ -177,7 +186,7 @@ body {
 }
 */
 
-@media (min-width: 768px) and (max-width: 1100px) { 
+@media (min-width: 768px) and (max-width: 1100px) {
 
   .craftPaperStyle {
     max-width: 380px;
@@ -185,6 +194,8 @@ body {
 
   .text {
     padding: 7px;
+    font-family: 'Lato Medium', sans-serif;
+    font-size: '18px',
   }
 
   .print {
@@ -197,4 +208,4 @@ body {
     height: 220px;
     border-radius: 20px;
   }
- } 
+}

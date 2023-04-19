@@ -41,6 +41,8 @@ export default function Navbar() {
           padding: 0,
           textDecoration: 'none',
           '& div a': {
+            fontFamily: 'Montserrat, sans-serif',
+            // fontFamily: 'Comfortaa, sans-serif',
             color: 'Gold',
             fontSize: '16px'
           },

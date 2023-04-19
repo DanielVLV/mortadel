@@ -53,11 +53,26 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
               image={singleProduct.img}
               alt=""
             />
-            <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
-              <Typography gutterBottom variant="h6" align="center">
+            <CardContent sx={{
+              flex: 1,
+              m: 0,
+              width: "900px",
+            }}
+            >
+              <Typography
+                sx={{ fontFamily: 'Montserrat, sans-serif'}}
+                gutterBottom
+                variant="h6"
+                align="center"
+              >
                 {singleProduct.title}
               </Typography>
-              <Typography variant="body1" color="text.secondary" align="center">
+              <Typography
+                sx={{ fontFamily: 'Comfortaa, sans-serif'}}
+                variant="body1"
+                color="text.secondary"
+                align="center"
+              >
                 {singleProduct.description}
               </Typography>
               <div className={styles.buttonContainer}>
@@ -68,7 +83,7 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
                 >
                   +
                 </Button>
-                <span>{count[singleProduct.id]}</span>
+                <span style={{ fontFamily: 'Comfortaa, sans-serif'}}>{count[singleProduct.id]}</span>
                 <Button
                   variant="outlined"
                   onClick={hadleClickRemove}

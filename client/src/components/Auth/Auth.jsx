@@ -46,9 +46,9 @@ function SignInOutContainer() {
         onChange={handleChange}
         aria-label="disabled tabs example"
       >
-        <Tab label="Вход" />
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Вход" />
 
-        <Tab label="Регистрация" />
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Регистрация" />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Login />

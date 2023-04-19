@@ -16,14 +16,6 @@ function Products() {
   const [filteredProducts, setFilter] = useState(null);
   const [open, setOpen] = useState(false);
 
-  // const SAGATURBONITROFILTERED = useSelector((state) => state.searchInputReducer.filteredProducts);
-  // console.log(SAGATURBONITROFILTERED, 'SAGATURBONITROFILTERED');
-
-  // useEffect(() => {
-  //   console.log('SET FILTER PRODUCTS SAGA USEEFFECT PRISVOILA FILTEREDPRODUCTS');
-  //   setFilter(SAGATURBONITROFILTERED);
-  // }, [SAGATURBONITROFILTERED]);
-
   return (
     <Box>
       <Grid container spacing={2}>

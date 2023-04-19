@@ -58,7 +58,15 @@ function CartForm({ count, summaryPrice }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl id="inputGroup" sx={{ ml: 4 }}>
+      <FormControl
+        id="inputGroup"
+        sx={{
+          ml: 4,
+          '&>*': {
+            fontFamily: 'Lato Medium, sans-serif'
+          }
+        }}
+      >
         <TextField
           id="phone"
           label="Телефон"

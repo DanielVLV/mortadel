@@ -36,6 +36,11 @@ function ModalWindow({ open, setOpen }) {
   return (
     <div>
       <Dialog
+        sx={{
+          '&>*': {
+
+          }
+        }}
         open={open}
         TransitionComponent={Transition}
         keepMounted
@@ -44,7 +49,10 @@ function ModalWindow({ open, setOpen }) {
       >
         <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+          <DialogContentText
+            sx={{ fontFamily: 'Lato Medium, sans-serif' }}
+            id="alert-dialog-slide-description"
+          >
             <img src={product?.img} />
             Описание: {product?.description}
             <br />

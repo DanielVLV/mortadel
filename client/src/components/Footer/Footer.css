@@ -5,6 +5,8 @@
 }
 
 .text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     text-decoration: none;
     color: Gold;
 }

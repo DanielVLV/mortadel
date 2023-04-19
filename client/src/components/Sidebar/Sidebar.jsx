@@ -198,8 +198,18 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               onChange={(event) => handleSearchInput(event)}
             />
             {tags?.map((el) => (
-              <ListItem key={el.id} disablePadding>
-                <ListItemButton>
+              <ListItem
+                key={el.id}
+                disablePadding
+              >
+                <ListItemButton
+                  sx={{
+                    "& > label > *": {
+                      fontFamily: 'Lato Medium, sans-serif',
+                      fontSize: '18px',
+                    }
+                  }}
+                >
                   <FormControlLabel
                     control={
                       <Checkbox
