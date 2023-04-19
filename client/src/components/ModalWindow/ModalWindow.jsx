@@ -44,7 +44,7 @@ function ModalWindow({ open, setOpen }) {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
-        maxWidth={"md"}
+        maxWidth={"lg"}
       >
         <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
@@ -57,14 +57,16 @@ function ModalWindow({ open, setOpen }) {
                 width: "fit-content",
               }}
             >
-              <img src={product?.img} />
-              <br />
-              Описание: {product?.description}
-              <br />
-              Состав: {product?.fullDescription}
-              <br />
-              Вес: {product?.weight}
-              <br />
+              <div className={styles.textContainer}>
+                <img src={product?.img} className={styles.img} />
+                {/* <br /> */}
+                <span className={styles.span}>Описание:</span> {product?.description}
+                <br />
+                <span className={styles.span}>Состав:</span> {product?.fullDescription}
+                <br />
+                <span className={styles.span}>Вес:</span>{product?.weight}г.
+                {/* <br /> */}
+              </div>
               <FormOrder
                 productId={product?.id}
                 open={open}

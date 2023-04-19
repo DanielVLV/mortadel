@@ -57,12 +57,6 @@ function Cart() {
         <>
           <span>Корзина</span>
           <Switch onChange={handleChange} />
-          <div className="switch">
-            <label htmlFor="check">
-              <input type="checkbox" id="check" />
-            </label>
-          </div>
-
           <span>Избранное</span>
         </>
       )}
