@@ -176,14 +176,14 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            marginTop: '145px',
-            maxHeight: '595px',
-            minWidth: '300px',
-            position: "fixed",
+            // marginTop: '145px',
+            // maxHeight: '595px',
+            // minWidth: '300px',
+            position: "static",
             width: drawerWidth,
             boxSizing: "border-box",
             borderRadius: '20px',
-            backgroundColor: 'rgba(67, 71, 92, 0.135)',
+            backgroundColor: "rgba(67, 71, 92, 0.801)",
             border: '2px solid rgba(255, 255, 255, 0.1)',
             boxShadow: '0 0 60px var(--metal)',
           },
@@ -193,7 +193,8 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
           sx={{
             overflow: "auto",
             borderRadius: '20px',
-            padding: '30px',
+            color: 'Gold',
+            // padding: '30px',
             backgroundColor: 'rgba(67, 71, 92, 0.135)',
             border: '2px solid rgba(255, 255, 255, 0.1)',
             boxShadow: '0 0 60px var(--metal)',
@@ -218,6 +219,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
                     "& > label > *": {
                       fontFamily: 'Lato Medium, sans-serif',
                       fontSize: '18px',
+                      color: 'gold'
                     }
                   }}
                   control={
