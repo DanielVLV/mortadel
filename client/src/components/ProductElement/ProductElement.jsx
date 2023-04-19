@@ -92,7 +92,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
     >
       <CardActionArea onClick={handleClickOpen}>
         <CardMedia
-          sx={{ height: 140 }}
+          sx={{ height: 300 }}
           image={product.img}
         />
         <CardContent>

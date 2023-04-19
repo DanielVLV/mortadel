@@ -56,7 +56,7 @@ function Cart() {
       {user && (
         <>
           <span>Корзина</span>
-          {/* <Switch onChange={handleChange} /> */}
+          <Switch onChange={handleChange} />
           <div className="switch">
             <label htmlFor="check">
               <input type="checkbox" id="check" />
