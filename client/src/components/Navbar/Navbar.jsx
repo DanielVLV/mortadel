@@ -74,7 +74,7 @@ export default function Navbar() {
             />
             <Tab
               value="/contacts"
-              label={<Link to="/contacts">Связаться с нами</Link>}
+              label={<Link to="/contacts">Мы на карте</Link>}
             />
             <Link to="https://t.me/mortadelshop" target="_blank">
               <TelegramIcon
