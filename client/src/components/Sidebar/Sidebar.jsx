@@ -167,7 +167,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", position: "fixed" }}>
       <CssBaseline />
       <AppBar />
       <Drawer
