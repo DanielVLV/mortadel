@@ -11,6 +11,8 @@ import CartForm from "./CartForm/CartForm";
 import CartRow from "./cartRow/CartRow";
 import Favourites from "./Favourites/Favourites";
 import styles from "./cart.module.css";
+import "./Cart.css";
+
 
 function Cart() {
   const cartArr = useSelector(getCart);
@@ -54,7 +56,13 @@ function Cart() {
       {user && (
         <>
           <span>Корзина</span>
-          <Switch onChange={handleChange} />
+          {/* <Switch onChange={handleChange} /> */}
+          <div className="switch">
+            <label htmlFor="check">
+              <input type="checkbox" id="check" />
+            </label>
+          </div>
+
           <span>Избранное</span>
         </>
       )}
