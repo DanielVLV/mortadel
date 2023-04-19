@@ -22,7 +22,7 @@ function Login() {
   const dispatch = useDispatch();
 
   const paperStyle = {
-    padding: 20, height: '60vh', width: 300, margin: "0 auto"
+    padding: 20, height: '60vh', width: 300, margin: "0 auto", backgroundColor: 'rgba(67, 71, 92, 0.3)'
   };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
 
