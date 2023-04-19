@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable function-paren-newline */
 /* eslint-disable react/jsx-curly-newline */
 /* eslint-disable react/jsx-wrap-multilines */
@@ -24,6 +25,7 @@ import {
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
 import { domainAddress } from '../../constants/api';
+import './Sidebar.css';
 
 const drawerWidth = 200;
 
@@ -198,20 +200,26 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               onChange={(event) => handleSearchInput(event)}
             />
             {tags?.map((el) => (
-              <ListItem key={el.id} disablePadding>
-                <ListItemButton>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
+              <ListItem key={el.id}>
+                {/* <ListItemButton> */}
+                <FormControlLabel
+                  control={
+                    <div className="checkbox-css">
+                      <input
+                          // id="check2"
+                        type="checkbox"
                         value={el.id}
                         onChange={(e) =>
-                          handleTag(e.target.value, e.target.checked)
-                        }
+                          handleTag(e.target.value, e.target.checked)}
                       />
+                      <label htmlFor="check2" />
+                    </div>
                     }
-                    label={el.tagName}
-                  />
-                </ListItemButton>
+                  label={el.tagName}
+                />
+                {/* </ListItemButton> */}
+
+
               </ListItem>
             ))}
           </List>
