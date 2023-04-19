@@ -20,7 +20,13 @@ import { addFav } from "../../../redux/product.slice";
 import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
 import { domainAddress } from "../../../constants/api";
 
-function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loading }) {
+function CategoryCard({
+  product,
+  onlyProductIdsFromFavs,
+  setFavs,
+  allFavs,
+  loading,
+}) {
   const user = useSelector((state) => state.UserSlice.value);
   const productId = product.id;
   const dispatch = useDispatch();
@@ -49,7 +55,6 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
     }
   };
 
-
   const favObj = allFavs.find((el) => el.productId === productId);
   const favId = favObj?.id;
   const handleClickAddToCart = () => {
@@ -74,10 +79,7 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
   };
 
   return (
-    <Box
-      sx={{ mb: 1, mt: 1 }}
-      style={{ border: "1px solid grey" }}
-    >
+    <Box sx={{ mb: 1, mt: 1 }} style={{ border: "1px solid grey" }}>
       <Card>
         <Box style={{ display: "flex" }}>
           <Box style={{ display: "flex" }}>
@@ -98,6 +100,14 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
               <Typography variant="body1" color="text.secondary" align="center">
                 {product?.description}
               </Typography>
+              <Button
+                sx={{ mt: 7, ml: 3 }}
+                variant="outlined"
+                onClick={handleClickAddToCart}
+              >
+                В корзину
+                <ShoppingCartIcon />
+              </Button>
               {user &&
                 (isInFav ? (
                   <Button
@@ -118,14 +128,6 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
                     В избранное
                   </Button>
                 ))}
-              <Button
-                sx={{ mt: 7, ml: 3 }}
-                variant="outlined"
-                onClick={handleClickAddToCart}
-              >
-                В корзину
-                <ShoppingCartIcon />
-              </Button>
             </CardContent>
           </Box>
         </Box>

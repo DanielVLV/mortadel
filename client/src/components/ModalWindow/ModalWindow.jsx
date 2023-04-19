@@ -45,11 +45,19 @@ function ModalWindow({ open, setOpen }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
         maxWidth={"lg"}
+        PaperProps={{
+          style: {
+            backgroundColor: "rgba(84, 90, 121, 0.958)",
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
+            borderRadius: "20px",
+          },
+        }}
       >
         <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
           <DialogContentText
-            sx={{ fontFamily: 'Lato Medium, sans-serif' }}
+            sx={{ fontFamily: "Lato Medium, sans-serif" }}
             id="alert-dialog-slide-description"
           >
             <Box
@@ -61,11 +69,14 @@ function ModalWindow({ open, setOpen }) {
               <div className={styles.textContainer}>
                 <img src={product?.img} className={styles.img} />
                 {/* <br /> */}
-                <span className={styles.span}>Описание:</span> {product?.description}
+                <span className={styles.span}>Описание:</span>{" "}
+                {product?.description}
                 <br />
-                <span className={styles.span}>Состав:</span> {product?.fullDescription}
+                <span className={styles.span}>Состав:</span>{" "}
+                {product?.fullDescription}
                 <br />
-                <span className={styles.span}>Вес:</span>{product?.weight}г.
+                <span className={styles.span}>Вес:</span>
+                {product?.weight}г.
                 {/* <br /> */}
               </div>
               <FormOrder
