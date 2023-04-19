@@ -3,18 +3,11 @@
   src: url('../../fonts/Lato/Lato-Medium.ttf');
 }
 
-.alldivDesign {
-  /* background-image: url(../../../public/background.jpg); */
-  /* background-color:  #F0F1F5; */
-  /* background-image: linear-gradient(to bottom, #F6E4C8, #D3BFA0); */
+.alldivDesign{
+  background: url(../../../public/background1.jpg) no-repeat center center fixed;
+  background-size: cover;
+ z-index: -2;
 
-  /* background: -webkit-linear-gradient(left, #4e4e52 20px, transparent 1%) center, -webkit-linear-gradient(#4e4e52 20px, transparent 1%) center, #635f5f;
-  background: linear-gradient(90deg, #4e4e52 20px, transparent 1%) center, linear-gradient(#4e4e52 20px, transparent 1%) center, #635f5f;
-  background-size: 22px 22px; */
-
-  height: 100%;
-  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
-  background-blend-mode: multiply;
 }
 
 .container {
@@ -42,31 +35,42 @@
 }
 
 .imgPosition {
+  background-size: cover;
   display: flex;
   justify-content: space-around;
-  background-color: #F0F1F5;
-  padding: 20px;
+  background-color: rgba(67, 71, 92, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-    0 0 10px rgba(0, 0, 0, 0.107);
-  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
-                background-blend-mode: multiply; */
+  padding: 50px 35px;
 }
 
-.text {
+.textLeft {
   font-family: 'Lato Medium', sans-serif;
   font-weight: bolder;
-  font-size: 20px;
-  color: rgb(62, 19, 19);
+  font-size: 15px;
+  color: #E0D6BD;
   margin: 0 10px 0 10px;
   cursor: default;
-  background-color: #F0F1F5;
-  padding: 20px;
+  background-color: rgba(67, 71, 92, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-    0 0 10px rgba(0, 0, 0, 0.107);
-  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
-              background-blend-mode: multiply; */
+  padding: 50px 35px;
+}
+
+.textRight {
+  font-family: 'Lato Medium', sans-serif;
+  font-weight: bolder;
+  font-size: 15px;
+  color: #E0D6BD;
+  margin: 0 10px 0 10px;
+  cursor: default;
+  background-color: rgba(67, 71, 92, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
+  border-radius: 10px;
+  padding: 50px 35px;
 }
 
 /* .buttonParent>div>; {
@@ -89,18 +93,13 @@
   padding-bottom: 30px;
 }
 
-/* .inputGroop {} */
-
 .designFormStyle {
   display: flex;
-  background-color: #F0F1F5;
-  /* padding: 37px; */
-  margin: 20px;
+  background-color: rgba(67, 71, 92, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-    0 0 10px rgba(0, 0, 0, 0.107);
-  /*  background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
-              background-blend-mode: multiply; */
+  padding: 50px 35px;
 }
 
 #app {
@@ -141,30 +140,24 @@ body {
   align-items: center;
 }
 
-.mySwiper {
-  width: 420px;
-  height: 320px;
+.mySwiperGift {
+  width: 350px;
+  height: 282px;
   border-radius: 20px;
   margin: 10px;
-  background-color: #F0F1F5;
-  padding: 20px;
+  background-size: cover;
+  background-color: rgba(67, 71, 92, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(111, 111, 111, 0.234),
-    0 0 10px rgba(0, 0, 0, 0.107);
-  /* box-shadow: 0 0 30px rgba(129, 225, 242, 0.4),
-                0 0 20px rgba(104, 219, 248, 0.2); */
-  /* background: repeating-linear-gradient(-45deg, transparent, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 2em, transparent 0, transparent 1em, rgba(178, 224, 241, 0.11) 0, rgba(178, 224, 241, 0.11) 4em, transparent 0, transparent 1em, rgba(192, 235, 250, 0.6) 0, rgba(190, 235, 251, 0.13) 2em), repeating-linear-gradient(45deg, transparent, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(190, 235, 251, 0.13) 2em, transparent 0, transparent 1em, rgba(190, 235, 251, 0.13) 0, rgba(191, 232, 247, 0.13) 4em, transparent 0, transparent 1em, rgba(191, 232, 247, 0.13) 0, rgba(191, 232, 247, 0.13) 2em), #fafcfd;
-                background-blend-mode: multiply; */
+  padding: 50px 35px;
 }
 
-.swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
+
+.oneCardBackground{
+  background-color: rgba(67, 71, 92, 0.932);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 60px var(--metal);
 }
 
 .pointer {
@@ -172,11 +165,14 @@ body {
 }
 
 .craftPaperStyle {
-  /* border-radius: 20px;  */
   border-radius: 10px;
   border: #E8E8EC;
-  /* box-shadow: 0 0 30px rgba(2, 1, 1, 0.235),
-              0 0 20px rgba(0, 0, 0, 0.148); */
+}
+
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
 }
 
 /* @media (max-width: 767px) {

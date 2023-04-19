@@ -1,13 +1,11 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import Button from '@mui/material/Button';
+import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import DensityMediumIcon from '@mui/icons-material/DensityMedium';
-import HeightTwoToneIcon from '@mui/icons-material/HeightTwoTone';
 import './menuPopupState.css';
 
 export default function MenuPopupState() {
@@ -18,23 +16,25 @@ export default function MenuPopupState() {
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
         <>
-          <Button
+          <MenuSharpIcon
             sx={{
               display: 'flex',
-              bgcolor: '#D1875d2',
-              minWidth: '5px',
-              width: '10px',
-              height: '40px',
+              bgcolor: 'transparent',
+              color: 'Gold',
+              '& .MuiSvgIcon-root': {
+                fontSize: '100px',
+              },
               '&:hover': {
-                bgcolor: 'DarkOrange',
-                color: 'blue',
+                color: 'DarkOrange',
+                transform: 'scale(1.2)',
+                transition: 'transform 0.3s ease-in-out'
               },
             }}
             variant="contained"
             {...bindTrigger(popupState)}
           >
-            <HeightTwoToneIcon />
-          </Button>
+            {/* <HeightTwoToneIcon /> */}
+          </MenuSharpIcon>
           <Menu {...bindMenu(popupState)}>
             {categoriesArr?.map((el) => (
               <MenuItem key={el.id} sx={{ height: '36px', width: '400px', '&>*': { fontFamily: 'Lato Medium, sans-serif' }, }} onClick={popupState.close}>

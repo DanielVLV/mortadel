@@ -28,6 +28,7 @@ font-family: 'Comfortaa', sans-serif;
 
 .body {
   min-height: 88vh;
+  /* display: flex; */
   /* flex: 2; */
 }
 
