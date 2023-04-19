@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat:wght@800&display=swap');
+
+@font-face {
+  font-family: 'Lato Medium';
+  src: url('./fonts/Lato/Lato-Medium.ttf');
+}
+
+
+/*
+font-family: 'Comfortaa', sans-serif;
+   для текстов 
+
+  font-family: 'Montserrat', sans-serif;
+  /* заголовки 
+
+  font-family: 'Lato Medium', sans-serif;
+   пункты меню и мелкие подписи
+*/
+
+
+
 .App {
   display: flex;
   flex-direction: column;
@@ -6,6 +28,7 @@
 
 .body {
   min-height: 88vh;
+  /* display: flex; */
   /* flex: 2; */
 }
 

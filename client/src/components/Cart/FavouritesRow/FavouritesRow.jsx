@@ -60,14 +60,28 @@ function FavouritesRow({ favProduct, setFavs, el }) {
               alt=""
             />
             <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
-              <Typography gutterBottom variant="h6" align="center">
+              <Typography
+                sx={{ fontFamily: 'Montserrat, sans-serif' }}
+                gutterBottom
+                variant="h6"
+                align="center"
+              >
                 {favProduct.title}
               </Typography>
-              <Typography variant="body1" color="text.secondary" align="center">
+              <Typography
+                sx={{ fontFamily: 'Comfortaa, sans-serif' }}
+                variant="body1"
+                color="text.secondary"
+                align="center"
+              >
                 {favProduct.description}
               </Typography>
               <Button
-                sx={{ mt: 4, mr: 2 }}
+                sx={{
+                  mt: 4,
+                  mr: 2,
+                  fontFamily: 'Lato Medium sans-serif'
+                }}
                 onClick={handleFavDelete}
                 variant="contained"
                 endIcon={<StarHalfIcon />}
@@ -76,7 +90,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
               </Button>
 
               <Button
-                sx={{ mt: 4, ml: 2 }}
+                sx={{ mt: 4, ml: 2, fontFamily: 'Lato Medium sans-serif' }}
                 variant="outlined"
                 onClick={handleClickAddToCart}
               >

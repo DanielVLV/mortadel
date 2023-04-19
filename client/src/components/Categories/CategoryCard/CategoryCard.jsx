@@ -76,11 +76,10 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
   return (
     <Box
       sx={{ mb: 1, mt: 1 }}
-      style={{ border: "1px solid grey", maxWidth: 1000 }}
+      style={{ border: "1px solid grey" }}
     >
       <Card>
         <Box style={{ display: "flex" }}>
-          {/* <CardActionArea> */}
           <Box style={{ display: "flex" }}>
             <CardMedia
               sx={{
@@ -88,7 +87,7 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
                 display: "flex",
               }}
               component="img"
-              height="250"
+              // height="100%"
               image={product?.img}
               alt=""
             />

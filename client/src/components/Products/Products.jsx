@@ -31,12 +31,13 @@ function Products() {
   }, []);
 
   return (
-    <Box>
-      <Grid
+   <Box style={{ display: "flex" }}>
+      <Grid style={{ display: "flex" }} container spacing={2}>
         container
         spacing={2}
         className={stylesProduct.gridContainer}
       >
+
         <Grid item xs={2}>
           <Sidebar
             setFilter={setFilter}
@@ -45,7 +46,7 @@ function Products() {
           />
         </Grid>
         <Grid item xs={10}>
-          <Box component="main" sx={{ p: 3 }}>
+          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
             {filteredProducts
               ? filteredProducts.map((el) => (
                   <CategoryRow

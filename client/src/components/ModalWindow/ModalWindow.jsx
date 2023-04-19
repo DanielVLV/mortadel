@@ -14,7 +14,9 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { useSelector } from "react-redux";
+import { Box } from "@mui/material";
 import FormOrder from "../FormOrder/FormOrder";
+import styles from "./modal.module.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,13 +24,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function ModalWindow({ open, setOpen }) {
   const product = useSelector((state) => state.ProductSlice.oneProduct);
-  const [phoneError, setPhoneError] = useState('');
+  const [phoneError, setPhoneError] = useState("");
   const [form, setForm] = useState({
-    phone: '', name: '',
+    phone: "",
+    name: "",
   });
 
   const handleClose = () => {
-    setPhoneError('');
+    setPhoneError("");
     setOpen(false);
     setForm({ phone: "", name: "" });
   };
@@ -41,26 +44,40 @@ function ModalWindow({ open, setOpen }) {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        maxWidth={"lg"}
       >
         <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            <img src={product?.img} />
-            Описание: {product?.description}
-            <br />
-            Состав: {product?.fullDescription}
-            <br />
-            Вес: {product?.weight}
-            <br />
-            <FormOrder
-              productId={product?.id}
-              open={open}
-              setOpen={setOpen}
-              phoneError={phoneError}
-              setPhoneError={setPhoneError}
-              form={form}
-              setForm={setForm}
-            />
+          <DialogContentText
+            sx={{ fontFamily: 'Lato Medium, sans-serif' }}
+            id="alert-dialog-slide-description"
+          >
+            <Box
+              sx={{
+                display: "flex",
+                width: "fit-content",
+              }}
+            >
+              <div className={styles.textContainer}>
+                <img src={product?.img} className={styles.img} />
+                {/* <br /> */}
+                <span className={styles.span}>Описание:</span> {product?.description}
+                <br />
+                <span className={styles.span}>Состав:</span> {product?.fullDescription}
+                <br />
+                <span className={styles.span}>Вес:</span>{product?.weight}г.
+                {/* <br /> */}
+              </div>
+              <FormOrder
+                productId={product?.id}
+                open={open}
+                setOpen={setOpen}
+                phoneError={phoneError}
+                setPhoneError={setPhoneError}
+                form={form}
+                setForm={setForm}
+              />
+            </Box>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

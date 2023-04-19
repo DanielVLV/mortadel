@@ -28,7 +28,7 @@ function Signup() {
   };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: '#1bbd7e' };
-  const btnstyle = { margin: '8px 0' };
+  const btnstyle = { margin: '8px 0', fontFamily: 'Montserrat sans-serif' };
 
   const handleInput = (event) => {
     if (error) { dispatch(clearError()); }
@@ -69,7 +69,13 @@ function Signup() {
             <AddCircleOutlineRoundedIcon />
           </Avatar>
           <h2 style={headerStyle}>Регистрация</h2>
-          <Typography variant="caption" gutterBottom>Пожалуйста, заполните для создания аккаунта !</Typography>
+          <Typography
+            sx={{ fontFamily: 'Montserrat sans-serif', fontSize: '15px' }}
+            variant="caption"
+            gutterBottom
+          >
+            Пожалуйста, заполните для создания аккаунта !
+          </Typography>
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>
           <TextField fullWidth label="Имя" name="name" placeholder="Введите свое имя" value={form?.name} onChange={handleInput} />
@@ -97,7 +103,7 @@ function Signup() {
           <Button style={btnstyle} type="submit" variant="contained" color="primary" fullWidth>Регистрация</Button>
         </form>
 
-        <Typography>
+        <Typography sx={{ fontFamily: 'Montserrat sans-serif', fontSize: '15px' }}>
           Есть аккаунт в Google?
         </Typography>
         <GoogleLogin
@@ -114,7 +120,7 @@ function Signup() {
             console.log('Login Failed');
           }}
         />
-        {error && <div style={{ color: 'red' }}>Пользователь уже зарегистрирован</div>}
+        {error && <div style={{ color: 'red', fontFamily: 'Montserrat sans-serif' }}>Пользователь уже зарегистрирован</div>}
       </Paper>
     </Grid>
   );

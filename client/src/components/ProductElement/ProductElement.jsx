@@ -99,11 +99,18 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         sx={{ minHeight: '335px' }}
       >
         <CardMedia
+        className="oneProductCard"
           sx={{ height: 180, borderRadius: '20px' }}
+      >
           image={product.img}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            sx={{ fontFamily: 'Lato Medium, sans-serif', }}
+            gutterBottom
+            variant="h5"
+            component="div"
+          >
             {product.title}
           </Typography>
         </CardContent>

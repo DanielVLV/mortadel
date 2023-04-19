@@ -167,7 +167,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", position: "fixed" }}>
       <CssBaseline />
       <AppBar />
       <Drawer
@@ -213,8 +213,13 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
             />
             {tags?.map((el) => (
               <ListItem key={el.id}>
-                {/* <ListItemButton> */}
                 <FormControlLabel
+                  sx={{
+                    "& > label > *": {
+                      fontFamily: 'Lato Medium, sans-serif',
+                      fontSize: '18px',
+                    }
+                  }}
                   control={
                     <div className="checkbox-css">
                       <input
@@ -229,7 +234,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
                     }
                   label={el.tagName}
                 />
-                {/* </ListItemButton> */}
+
 
 
               </ListItem>
