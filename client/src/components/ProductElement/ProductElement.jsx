@@ -96,7 +96,6 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         <CardMedia
           className="oneProductCard"
           sx={{ height: 300 }}
-
           image={product.img}
         />
         <CardContent>

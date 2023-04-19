@@ -39,11 +39,6 @@ function ModalWindow({ open, setOpen }) {
   return (
     <div>
       <Dialog
-        sx={{
-          '&>*': {
-
-          }
-        }}
         open={open}
         TransitionComponent={Transition}
         keepMounted
@@ -53,9 +48,10 @@ function ModalWindow({ open, setOpen }) {
       >
         <DialogTitle>{product?.title}</DialogTitle>
         <DialogContent>
-          <DialogContentText 
+          <DialogContentText
             sx={{ fontFamily: 'Lato Medium, sans-serif' }}
-          id="alert-dialog-slide-description">
+            id="alert-dialog-slide-description"
+          >
             <Box
               sx={{
                 display: "flex",
