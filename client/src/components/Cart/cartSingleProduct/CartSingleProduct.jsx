@@ -37,9 +37,16 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
   return (
     <Box
       sx={{ mb: 1, mt: 1 }}
-      style={{ border: "1px solid grey", maxWidth: 1000 }}
+      style={{ maxWidth: 1000 }}
     >
-      <Card>
+      <Card
+        sx={{
+          backgroundColor: "rgba(67, 71, 92, 0.3)",
+          border: "2px solid rgba(255, 255, 255, 0.1)",
+          boxShadow: "0 0 60px var(--metal)",
+          borderRadius: "20px",
+        }}
+      >
         <Box style={{ display: "flex" }}>
           {/* <CardActionArea> */}
           <Box style={{ display: "flex" }}>
@@ -53,14 +60,15 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
               image={singleProduct.img}
               alt=""
             />
-            <CardContent sx={{
-              flex: 1,
-              m: 0,
-              width: "900px",
-            }}
+            <CardContent
+              sx={{
+                flex: 1,
+                m: 0,
+                width: "900px",
+              }}
             >
               <Typography
-                sx={{ fontFamily: 'Montserrat, sans-serif'}}
+                sx={{ fontFamily: "Montserrat, sans-serif" }}
                 gutterBottom
                 variant="h6"
                 align="center"
@@ -68,7 +76,7 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
                 {singleProduct.title}
               </Typography>
               <Typography
-                sx={{ fontFamily: 'Comfortaa, sans-serif'}}
+                sx={{ fontFamily: "Comfortaa, sans-serif" }}
                 variant="body1"
                 color="text.secondary"
                 align="center"
@@ -83,7 +91,9 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
                 >
                   +
                 </Button>
-                <span style={{ fontFamily: 'Comfortaa, sans-serif'}}>{count[singleProduct.id]}</span>
+                <span style={{ fontFamily: "Comfortaa, sans-serif" }}>
+                  {count[singleProduct.id]}
+                </span>
                 <Button
                   variant="outlined"
                   onClick={hadleClickRemove}

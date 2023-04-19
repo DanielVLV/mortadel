@@ -15,7 +15,7 @@ function SignInOutContainer() {
     setValue(newValue);
   };
 
-  const paperStyle = { width: 340, margin: "20px auto" };
+  const paperStyle = { width: 340, margin: "20px auto", backgroundColor: 'rgba(78, 66, 92, 0.3)' };
   function TabPanel(props) {
     const {
       children, index,
@@ -57,7 +57,6 @@ function SignInOutContainer() {
         <Signup />
       </TabPanel>
     </Paper>
-
   );
 }
 

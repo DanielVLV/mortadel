@@ -21,18 +21,40 @@ import { Link, useLocation } from "react-router-dom";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import { useDispatch, useSelector } from "react-redux";
+import styled from "@emotion/styled";
 import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
-import { domainAddress } from '../../constants/api';
-import './Sidebar.css';
+import { domainAddress } from "../../constants/api";
+import "./Sidebar.css";
 
 const drawerWidth = 100;
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#ffd700",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#ffd700",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#ffd700",
+      borderRadius: 12,
+    },
+    "&:hover fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "& .MuiInputBase-input": {
+      color: "#ffd700",
+    },
+  },
+});
 
-export default function Sidebar({
-  setFilter, products, filteredProducts
-}) {
+export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [tags, setTags] = useState();
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchInput, setSearchInput] = useState("");
@@ -79,16 +101,14 @@ export default function Sidebar({
     }
 
     if (filteredProducts && !isEmpty) {
-      const arr = SAGATURBONITROFILTERED
-        .map((category) => ({
-          ...category,
-          Products: category.Products.filter((product) =>
-            selectedTags.every((tagId) =>
-              product.Tags.some((tag) => tag.id === Number(tagId))
-            )
-          ),
-        }))
-        .filter((category) => category.Products.length > 0);
+      const arr = SAGATURBONITROFILTERED.map((category) => ({
+        ...category,
+        Products: category.Products.filter((product) =>
+          selectedTags.every((tagId) =>
+            product.Tags.some((tag) => tag.id === Number(tagId))
+          )
+        ),
+      })).filter((category) => category.Products.length > 0);
 
       setFilter(arr);
     } else if (filteredProducts && isEmpty) {
@@ -184,12 +204,6 @@ export default function Sidebar({
           bgcolor: 'transparent',
           color: '#353757',
           fontSize: '2.5rem',
-          // marginRight: 'auto',
-          // position: 'absolute',
-          // transform: 'translate(-800px, -8px)',
-          // '& .MuiSvgIcon-root': {
-          //   fontSize: '200px',
-          // },
           '&:hover': {
             color: 'DarkOrange',
             transform: 'scale(1.2)',
@@ -206,11 +220,7 @@ export default function Sidebar({
           sx={{
             flexShrink: 0,
             "& .MuiDrawer-paper": {
-              marginTop: '145px',
-              maxHeight: '595px',
-              // minWidth: '300px',
               display: flag,
-              // position: "fixed",
               boxSizing: "border-box",
               borderRadius: '20px',
               backgroundColor: 'rgba(67, 71, 92, 0.135)',
@@ -223,6 +233,8 @@ export default function Sidebar({
             sx={{
               overflow: "auto",
               borderRadius: '20px',
+              color: "Gold",
+              
               padding: '30px',
               backgroundColor: 'rgba(67, 71, 92, 0.135)',
               border: '2px solid rgba(255, 255, 255, 0.1)',
@@ -230,7 +242,7 @@ export default function Sidebar({
             }}
           >
             <List>
-              <TextField
+              <CssTextField
                 id="outlined-textarea"
                 type="text"
                 label="Поиск по товарам"
@@ -248,6 +260,7 @@ export default function Sidebar({
                       "& > label > *": {
                         fontFamily: 'Lato Medium, sans-serif',
                         fontSize: '18px',
+                        color: "gold",
                       }
                     }}
                     control={
@@ -271,6 +284,5 @@ export default function Sidebar({
         </Drawer>
       </Box>
     </>
-
   );
 }

@@ -13,7 +13,10 @@ import {
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarHalfIcon from "@mui/icons-material/StarHalf";
 import { useDispatch, useSelector } from "react-redux";
-import { addIntoCart, createUniqueCart } from "../../../redux/CartRedux/cart.actions";
+import {
+  addIntoCart,
+  createUniqueCart,
+} from "../../../redux/CartRedux/cart.actions";
 import { domainAddress } from "../../../constants/api";
 
 function FavouritesRow({ favProduct, setFavs, el }) {
@@ -41,11 +44,15 @@ function FavouritesRow({ favProduct, setFavs, el }) {
     dispatch(createUniqueCart());
   };
   return (
-    <Box
-      sx={{ mb: 1, mt: 1, }}
-      style={{ border: "1px solid #1c243c", maxWidth: 1000 }}
-    >
-      <Card>
+    <Box sx={{ mb: 1, mt: 1 }} style={{ maxWidth: 1000 }}>
+      <Card
+        sx={{
+          backgroundColor: "rgba(67, 71, 92, 0.3)",
+          border: "2px solid rgba(255, 255, 255, 0.1)",
+          boxShadow: "0 0 60px var(--metal)",
+          borderRadius: "20px",
+        }}
+      >
         <Box style={{ display: "flex" }}>
           {/* <CardActionArea> */}
           <Box style={{ display: "flex" }}>
@@ -61,7 +68,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
             />
             <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
               <Typography
-                sx={{ fontFamily: 'Montserrat, sans-serif' }}
+                sx={{ fontFamily: "Montserrat, sans-serif" }}
                 gutterBottom
                 variant="h6"
                 align="center"
@@ -69,7 +76,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
                 {favProduct.title}
               </Typography>
               <Typography
-                sx={{ fontFamily: 'Comfortaa, sans-serif' }}
+                sx={{ fontFamily: "Comfortaa, sans-serif" }}
                 variant="body1"
                 color="text.secondary"
                 align="center"
@@ -80,7 +87,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
                 sx={{
                   mt: 4,
                   mr: 2,
-                  fontFamily: 'Lato Medium sans-serif'
+                  fontFamily: "Lato Medium sans-serif",
                 }}
                 onClick={handleFavDelete}
                 variant="contained"
@@ -90,7 +97,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
               </Button>
 
               <Button
-                sx={{ mt: 4, ml: 2, fontFamily: 'Lato Medium sans-serif' }}
+                sx={{ mt: 4, ml: 2, fontFamily: "Lato Medium sans-serif" }}
                 variant="outlined"
                 onClick={handleClickAddToCart}
               >
