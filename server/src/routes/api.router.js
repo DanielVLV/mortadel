@@ -100,8 +100,8 @@ router.get('/favs', async (req, res) => {
 router.post('/favs', async (req, res) => {
   try {
     const { productId, user } = req.body;
-    await Favourites.findOrCreate({ where: { productId, userId: user.id } });
-    res.sendStatus(200);
+    const newObjFavs = await Favourites.findOrCreate({ where: { productId, userId: user.id } });
+    res.json(newObjFavs);
     console.log('success', req.body);
   } catch (err) {
     console.log({ msg: err.message });
