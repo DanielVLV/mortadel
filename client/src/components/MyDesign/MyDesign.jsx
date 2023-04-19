@@ -29,40 +29,8 @@ function MyDesign() {
 
   return (
     <div className={styles.alldivDesign}>
-      <div id={styles.particleContainer}>
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-        <div className={styles.particle} />
-      </div>
       <div className={styles.container}>
-        <div className={styles.text}>
+        <div className={styles.textLeft}>
           Выбери принт
           <div className={styles.boxPrint}>
             <Box
@@ -172,7 +140,7 @@ function MyDesign() {
                   Кружка
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ fontSize: '12px', color: '#E0D6BD' }}
                   value="./img/14.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -231,7 +199,7 @@ function MyDesign() {
         <Box
           className={styles.boxPaperStyle}
         >
-          <div className={styles.text}>
+          <div className={styles.textRight}>
             Цвет упаковки
             <div>
               <ButtonGroup
@@ -276,7 +244,7 @@ function MyDesign() {
         <Swiper
           effect="cards"
           grabCursor
-          className={styles.mySwiper}
+          className={styles.mySwiperGift}
           keyboard={{
             enabled: true,
           }}
@@ -287,16 +255,16 @@ function MyDesign() {
           modules={[EffectCards, Pagination, Navigation]}
           onSlideChange={handleSlideChange}
         >
-          <SwiperSlide>
+          <SwiperSlide className={styles.oneCardBackground}>
             <img src="./img/bouquet1.png" alt="img" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.oneCardBackground}>
             <img src="./img/bouquet2.png" alt="img" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.oneCardBackground}>
             <img src="./img/bouquet3.png" alt="img" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.oneCardBackground}>
             <img src="./img/bouquet4.png" alt="img" />
           </SwiperSlide>
         </Swiper>
