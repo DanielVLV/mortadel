@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable indent */
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/jsx-indent */
@@ -10,7 +11,7 @@ import CategoryCard from "./CategoryCard/CategoryCard";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { domainAddress } from "../../constants/api";
 
-function Categories() {
+function Categories({ bar }) {
   const { categoryId } = useParams();
   const products = useSelector((state) => state.ProductSlice.products);
   const [filteredProducts, setFilter] = useState(null);
@@ -48,6 +49,7 @@ function Categories() {
         setFilter={setFilter}
         filteredProducts={filteredProducts}
         products={products}
+        bar={bar}
       />
       <Box
         component="main"

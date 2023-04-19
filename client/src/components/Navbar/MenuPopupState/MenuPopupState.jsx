@@ -32,9 +32,7 @@ export default function MenuPopupState() {
             }}
             variant="contained"
             {...bindTrigger(popupState)}
-          >
-            {/* <HeightTwoToneIcon /> */}
-          </MenuSharpIcon>
+          />
           <Menu {...bindMenu(popupState)}>
             {categoriesArr?.map((el) => (
               <MenuItem key={el.id} sx={{ height: '36px', width: '400px', '&>*': { fontFamily: 'Lato Medium, sans-serif' }, }} onClick={popupState.close}>
