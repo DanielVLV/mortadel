@@ -176,15 +176,27 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            position: "static",
+            marginTop: '145px',
+            maxHeight: '595px',
+            minWidth: '300px',
+            position: "fixed",
             width: drawerWidth,
             boxSizing: "border-box",
+            borderRadius: '20px',
+            backgroundColor: 'rgba(67, 71, 92, 0.135)',
+            border: '2px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 0 60px var(--metal)',
           },
         }}
       >
         <Box
           sx={{
             overflow: "auto",
+            borderRadius: '20px',
+            padding: '30px',
+            backgroundColor: 'rgba(67, 71, 92, 0.135)',
+            border: '2px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 0 60px var(--metal)',
           }}
         >
           <List>
@@ -201,8 +213,13 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
             />
             {tags?.map((el) => (
               <ListItem key={el.id}>
-                {/* <ListItemButton> */}
                 <FormControlLabel
+                  sx={{
+                    "& > label > *": {
+                      fontFamily: 'Lato Medium, sans-serif',
+                      fontSize: '18px',
+                    }
+                  }}
                   control={
                     <div className="checkbox-css">
                       <input
@@ -217,7 +234,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
                     }
                   label={el.tagName}
                 />
-                {/* </ListItemButton> */}
+
 
 
               </ListItem>

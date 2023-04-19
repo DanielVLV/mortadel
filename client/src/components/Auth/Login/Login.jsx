@@ -56,8 +56,15 @@ function Login() {
         <Grid align="center">
 
           <Avatar style={avatarStyle}><LockRoundedIcon /></Avatar>
-          <h2>Войти</h2>
-          <Typography variant="caption" gutterBottom>Пожалуйста, войдите в свою учетную запись !</Typography>
+          <h2 style={{ fontFamily: 'Montserrat sans-serif' }}>Войти</h2>
+          <Typography
+            sx={{ fontFamily: 'Montserrat sans-serif', fontSize: '14px', mb: '5px' }}
+            variant="caption"
+            gutterBottom
+          >
+            Пожалуйста, войдите в свою учетную запись !
+
+          </Typography>
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>
 
@@ -75,7 +82,7 @@ function Login() {
           <Button type="submit" color="primary" variant="contained" style={btnstyle} fullWidth>Вход</Button>
         </form>
 
-        <Typography>
+        <Typography sx={{ fontFamily: 'Montserrat sans-serif', fontSize: '16px', fontWeight: 'normal' }}>
           Есть аккаунт в Google?
         </Typography>
         <Typography>
@@ -94,7 +101,7 @@ function Login() {
             }}
           />
         </Typography>
-        {error && <div style={{ color: 'red' }}>Неверная пара email/пароль</div>}
+        {error && <div style={{ color: 'red', fontFamily: 'Montserrat sans-serif' }}>Неверная пара email/пароль</div>}
       </Paper>
     </Grid>
   );

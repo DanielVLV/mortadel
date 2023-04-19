@@ -38,7 +38,14 @@ function FormOrder({
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormControl id="inputGroup">
+      <FormControl
+        sx={{
+          '&>*': {
+            fontFamily: 'Lato Medium, sans-serif'
+          }
+        }}
+        id="inputGroup"
+      >
         <TextField
           id="phone"
           label="Телефон"

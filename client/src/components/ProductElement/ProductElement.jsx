@@ -82,6 +82,10 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
     <Card
       sx={{
         width: 800,
+        backgroundColor: 'rgba(67, 71, 92, 0.3)',
+        border: '2px solid rgba(255, 255, 255, 0.1)',
+        boxShadow: '0 0 60px var(--metal)',
+        borderRadius: '20px',
         // padding: '15px',
         "&:hover": {
           transform: "translateY(-10px)",
@@ -90,25 +94,37 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         },
       }}
     >
-      <CardActionArea onClick={handleClickOpen}>
+      <CardActionArea
+        onClick={handleClickOpen}
+        sx={{ minHeight: '335px' }}
+      >
         <CardMedia
-          sx={{ height: 300 }}
+        className="oneProductCard"
+          sx={{ height: 180, borderRadius: '20px' }}
+      >
           image={product.img}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            sx={{ fontFamily: 'Lato Medium, sans-serif', }}
+            gutterBottom
+            variant="h5"
+            component="div"
+          >
             {product.title}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions
+        sx={{ minHeight: '36px', display: 'flex', justifyContent: 'space-between' }}
+      >
         <Button size="small" onClick={handleClickAddToCart}>
           В корзину
         </Button>
         {user &&
           (isInFav ? (
             <Button
-              sx={{ mt: 7, mr: 3 }}
+              sx={{ fontSize: '12px' }}
               onClick={handleFavDelete}
               variant="contained"
               endIcon={<StarHalfIcon />}
@@ -117,7 +133,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             </Button>
           ) : (
             <Button
-              sx={{ mt: 7, mr: 3 }}
+              sx={{ }}
               onClick={handleAddToFavs}
               variant="outlined"
               endIcon={<StarHalfIcon />}

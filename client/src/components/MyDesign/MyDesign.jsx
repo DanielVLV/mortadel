@@ -36,75 +36,115 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-                "& > *": {
-                },
+
               }}
             >
               <ButtonGroup
-                sx={{ maxWidth: "300px" }}
+                sx={{ maxWidth: "300px",
+                  "& > *": {
+                    fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'rgb(62, 19, 19)',
+                  }
+                }}
                 orientation="vertical"
                 aria-label="vertical contained button group"
                 variant="text"
               >
                 <Button
-                  style={isRequireAdaptaption ? ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })
-                    : ({ fontSize: '12px', color: 'rgb(62, 19, 19)' })}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/1.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пантера
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/2.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Дракон
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/4.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Тигр
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/3.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пума
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/5.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Сердечко
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/6.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Нота
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/7.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Корона
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/8.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Волк
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={isRequireAdaptaption ? ({
+                    // fontSize: '12px',
+                    color: 'rgb(62, 19, 19)' })
+                    : ({
+                      color: 'rgb(62, 19, 19)' })}
                   value="./img/11.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -121,19 +161,27 @@ function MyDesign() {
               }}
             >
               <ButtonGroup
+                sx={
+                  {
+                    "& > *": {
+                      fontFamily: 'Lato Medium, sans-serif',
+                      fontSize: '14px',
+                    }
+                  }
+}
                 orientation="vertical"
                 aria-label="vertical contained button group"
                 variant="text"
               >
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/12.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Микрофон
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/13.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -147,42 +195,42 @@ function MyDesign() {
                   Пиво
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/15.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Космос
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/16.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Бургер
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/17.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пенное
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/18.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пикник
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/20.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Роза
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ color: 'rgb(62, 19, 19)' }}
                   value="./img/21.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -203,33 +251,39 @@ function MyDesign() {
             Цвет упаковки
             <div>
               <ButtonGroup
+                sx={{
+                  '& > *': {
+                    fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                  }
+                }}
                 orientation="vertical"
                 aria-label="vertical contained button group"
                 variant="text"
               >
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper1.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Стандарт
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper2.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Яркий
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper3.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Зеленый
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: 'rgb(62, 19, 19)' }}
+                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
                   value="./img/paper4.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
