@@ -76,7 +76,7 @@ export default function Navbar() {
               value="/contacts"
               label={<Link to="/contacts">Связаться с нами</Link>}
             />
-            <Link to="https://t.me/goncharovp" target="_blank">
+            <Link to="https://t.me/mortadelshop" target="_blank">
               <TelegramIcon
                 sx={{
                   '&:hover': {
