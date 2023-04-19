@@ -12,11 +12,12 @@ import { domainAddress } from '../../../constants/api';
 import { validateEmail } from '../../../js/api.functions';
 
 function Login() {
-  const error = useSelector((state) => state.UserSlice.error);
-  const [form, setForm] = useState({
+  const initialState = {
     email: '',
     password: '',
-  });
+  };
+  const error = useSelector((state) => state.UserSlice.error);
+  const [form, setForm] = useState(initialState);
   const [emailError, setEmailError] = useState('');
   const dispatch = useDispatch();
 
@@ -36,18 +37,10 @@ function Login() {
     if (validateEmail(form.email)) {
       const url = `${domainAddress}/signin`;
       dispatch(signUpUser({ url, form }));
-      setForm({
-        email: '',
-        password: '',
-      });
+      setForm(initialState);
     } else {
       setEmailError('Некорректный email');
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
-      });
+      setForm(initialState);
     }
   };
   const navigateClick = async (googleToken) => {

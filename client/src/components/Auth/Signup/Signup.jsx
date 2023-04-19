@@ -11,14 +11,15 @@ import { domainAddress } from '../../../constants/api';
 import { validateEmail, validatePhone } from '../../../js/api.functions';
 
 function Signup() {
-  const error = useSelector((state) => state.UserSlice.error);
-  const dispatch = useDispatch();
-  const [form, setForm] = useState({
+  const initialState = {
     name: '',
     email: '',
     phone: '',
     password: '',
-  });
+  };
+  const error = useSelector((state) => state.UserSlice.error);
+  const dispatch = useDispatch();
+  const [form, setForm] = useState(initialState);
   const [phoneError, setPhoneError] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -41,29 +42,14 @@ function Signup() {
     if (validatePhone(form.phone) && validateEmail(form.email)) {
       const url = `${domainAddress}/signup`;
       dispatch(signUpUser({ url, form }));
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
-      });
+      setForm(initialState);
     } else {
       if (!validatePhone(form.phone)) {
         setPhoneError('Некорректный номер телефона');
-        setForm({
-          name: '',
-          email: '',
-          phone: '',
-          password: '',
-        });
+        setForm(initialState);
       } if (!validateEmail(form.email)) {
         setEmailError('Некорректный email');
-        setForm({
-          name: '',
-          email: '',
-          phone: '',
-          password: '',
-        });
+        setForm(initialState);
       }
     }
   };
