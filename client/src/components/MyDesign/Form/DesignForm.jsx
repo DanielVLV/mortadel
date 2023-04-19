@@ -51,8 +51,18 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <FormControl id="inputGroup">
+    <form
+      onSubmit={handleSubmit}
+    >
+      <FormControl
+        sx={{
+          "& > *": {
+            fontFamily: 'Lato Medium, sans-serif',
+            fontSize: '14px',
+          }
+        }}
+        id="inputGroup"
+      >
         <TextField
           id="phone"
           label="Телефон"

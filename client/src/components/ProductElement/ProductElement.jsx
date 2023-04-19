@@ -90,13 +90,22 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         },
       }}
     >
-      <CardActionArea onClick={handleClickOpen}>
+      <CardActionArea
+        onClick={handleClickOpen}
+      >
         <CardMedia
+          className="oneProductCard"
           sx={{ height: 300 }}
+
           image={product.img}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            sx={{ fontFamily: 'Lato Medium, sans-serif', }}
+            gutterBottom
+            variant="h5"
+            component="div"
+          >
             {product.title}
           </Typography>
         </CardContent>
