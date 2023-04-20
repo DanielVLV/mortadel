@@ -28,6 +28,7 @@ const CssTextField = styled(TextField)({
     "& fieldset": {
       borderColor: "#ffd700",
       borderRadius: 12,
+      marginBottom: 8,
     },
     "&:hover fieldset": {
       borderColor: "#c5aa12",
@@ -61,7 +62,7 @@ function Login() {
     margin: "0 auto",
     backgroundColor: "rgba(67, 71, 92, 0.3)",
   };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
+  const avatarStyle = { backgroundColor: "#353757" };
 
   const handleInput = (event) => {
     if (error) {
@@ -90,7 +91,7 @@ function Login() {
       })
     );
   };
-  const btnstyle = { margin: "8px 0" };
+  const btnstyle = { margin: "8px 0", backgroundColor: "#353757", color: "gold" };
   return (
     <Grid>
       <Paper style={paperStyle}>
@@ -98,7 +99,7 @@ function Login() {
           <Avatar style={avatarStyle}>
             <LockRoundedIcon />
           </Avatar>
-          <h2 style={{ fontFamily: "Montserrat sans-serif" }}>Войти</h2>
+          <h2 style={{ fontFamily: "Montserrat sans-serif", fontSize: 36, margin: 0 }}>Войти</h2>
           <Typography
             sx={{
               fontFamily: "Montserrat sans-serif",

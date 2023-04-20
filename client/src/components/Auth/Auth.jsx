@@ -15,7 +15,9 @@ function SignInOutContainer() {
     setValue(newValue);
   };
 
-  const paperStyle = { width: 340, margin: "20px auto", backgroundColor: 'rgba(78, 66, 92, 0.3)' };
+  const paperStyle = {
+    width: 340, margin: "20px auto", backgroundColor: 'rgba(78, 66, 92, 0.4)', color: "gold"
+  };
   function TabPanel(props) {
     const {
       children, index,
@@ -46,9 +48,9 @@ function SignInOutContainer() {
         onChange={handleChange}
         aria-label="disabled tabs example"
       >
-        <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Вход" />
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Вход" />
 
-        <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Регистрация" />
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Регистрация" />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Login />
