@@ -44,7 +44,8 @@ function Categories({ bar }) {
   );
 
   const categoryIdParams = useParams();
-  const categoryHeader = products[categoryIdParams.categoryId].categoryName;
+  // console.log(+categoryIdParams.categoryId);
+  const categoryHeader = products[+categoryIdParams.categoryId - 1].categoryName;
 
   return (
     <Box style={{ display: "flex" }}>
