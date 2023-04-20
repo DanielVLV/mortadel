@@ -109,7 +109,7 @@ function Login() {
             variant="caption"
             gutterBottom
           >
-            Пожалуйста, войдите в свою учетную запись !
+            {/* Пожалуйста, войдите в свою учетную запись ! */}
           </Typography>
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -154,6 +154,7 @@ function Login() {
             fontFamily: "Montserrat sans-serif",
             fontSize: "16px",
             fontWeight: "normal",
+            color: 'gold'
           }}
         >
           Есть аккаунт в Google?

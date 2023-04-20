@@ -154,7 +154,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
               sx={{
                 color: 'gold',
                 border: '1px solid gold',
-                maxHeight: '50px',
+                minHeight: '50px',
                 minWidth: '45%',
                 textAlign: 'center',
                 "&:hover": {

@@ -20,8 +20,8 @@ function CategoryRow({ el, setOpen, setFavs, allFavs, loading }) {
         <Link style={{ padding: 0 }} to={`/categories/${el.id}`}>
           <div style={{
             fontFamily: 'Montserrat, sans-serif',
-            fontSize: '30px',
-            color: '#000080',
+            fontSize: '40px',
+            color: '#353757',
             fontWeight: 'bold',
           }}
           >

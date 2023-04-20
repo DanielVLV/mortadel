@@ -61,6 +61,8 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
               sx={{
                 maxWidth: 250,
                 display: "flex",
+                borderRadius: '20px',
+                alignSelf: "center",
               }}
               component="img"
               height="250"

@@ -43,6 +43,9 @@ function Categories({ bar }) {
     (el) => el.id === +categoryId
   );
 
+  const categoryIdParams = useParams();
+  const categoryHeader = products[categoryIdParams.categoryId].categoryName;
+
   return (
     <Box style={{ display: "flex" }}>
       <Sidebar
@@ -61,6 +64,15 @@ function Categories({ bar }) {
           p: 3
         }}
       >
+      <div style={{
+            fontFamily: 'Montserrat, sans-serif',
+            fontSize: '32px',
+            color: '#353757',
+            fontWeight: 'bold',
+          }}
+      >
+            {categoryHeader}
+      </div>
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
               <CategoryCard
