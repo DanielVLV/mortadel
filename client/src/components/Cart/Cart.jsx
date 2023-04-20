@@ -27,16 +27,11 @@ function Cart() {
   // удаление повторных элементов
   useEffect(() => {
     const uniqueArr = cartArr.filter(
-      (obj, index, self) =>
-        index === self.findIndex((t) => t.id === obj.id && t.name === obj.name)
+      (obj, index, self) => index === self.findIndex((t) => t.id === obj.id && t.name === obj.name)
     );
-    // const uniqueSet = new Set(cartArr);
-    // console.log(uniqueArr, "NEW UNIQUE ARR");
     setUnique(uniqueArr);
   }, [cartArr]);
-  // console.log(cartArr, "cartArr");
-  // console.log(uniqueCart, "uniqueCartWADADAWDAWDAWDAWDAWD");
-  // console.log(uniqueArray, "unique");
+
 
   const uniqueArraySorted = uniqueArray.sort((a, b) => (a.id > b.id ? 1 : -1));
   // подсчет количества повторений каждого элемента
