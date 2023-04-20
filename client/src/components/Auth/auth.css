@@ -3,9 +3,12 @@
   justify-content: center;
 }
 
-.body {
-  background: url(../../../public/background1.jpg) no-repeat center center fixed;
-  background-size: cover;
+.authContainer {
   height: 100vh;
 }
 
+.body {
+  min-height: 100vh;
+  background: url(../../../public/background1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}

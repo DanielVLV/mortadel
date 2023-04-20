@@ -40,6 +40,7 @@ function SignInOutContainer() {
   }
 
   return (
+    <div className="authContainer">
     <Paper elevation={20} style={paperStyle}>
       <Tabs
         value={value}
@@ -59,6 +60,7 @@ function SignInOutContainer() {
         <Signup />
       </TabPanel>
     </Paper>
+    </div>
   );
 }
 
