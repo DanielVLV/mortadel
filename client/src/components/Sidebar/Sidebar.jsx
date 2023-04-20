@@ -208,7 +208,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         sx={{
           marginLeft: 4,
           bgcolor: "transparent",
-          color: "#353757",
+          color: "gold",
           fontSize: "2.5rem",
           "&:hover": {
             color: "DarkOrange",
