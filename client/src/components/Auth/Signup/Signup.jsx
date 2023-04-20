@@ -15,6 +15,7 @@ import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRou
 import { clearError, signUpUser } from "../../../redux/user.slice";
 import { domainAddress } from "../../../constants/api";
 import { validateEmail, validatePhone } from "../../../js/api.functions";
+import '../auth.css';
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -27,6 +28,7 @@ const CssTextField = styled(TextField)({
     "& fieldset": {
       borderColor: "#ffd700",
       borderRadius: 12,
+      margin: 8,
     },
     "&:hover fieldset": {
       borderColor: "#c5aa12",
@@ -63,9 +65,11 @@ function Signup() {
     margin: "0 auto",
     backgroundColor: "rgba(67, 71, 92, 0.3)",
   };
-  const headerStyle = { margin: 0 };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const btnstyle = { margin: "8px 0", fontFamily: "Montserrat sans-serif" };
+  const headerStyle = { fontSize: 36, margin: 0 };
+  const avatarStyle = { backgroundColor: "#353757" };
+  const btnstyle = {
+    margin: "8px 0", fontFamily: "Montserrat sans-serif", backgroundColor: "#353757", color: "gold"
+  };
 
   const handleInput = (event) => {
     if (error) {
@@ -116,7 +120,7 @@ function Signup() {
             variant="caption"
             gutterBottom
           >
-            Пожалуйста, заполните для создания аккаунта !
+            Заполните для создания аккаунта !
           </Typography>
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>

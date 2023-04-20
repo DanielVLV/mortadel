@@ -15,7 +15,9 @@ function SignInOutContainer() {
     setValue(newValue);
   };
 
-  const paperStyle = { width: 340, margin: "20px auto", backgroundColor: 'rgba(78, 66, 92, 0.3)' };
+  const paperStyle = {
+    width: 340, margin: "20px auto", backgroundColor: 'rgba(78, 66, 92, 0.4)', color: "gold"
+  };
   function TabPanel(props) {
     const {
       children, index,
@@ -39,24 +41,25 @@ function SignInOutContainer() {
 
   return (
     <div className="authContainer">
-      <Paper elevation={20} style={paperStyle}>
-        <Tabs
-          value={value}
-          indicatorColor="primary"
-          textColor="primary"
-          onChange={handleChange}
-          aria-label="disabled tabs example"
-        >
-          <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Вход" />
-          <Tab sx={{ fontFamily: 'Montserrat sans-serif' }} label="Регистрация" />
-        </Tabs>
-        <TabPanel value={value} index={0}>
-          <Login />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <Signup />
-        </TabPanel>
-      </Paper>
+    <Paper elevation={20} style={paperStyle}>
+      <Tabs
+        value={value}
+        indicatorColor="primary"
+        textColor="primary"
+        onChange={handleChange}
+        aria-label="disabled tabs example"
+      >
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Вход" />
+
+        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Регистрация" />
+      </Tabs>
+      <TabPanel value={value} index={0}>
+        <Login />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Signup />
+      </TabPanel>
+    </Paper>
     </div>
   );
 }
