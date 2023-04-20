@@ -95,14 +95,23 @@ function CategoryCard({
               alt=""
             />
             <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
-              <Typography gutterBottom variant="h6" align="center" sx={{ color: 'gold' }}>
+              <Typography
+                gutterBottom
+                variant="h6"
+                align="center"
+                sx={{
+                  fontFamily: 'Lato Medium, sans-serif',
+                  color: 'gold' }}
+              >
                 {product?.title}
               </Typography>
               <Typography
                 variant="body1"
                 color="text.secondary"
                 align="center"
-                sx={{ color: 'gold' }}
+                sx={{
+                  fontFamily: 'Comfortaa, sans-serif',
+                  color: 'gold' }}
               >
                 {product?.description}
               </Typography>
@@ -110,6 +119,7 @@ function CategoryCard({
                 sx={{ mt: 7,
                   ml: 3,
                   color: 'gold',
+                  fontFamily: 'Lato Medium, sans-serif',
                   "&:hover": { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
                 }}
                 variant="outlined"
@@ -126,6 +136,7 @@ function CategoryCard({
                       ml: 3,
                       color: 'gold',
                       backgroundColor: "rgba(82, 122, 83, 0.801)",
+                      fontFamily: 'Lato Medium, sans-serif',
                       "&:hover": {
                         backgroundColor: "rgba(154, 89, 89, 0.801)"
                       } }}
@@ -141,6 +152,7 @@ function CategoryCard({
                       mr: 3,
                       ml: 3,
                       color: 'gold',
+                      fontFamily: 'Lato Medium, sans-serif',
                       "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" } }}
                     onClick={handleAddToFavs}
                     variant="outlined"
