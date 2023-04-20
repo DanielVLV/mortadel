@@ -243,19 +243,19 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
           >
             <List>
               <CssTextField
-              InputLabelProps={{
-                style: { color: "#ffd700" },
-              }}
-              id="custom-css-outlined-input"
-              type="text"
-              label="Поиск по товарам"
-              placeholder="Поиск"
-              multiline
-              size="small"
-              name="searchInput"
-              value={searchInput}
-              onChange={(event) => handleSearchInput(event)}
-            />
+                InputLabelProps={{
+                  style: { color: "#ffd700" },
+                }}
+                id="custom-css-outlined-input"
+                type="text"
+                label="Поиск по товарам"
+                placeholder="Поиск"
+                multiline
+                size="small"
+                name="searchInput"
+                value={searchInput}
+                onChange={(event) => handleSearchInput(event)}
+              />
               {tags?.map((el) => (
                 <ListItem key={el.id}>
                   <FormControlLabel

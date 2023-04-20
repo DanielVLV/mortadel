@@ -108,7 +108,15 @@ function FormOrder({
           value={form.name}
           required
         />
-        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+        <Button
+          sx={{ fontFamily: "Lato Medium, sans-serif",
+            color: 'gold',
+            background: 'rgba(128, 128, 128)',
+            borderRadius: '10px' }}
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+        >
           Оставить заявку
         </Button>
       </FormControl>
