@@ -3,7 +3,6 @@
   src: url("../../fonts/Lato/Lato-Medium.ttf");
 }
 
-
 .alldivDesign {
   background: url(../../../public/background1.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -47,8 +46,8 @@
 .textLeft {
   font-family: "Lato Medium", sans-serif;
   font-weight: bolder;
-  font-size: 15px;
-  color: #e0d6bd;
+  font-size: 20px;
+  color: #E0D6BD;
   margin: 0 10px 0 10px;
   cursor: default;
   background-color: rgba(67, 71, 92, 0.3);
@@ -58,11 +57,15 @@
   padding: 50px 35px;
 }
 
+.textLeft>* {
+  margin-top: 10px;
+}
+
 .textRight {
   font-family: "Lato Medium", sans-serif;
   font-weight: bolder;
-  font-size: 15px;
-  color: #e0d6bd;
+  font-size: 20px;
+  color: #E0D6BD;
   margin: 0 10px 0 10px;
   cursor: default;
   background-color: rgba(67, 71, 92, 0.3);
@@ -70,6 +73,10 @@
   box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
   padding: 50px 35px;
+}
+
+.textRight>* {
+  margin-top: 10px;
 }
 
 /* .buttonParent>div>; {

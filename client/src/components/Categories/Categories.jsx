@@ -54,12 +54,11 @@ function Categories({ bar }) {
       <Box
         component="main"
         sx={{
- display: "flex",
-flexDirection: "column",
-        alignItems: "center",
-flexGrow: 1,
-p: 3,
-marginRight: "5%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          flexGrow: 1,
+          p: 3
         }}
       >
         {filteredProducts
