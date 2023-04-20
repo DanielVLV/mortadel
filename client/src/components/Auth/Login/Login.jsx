@@ -118,6 +118,7 @@ function Login() {
               style: { color: "#ffd700" },
             }}
             fullWidth
+            autoComplete="off"
             label="Email"
             name="email"
             placeholder="Введите свой email"
@@ -131,6 +132,7 @@ function Login() {
               style: { color: "#ffd700" },
             }}
             fullWidth
+            autoComplete="off"
             label="Пароль"
             name="password"
             placeholder="Введите пароль"

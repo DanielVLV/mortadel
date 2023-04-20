@@ -103,6 +103,7 @@ function CartForm({ count, summaryPrice }) {
           }}
           id="phone"
           label="Телефон"
+          autoComplete="off"
           variant="outlined"
           name="phone"
           onChange={handleInput}
@@ -116,6 +117,7 @@ function CartForm({ count, summaryPrice }) {
             style: { color: "#ffd700" },
           }}
           id="phoneRep"
+          autoComplete="off"
           label="Повторить номер телефона"
           variant="outlined"
           name="phone2"
@@ -128,6 +130,7 @@ function CartForm({ count, summaryPrice }) {
             style: { color: "#ffd700" },
           }}
           id="name"
+          autoComplete="off"
           label="Имя"
           variant="outlined"
           name="name"

@@ -93,6 +93,7 @@ function FormOrder({
           }}
           // InputProps={{ style: customStyle }}
           id="phone"
+          autoComplete="off"
           label="Телефон"
           variant="outlined"
           name="phone"
@@ -108,6 +109,7 @@ function FormOrder({
           }}
           id="name"
           label="Имя"
+          autoComplete="off"
           variant="outlined"
           name="name"
           onChange={handleInput}

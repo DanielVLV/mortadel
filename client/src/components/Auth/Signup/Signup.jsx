@@ -130,6 +130,7 @@ function Signup() {
             }}
             id="custom-css-outlined-input"
             fullWidth
+            autoComplete="off"
             label="Имя"
             name="name"
             placeholder="Введите свое имя"
@@ -142,6 +143,7 @@ function Signup() {
             }}
             id="custom-css-outlined-input"
             fullWidth
+            autoComplete="off"
             label="Email"
             name="email"
             placeholder="Введите свой email"
@@ -156,6 +158,7 @@ function Signup() {
             }}
             id="custom-css-outlined-input"
             fullWidth
+            autoComplete="off"
             label="Номер телефона"
             placeholder="Введите номер телефона"
             name="phone"
@@ -170,6 +173,7 @@ function Signup() {
             }}
             id="custom-css-outlined-input"
             fullWidth
+            autoComplete="off"
             label="Пароль"
             name="password"
             placeholder="Введите пароль"

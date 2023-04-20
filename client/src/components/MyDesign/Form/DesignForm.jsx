@@ -100,6 +100,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           }}
           id="phone"
           label="Телефон"
+          autoComplete="off"
           variant="outlined"
           name="phone"
           onChange={handleInput}
@@ -113,6 +114,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
             style: { color: "#ffd700" },
           }}
           id="phoneRep"
+          autoComplete="off"
           label="Повторить номер телефона"
           variant="outlined"
           name="phone2"
@@ -126,6 +128,7 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           }}
           id="name"
           label="Имя"
+          autoComplete="off"
           variant="outlined"
           name="name"
           onChange={handleInput}
