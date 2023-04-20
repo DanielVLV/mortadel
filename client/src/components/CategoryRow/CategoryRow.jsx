@@ -30,7 +30,6 @@ function CategoryRow({ el, setOpen, setFavs, allFavs, loading }) {
         }}
         navigation
         modules={[Pagination, Navigation]}
-        className={styles.mySwiperCategory}
       >
         {el.Products.map((product) => (
           <SwiperSlide className={styles.categoryOneCardBackground}>
