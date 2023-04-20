@@ -1,6 +1,12 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
-import { Button, FormControl, styled, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Button,
+  FormControl,
+  styled,
+  TextField,
+} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useState } from "react";
 import { domainAddress } from "../../../constants/api";
@@ -26,6 +32,9 @@ const CssTextField = styled(TextField)({
     },
     "& .MuiInputBase-input": {
       color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
     },
   },
 });

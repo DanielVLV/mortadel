@@ -1,9 +1,10 @@
 @font-face {
-  font-family: 'Lato Medium';
-  src: url('../../fonts/Lato/Lato-Medium.ttf');
+  font-family: "Lato Medium";
+  src: url("../../fonts/Lato/Lato-Medium.ttf");
 }
 
-.alldivDesign{
+
+.alldivDesign {
   background: url(../../../public/background1.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
@@ -15,7 +16,6 @@
   justify-content: center;
   padding-top: 30px;
   margin-bottom: 30px;
-
 }
 
 .boxPrint {
@@ -45,10 +45,10 @@
 }
 
 .textLeft {
-  font-family: 'Lato Medium', sans-serif;
+  font-family: "Lato Medium", sans-serif;
   font-weight: bolder;
   font-size: 15px;
-  color: #E0D6BD;
+  color: #e0d6bd;
   margin: 0 10px 0 10px;
   cursor: default;
   background-color: rgba(67, 71, 92, 0.3);
@@ -59,10 +59,10 @@
 }
 
 .textRight {
-  font-family: 'Lato Medium', sans-serif;
+  font-family: "Lato Medium", sans-serif;
   font-weight: bolder;
   font-size: 15px;
-  color: #E0D6BD;
+  color: #e0d6bd;
   margin: 0 10px 0 10px;
   cursor: default;
   background-color: rgba(67, 71, 92, 0.3);
@@ -102,7 +102,7 @@
 }
 
 #app {
-  height: 100%
+  height: 100%;
 }
 
 html,
@@ -152,8 +152,7 @@ body {
   padding: 50px 35px;
 }
 
-
-.oneCardBackground{
+.oneCardBackground {
   background-color: rgba(67, 71, 92, 0.932);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 60px var(--metal);
@@ -165,9 +164,8 @@ body {
 
 .craftPaperStyle {
   border-radius: 10px;
-  border: #E8E8EC;
+  border: #e8e8ec;
 }
-
 
 .particle {
   position: absolute;
@@ -182,20 +180,19 @@ body {
 */
 
 @media (min-width: 768px) and (max-width: 1100px) {
-
   .craftPaperStyle {
     max-width: 380px;
   }
 
   .text {
     padding: 7px;
-    font-family: 'Lato Medium', sans-serif;
-    font-size: '18px',
+    font-family: "Lato Medium", sans-serif;
+    font-size: "18px";
   }
 
   .print {
     max-width: 380px;
-    color: rgb(62, 19, 19)
+    color: rgb(62, 19, 19);
   }
 
   .mySwiper {

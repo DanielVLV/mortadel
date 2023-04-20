@@ -36,6 +36,9 @@ const CssTextField = styled(TextField)({
     },
     "& .MuiInputBase-input": {
       color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
     },
   },
 });
