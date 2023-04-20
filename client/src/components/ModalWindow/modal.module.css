@@ -6,10 +6,12 @@
 }
 
 .textContainer {
- max-width: 800px;
+  max-width: 800px;
 }
 
 .span {
-    font-size: 20px;
-    font-style: oblique;
+  font-family: "Lato Medium", sans-serif;
+  font-size: 20px;
+  font-style: oblique;
+  color: gold
 }

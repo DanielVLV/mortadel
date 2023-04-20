@@ -54,7 +54,14 @@ function ModalWindow({ open, setOpen }) {
           },
         }}
       >
-        <DialogTitle>{product?.title}</DialogTitle>
+        <DialogTitle sx={{
+          fontFamily: "Lato Medium, sans-serif",
+          fontSize: '26px',
+          textAlign: "center",
+          color: 'Gold'
+        }}
+        >{product?.title}
+        </DialogTitle>
         <DialogContent>
           <DialogContentText
             sx={{ fontFamily: "Lato Medium, sans-serif" }}
@@ -92,7 +99,11 @@ function ModalWindow({ open, setOpen }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Закрыть</Button>
+          <Button
+            sx={{ fontFamily: "Lato Medium, sans-serif", }}
+            onClick={handleClose}
+          >Закрыть
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
