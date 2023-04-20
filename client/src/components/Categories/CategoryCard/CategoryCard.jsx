@@ -79,8 +79,17 @@ function CategoryCard({
   };
 
   return (
-    <Box sx={{ mb: 1, mt: 1 }} style={{ border: "1px solid grey", borderRadius: '20px', backgrounCol: 'black' }}>
-      <Card sx={{ backgroundColor: "rgba(67, 71, 92, 0.900)", borderRadius: '20px' }}>
+    <Box
+      sx={{ mb: 1, mt: 1 }}
+      style={{
+        border: "1px solid grey",
+        borderRadius: '20px',
+        backgrounCol: 'black' }}
+    >
+      <Card sx={{
+        backgroundColor: "rgba(67, 71, 92, 0.900)",
+        borderRadius: '20px' }}
+      >
         <Box style={{ display: "flex" }}>
           <Box style={{ display: "flex" }}>
             <CardMedia
@@ -120,6 +129,10 @@ function CategoryCard({
                   ml: 3,
                   color: 'gold',
                   fontFamily: 'Lato Medium, sans-serif',
+                  border: '1px solid gold',
+                  maxHeight: '50px',
+                  minWidth: '25%',
+                  textAlign: 'center',
                   "&:hover": { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
                 }}
                 variant="outlined"
@@ -137,6 +150,10 @@ function CategoryCard({
                       color: 'gold',
                       backgroundColor: "rgba(82, 122, 83, 0.801)",
                       fontFamily: 'Lato Medium, sans-serif',
+                      border: '1px solid gold',
+                      maxHeight: '50px',
+                      minWidth: '25%',
+                      textAlign: 'center',
                       "&:hover": {
                         backgroundColor: "rgba(154, 89, 89, 0.801)"
                       } }}
@@ -153,6 +170,10 @@ function CategoryCard({
                       ml: 3,
                       color: 'gold',
                       fontFamily: 'Lato Medium, sans-serif',
+                      border: '1px solid gold',
+                      maxHeight: '50px',
+                      minWidth: '25%',
+                      textAlign: 'center',
                       "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" } }}
                     onClick={handleAddToFavs}
                     variant="outlined"

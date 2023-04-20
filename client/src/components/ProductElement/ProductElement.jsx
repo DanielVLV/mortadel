@@ -125,7 +125,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             minHeight: '50px',
             minWidth: '45%',
             textAlign: 'center',
-
+            '&:hover': { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
           }}
         >
           В корзину
