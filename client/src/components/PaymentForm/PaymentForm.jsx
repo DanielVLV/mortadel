@@ -12,12 +12,6 @@ function PaymentForm({ openPayment, setOpenPayment, summaryPrice }) {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
-  //   const [open, setOpen] = useState(true);
-  //   const PUBLIC_KEY = process.env.STRIPE_PUBLIC_KEY;
-
-  //   const stripeTestPromise = loadStripe(PUBLIC_KEY);
-  //   console.log(PUBLIC_KEY);
-
   const handleClose = () => {
     setOpenPayment(false);
   };
