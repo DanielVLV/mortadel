@@ -3,7 +3,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-bind */
 import React from "react";
-import { TextField, FormControl, Button, styled, makeStyles } from "@mui/material";
+import {
+  TextField,
+  FormControl,
+  Button,
+  styled,
+  makeStyles,
+} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
 import "./FormOrder.css";
@@ -30,11 +36,12 @@ const CssTextField = styled(TextField)({
     },
     "& .MuiInputBase-input": {
       color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
     },
   },
 });
-
-
 
 function FormOrder({
   productId,
@@ -67,7 +74,6 @@ function FormOrder({
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
-
   return (
     <form onSubmit={handleSubmit}>
       <FormControl
@@ -83,7 +89,7 @@ function FormOrder({
             style: { color: "#ffd700" },
           }}
           AutocompleteProps={{
-            style: { backgroundColor: "red", color: "white" } // задаем inline-стиль для фона и цвета текста в дропдауне
+            style: { backgroundColor: "red", color: "white" }, // задаем inline-стиль для фона и цвета текста в дропдауне
           }}
           // InputProps={{ style: customStyle }}
           id="phone"
