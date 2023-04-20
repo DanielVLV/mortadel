@@ -18,7 +18,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Link, useLocation } from "react-router-dom";
-import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import {
+  CardActionArea, Checkbox, FormControlLabel, TextField
+} from "@mui/material";
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import styled from "@emotion/styled";
@@ -50,6 +52,9 @@ const CssTextField = styled(TextField)({
     },
     "& .MuiInputBase-input": {
       color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
     },
   },
 });
@@ -65,11 +70,12 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   );
   const [bar, setBar] = useState(false);
   let flag;
-  if (bar) { flag = 'sa'; } else { flag = 'none'; }
+
+  if (bar) { flag = 'block'; } else { flag = 'none'; }
+
   const handleChangeBar = () => {
     setBar(!bar);
   };
-
 
   const dispatch = useDispatch();
   const getProductsFromState = useSelector(
@@ -201,18 +207,18 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
       <ManageSearchOutlinedIcon
         sx={{
           marginLeft: 4,
-          bgcolor: 'transparent',
-          color: '#353757',
-          fontSize: '2.5rem',
-          '&:hover': {
-            color: 'DarkOrange',
-            transform: 'scale(1.2)',
-            transition: 'transform 0.3s ease-in-out'
+          bgcolor: "transparent",
+          color: "#353757",
+          fontSize: "2.5rem",
+          "&:hover": {
+            color: "DarkOrange",
+            transform: "scale(1.2)",
+            transition: "transform 0.3s ease-in-out",
           },
         }}
         onClick={handleChangeBar}
       />
-      <Box sx={{ display: "flex", position: "fixed" }}>
+      <Box sx={{ display: "flex", position: "fixed", top: "120px" }}>
         <CssBaseline />
         <AppBar />
         <Drawer
@@ -221,24 +227,26 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
             width: drawerWidth,
             flexShrink: 0,
             "& .MuiDrawer-paper": {
+              top: "5%",
+              position: "relative",
               width: drawerWidth,
               display: flag,
               boxSizing: "border-box",
-              borderRadius: '20px',
-              backgroundColor: 'rgba(67, 71, 92, 0.801)',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 0 60px var(--metal)',
+              borderRadius: "20px",
+              backgroundColor: "rgba(67, 71, 92, 0.801)",
+              border: "2px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 0 60px var(--metal)",
             },
           }}
         >
           <Box
             sx={{
               overflow: "auto",
-              borderRadius: '20px',
+              borderRadius: "20px",
               color: "Gold",
-              backgroundColor: 'rgba(67, 71, 92, 0.135)',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-              boxShadow: '0 0 60px var(--metal)',
+              backgroundColor: "rgba(67, 71, 92, 0.135)",
+              border: "2px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 0 60px var(--metal)",
             }}
           >
             <List>
@@ -258,28 +266,30 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               />
               {tags?.map((el) => (
                 <ListItem key={el.id}>
-                  <FormControlLabel
-                    sx={{
-                      "& > label > *": {
-                        fontFamily: 'Lato Medium, sans-serif',
-                        fontSize: '18px',
-                        color: "gold",
-                      }
-                    }}
-                    control={
-                      <div className="checkbox-css">
-                        <input
+                  <CardActionArea>
+                    <FormControlLabel
+                      sx={{
+                        "& > label > *": {
+                          fontFamily: 'Lato Medium, sans-serif',
+                          fontSize: '18px',
+                          color: "gold",
+                        }
+                      }}
+                      control={
+                        <div className="checkbox-css">
+                          <input
                           // id="check2"
-                          type="checkbox"
-                          value={el.id}
-                          onChange={(e) =>
-                            handleTag(e.target.value, e.target.checked)}
-                        />
-                        <label htmlFor="check2" />
-                      </div>
+                            type="checkbox"
+                            value={el.id}
+                            onChange={(e) =>
+                              handleTag(e.target.value, e.target.checked)}
+                          />
+                          <label htmlFor="check2" />
+                        </div>
                     }
-                    label={el.tagName}
-                  />
+                      label={el.tagName}
+                    />
+                  </CardActionArea>
                 </ListItem>
               ))}
             </List>

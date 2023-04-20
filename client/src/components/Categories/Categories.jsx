@@ -67,7 +67,6 @@ function Categories({ bar }) {
                 key={el.id}
                 product={el}
                 setOpen={setOpen}
-                // onlyProductIdsFromFavs={onlyProductIdsFromFavs}
                 setFavs={setFavs}
                 allFavs={allFavs}
                 loading={loading}
