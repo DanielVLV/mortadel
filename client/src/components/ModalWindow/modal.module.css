@@ -3,6 +3,8 @@
   width: 300px;
   float: left;
   margin-right: 15px;
+  border: solid 1px #ADD8E6;
+  border-radius: 15px;
 }
 
 .textContainer {

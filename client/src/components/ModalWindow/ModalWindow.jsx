@@ -86,7 +86,9 @@ function ModalWindow({ open, setOpen }) {
                 <br />
                 <span className={styles.span}>Вес:</span>{"  "}
                 {product?.weight}г.
-                {/* <br /> */}
+                <br />
+                <span className={styles.span}>Цена:</span>{"  "}
+                {product?.price}€
               </div>
               <FormOrder
                 productId={product?.id}

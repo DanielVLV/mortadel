@@ -109,7 +109,10 @@ function FormOrder({
           required
         />
         <Button
-          sx={{ fontFamily: "Lato Medium, sans-serif", color: 'gold', background: 'rgba(128, 128, 128)' }}
+          sx={{ fontFamily: "Lato Medium, sans-serif",
+            color: 'gold',
+            background: 'rgba(128, 128, 128)',
+            borderRadius: '10px' }}
           type="submit"
           variant="contained"
           endIcon={<SendIcon />}
