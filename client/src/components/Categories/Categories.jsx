@@ -43,9 +43,8 @@ function Categories({ bar }) {
     (el) => el.id === +categoryId
   );
 
-  const categoryIdParams = useParams();
-  // console.log(+categoryIdParams.categoryId);
-  const categoryHeader = products[+categoryIdParams.categoryId - 1].categoryName;
+  const { categoryName } = category[0];
+
 
   return (
     <Box style={{ display: "flex" }}>
@@ -62,18 +61,19 @@ function Categories({ bar }) {
           flexDirection: "column",
           alignItems: "center",
           flexGrow: 1,
-          p: 3
+          p: 3,
         }}
       >
-      <div style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: '32px',
-            color: '#353757',
-            fontWeight: 'bold',
+        <div
+          style={{
+            fontFamily: "Montserrat, sans-serif",
+            fontSize: "32px",
+            color: "#353757",
+            fontWeight: "bold",
           }}
-      >
-            {categoryHeader}
-      </div>
+        >
+          {categoryName}
+        </div>
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
               <CategoryCard
