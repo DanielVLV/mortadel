@@ -3,7 +3,7 @@
   src: url('../../fonts/Lato/Lato-Medium.ttf');
 }
 
-.alldivDesign{
+.alldivDesign {
   background: url(../../../public/background1.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
@@ -47,7 +47,7 @@
 .textLeft {
   font-family: 'Lato Medium', sans-serif;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 20px;
   color: #E0D6BD;
   margin: 0 10px 0 10px;
   cursor: default;
@@ -58,10 +58,14 @@
   padding: 50px 35px;
 }
 
+.textLeft>* {
+  margin-top: 10px;
+}
+
 .textRight {
   font-family: 'Lato Medium', sans-serif;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 20px;
   color: #E0D6BD;
   margin: 0 10px 0 10px;
   cursor: default;
@@ -70,6 +74,10 @@
   box-shadow: 0 0 60px var(--metal);
   border-radius: 10px;
   padding: 50px 35px;
+}
+
+.textRight>* {
+  margin-top: 10px;
 }
 
 /* .buttonParent>div>; {
@@ -153,7 +161,7 @@ body {
 }
 
 
-.oneCardBackground{
+.oneCardBackground {
   background-color: rgba(67, 71, 92, 0.932);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 60px var(--metal);
