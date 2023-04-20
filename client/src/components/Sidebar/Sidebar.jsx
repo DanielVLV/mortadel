@@ -18,7 +18,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Link, useLocation } from "react-router-dom";
-import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import {
+  CardActionArea, Checkbox, FormControlLabel, TextField
+} from "@mui/material";
 import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import { useDispatch, useSelector } from "react-redux";
 import styled from "@emotion/styled";
@@ -65,7 +67,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   );
   const [bar, setBar] = useState(false);
   let flag;
-  if (bar) { flag = 'sa'; } else { flag = 'none'; }
+  if (bar) { flag = 'block'; } else { flag = 'none'; }
   const handleChangeBar = () => {
     setBar(!bar);
   };
@@ -212,7 +214,7 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
         }}
         onClick={handleChangeBar}
       />
-      <Box sx={{ display: "flex", position: "fixed" }}>
+      <Box sx={{ display: "flex", position: "fixed", top: "120px" }}>
         <CssBaseline />
         <AppBar />
         <Drawer
@@ -221,6 +223,8 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
             width: drawerWidth,
             flexShrink: 0,
             "& .MuiDrawer-paper": {
+              top: "5%",
+              position: "relative",
               width: drawerWidth,
               display: flag,
               boxSizing: "border-box",
@@ -258,28 +262,30 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
               />
               {tags?.map((el) => (
                 <ListItem key={el.id}>
-                  <FormControlLabel
-                    sx={{
-                      "& > label > *": {
-                        fontFamily: 'Lato Medium, sans-serif',
-                        fontSize: '18px',
-                        color: "gold",
-                      }
-                    }}
-                    control={
-                      <div className="checkbox-css">
-                        <input
+                  <CardActionArea>
+                    <FormControlLabel
+                      sx={{
+                        "& > label > *": {
+                          fontFamily: 'Lato Medium, sans-serif',
+                          fontSize: '18px',
+                          color: "gold",
+                        }
+                      }}
+                      control={
+                        <div className="checkbox-css">
+                          <input
                           // id="check2"
-                          type="checkbox"
-                          value={el.id}
-                          onChange={(e) =>
-                            handleTag(e.target.value, e.target.checked)}
-                        />
-                        <label htmlFor="check2" />
-                      </div>
+                            type="checkbox"
+                            value={el.id}
+                            onChange={(e) =>
+                              handleTag(e.target.value, e.target.checked)}
+                          />
+                          <label htmlFor="check2" />
+                        </div>
                     }
-                    label={el.tagName}
-                  />
+                      label={el.tagName}
+                    />
+                  </CardActionArea>
                 </ListItem>
               ))}
             </List>

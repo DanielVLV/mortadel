@@ -30,9 +30,16 @@ function Products({ bar }) {
   }, []);
 
   return (
-    <Box style={{ display: "flex" }}>
+    <Box style={{
+ display: "flex",
+}}
+    >
       <Grid
-        sx={{ position: "absolute" }}
+        sx={{
+marginTop: 0,
+        marginLeft: 0,
+        padding: 0
+}}
         container
         spacing={2}
         className={stylesProduct.gridContainer}
@@ -46,7 +53,7 @@ function Products({ bar }) {
           />
         {/* </Grid> */}
         <Grid item xs={10}>
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Box component="main" sx={{ flexGrow: 1, p: 3, marginLeft: 10 }}>
             {filteredProducts
               ? filteredProducts.map((el) => (
                   <CategoryRow
