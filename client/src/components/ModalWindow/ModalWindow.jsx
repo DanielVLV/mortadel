@@ -47,7 +47,9 @@ function ModalWindow({ open, setOpen }) {
         maxWidth={"lg"}
         PaperProps={{
           style: {
-            backgroundColor: "rgba(84, 90, 121, 0.958)",
+            // backgroundColor: "rgba(84, 90, 121, 0.958)",
+            // backgroundColor: 'rgba(128, 0, 0, 0.9)',
+            backgroundColor: 'rgba(64, 64, 64, 0.958)',
             border: "2px solid rgba(255, 255, 255, 0.1)",
             boxShadow: "0 0 60px var(--metal)",
             borderRadius: "20px",
@@ -76,13 +78,13 @@ function ModalWindow({ open, setOpen }) {
               <div className={styles.textContainer}>
                 <img src={product?.img} className={styles.img} />
                 {/* <br /> */}
-                <span className={styles.span}>Описание:</span>{" "}
+                <span className={styles.span}>Описание:</span>{"  "}
                 {product?.description}
                 <br />
-                <span className={styles.span}>Состав:</span>{" "}
+                <span className={styles.span}>Состав:</span>{"  "}
                 {product?.fullDescription}
                 <br />
-                <span className={styles.span}>Вес:</span>
+                <span className={styles.span}>Вес:</span>{"  "}
                 {product?.weight}г.
                 {/* <br /> */}
               </div>
@@ -100,7 +102,7 @@ function ModalWindow({ open, setOpen }) {
         </DialogContent>
         <DialogActions>
           <Button
-            sx={{ fontFamily: "Lato Medium, sans-serif", }}
+            sx={{ fontFamily: "Lato Medium, sans-serif", color: 'gold' }}
             onClick={handleClose}
           >Закрыть
           </Button>

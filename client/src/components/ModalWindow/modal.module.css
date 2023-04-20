@@ -6,6 +6,8 @@
 }
 
 .textContainer {
+  font-family: 'Comfortaa', sans-serif;
+  color: gold;
   max-width: 800px;
 }
 
@@ -13,5 +15,5 @@
   font-family: "Lato Medium", sans-serif;
   font-size: 20px;
   font-style: oblique;
-  color: gold
+  color: #ADD8E6
 }
