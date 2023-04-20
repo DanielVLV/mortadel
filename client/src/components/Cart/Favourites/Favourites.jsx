@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { domainAddress } from '../../../constants/api';
 import FavouritesRow from "../FavouritesRow/FavouritesRow";
+import styles from "./fav.module.css";
 
 function Favourites() {
   const [allFavs, setFavs] = useState([]);
@@ -16,7 +17,7 @@ function Favourites() {
   }, []);
   // console.log(allFavs);
   return (
-    <div>
+    <div className={styles.favContainer}>
       {allFavs?.map((el) => (
         <FavouritesRow key={el.id} favProduct={el.Product} setFavs={setFavs} el={el} />
       ))}

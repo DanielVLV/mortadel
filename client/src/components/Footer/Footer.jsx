@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="footerAllDiv" style={{ }}>
       <Link className="text" to="/">О компании</Link>
-      <Link className="text" to="/contacts">Контакты</Link>
+      <Link className="text" to="https://t.me/mortadelshop">Контакты</Link>
     </div>
 
   );
