@@ -45,7 +45,7 @@ function MyDesign() {
             >
               <ButtonGroup
                 sx={{
-                  '& > *': {
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
                     color: 'gold',
@@ -114,7 +114,7 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-                "& > *": {
+                "&>*": {
                   m: 1,
                 },
               }}
@@ -122,7 +122,7 @@ function MyDesign() {
               <ButtonGroup
                 sx={
                   {
-                    "& > *": {
+                    "&>*": {
                       fontFamily: 'Lato Medium, sans-serif',
                       fontSize: '14px',
                       color: 'gold',
@@ -203,7 +203,7 @@ function MyDesign() {
             <div>
               <ButtonGroup
                 sx={{
-                  '& > *': {
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
                     color: 'gold',

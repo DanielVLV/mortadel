@@ -68,6 +68,8 @@ function FavouritesRow({ favProduct, setFavs, el }) {
               sx={{
                 maxWidth: 250,
                 display: "flex",
+                borderRadius: '20px',
+                alignSelf: "center",
               }}
               component="img"
               height="250"

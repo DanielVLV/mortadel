@@ -41,25 +41,28 @@ function SignInOutContainer() {
 
   return (
     <div className="authContainer">
-    <Paper elevation={20} style={paperStyle}>
-      <Tabs
-        value={value}
-        indicatorColor="primary"
-        textColor="primary"
-        onChange={handleChange}
-        aria-label="disabled tabs example"
+      <Paper
+        elevation={20}
+        style={paperStyle}
       >
-        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Вход" />
+        <Tabs
+          value={value}
+          indicatorColor="primary"
+          textColor="primary"
+          onChange={handleChange}
+          aria-label="disabled tabs example"
+        >
+          <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Вход" />
 
-        <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Регистрация" />
-      </Tabs>
-      <TabPanel value={value} index={0}>
-        <Login />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Signup />
-      </TabPanel>
-    </Paper>
+          <Tab sx={{ fontFamily: 'Montserrat sans-serif', color: "gold" }} label="Регистрация" />
+        </Tabs>
+        <TabPanel value={value} index={0}>
+          <Login />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <Signup />
+        </TabPanel>
+      </Paper>
     </div>
   );
 }

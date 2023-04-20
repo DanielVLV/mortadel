@@ -65,7 +65,7 @@ function Signup() {
     margin: "0 auto",
     backgroundColor: "rgba(67, 71, 92, 0.3)",
   };
-  const headerStyle = { fontSize: 36, margin: 0 };
+  // const headerStyle = { fontSize: 36, margin: 0 };
   const avatarStyle = { backgroundColor: "#353757" };
   const btnstyle = {
     margin: "8px 0", fontFamily: "Montserrat sans-serif", backgroundColor: "#353757", color: "gold"
@@ -114,13 +114,13 @@ function Signup() {
           <Avatar style={avatarStyle}>
             <AddCircleOutlineRoundedIcon />
           </Avatar>
-          <h2 style={headerStyle}>Регистрация</h2>
+          <h2 style={{ fontFamily: "Montserrat sans-serif", fontSize: 36, margin: 0 }}>Регистрация</h2>
           <Typography
             sx={{ fontFamily: "Montserrat sans-serif", fontSize: "15px" }}
             variant="caption"
             gutterBottom
           >
-            Заполните для создания аккаунта !
+            {/* Заполните для создания аккаунта ! */}
           </Typography>
         </Grid>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -184,12 +184,12 @@ function Signup() {
             color="primary"
             fullWidth
           >
-            Регистрация
+            Зарегистрироваться
           </Button>
         </form>
 
         <Typography
-          sx={{ fontFamily: "Montserrat sans-serif", fontSize: "15px" }}
+          sx={{ fontFamily: "Montserrat sans-serif", fontSize: "15px", color: 'gold' }}
         >
           Есть аккаунт в Google?
         </Typography>

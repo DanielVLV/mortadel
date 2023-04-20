@@ -79,6 +79,22 @@
   margin-top: 10px;
 }
 
+/* .textRight>*>div>div>button {
+  color: red
+} */
+
+/* .MuiButtonGroup-root>* {
+  color: red
+}
+
+.MuiButtonBase-root {
+  color: red
+} */
+
+.css-ji7yxf-MuiButtonGroup-root .MuiButtonGroup-grouped {
+  color: red
+}
+
 /* .buttonParent>div>; {
   font-family: 'Lato Medium', sans-serif;
   font-size: '15px',
