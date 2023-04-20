@@ -58,7 +58,8 @@ function Categories({ bar }) {
 flexDirection: "column",
         alignItems: "center",
 flexGrow: 1,
-p: 3
+p: 3,
+marginRight: "5%",
         }}
       >
         {filteredProducts
@@ -67,7 +68,6 @@ p: 3
                 key={el.id}
                 product={el}
                 setOpen={setOpen}
-                // onlyProductIdsFromFavs={onlyProductIdsFromFavs}
                 setFavs={setFavs}
                 allFavs={allFavs}
                 loading={loading}

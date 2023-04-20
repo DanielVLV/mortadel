@@ -1,6 +1,12 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
-import { Button, FormControl, styled, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Button,
+  FormControl,
+  styled,
+  TextField,
+} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useState } from "react";
 import { domainAddress } from "../../../constants/api";
@@ -26,6 +32,9 @@ const CssTextField = styled(TextField)({
     },
     "& .MuiInputBase-input": {
       color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
     },
   },
 });
@@ -124,7 +133,15 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           inputProps={{ maxLength: 20 }}
           required
         />
-        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+        <Button
+          sx={{ fontFamily: "Lato Medium, sans-serif",
+            color: 'gold',
+            background: 'rgba(128, 128, 128)',
+            borderRadius: '10px' }}
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+        >
           Оформить заказ
         </Button>
         {isValid && (

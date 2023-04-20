@@ -130,7 +130,7 @@ export default function Navbar() {
               <Tab
                 sx={{ marginLeft: "auto", }}
                 value="/auth"
-                label={<Link to="/auth">Регистрация/Войти</Link>}
+                label={<Link to="/auth">Войти</Link>}
               />
             )}
           </TabList>
