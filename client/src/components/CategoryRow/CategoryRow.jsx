@@ -18,7 +18,16 @@ function CategoryRow({ el, setOpen, setFavs, allFavs, loading }) {
     <div className={styles.columnSwiperProducts}>
       {el.Products.length && (
         <Link style={{ padding: 0 }} to={`/categories/${el.id}`}>
-          <div style={{ fontSize: '20px', color: 'rgba(36, 39, 56)', fontWeight: 'bold' }}>{el.categoryName}</div>
+          <div style={{
+            fontFamily: 'Montserrat, sans-serif',
+            fontSize: '40px',
+            color: '#353757',
+            fontWeight: 'bold',
+          }}
+          >
+            {el.categoryName}
+
+          </div>
         </Link>
       )}
       <Swiper

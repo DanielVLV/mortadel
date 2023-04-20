@@ -137,7 +137,18 @@ function CartForm({ count, summaryPrice }) {
           required
         />
         {summaryPrice ? (
-          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+          <Button
+            sx={{
+              color: 'gold',
+              background: 'rgba(128, 128, 128)',
+              borderRadius: '10px',
+              '&:hover': {
+                background: 'black'
+              } }}
+            type="submit"
+            variant="contained"
+            endIcon={<SendIcon />}
+          >
             Оформить заказ
           </Button>
         ) : (

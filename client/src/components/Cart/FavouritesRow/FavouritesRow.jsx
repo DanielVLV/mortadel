@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   CardActionArea,
+  CardActions,
   CardContent,
   CardMedia,
   Typography,
@@ -55,11 +56,20 @@ function FavouritesRow({ favProduct, setFavs, el }) {
       >
         <Box style={{ display: "flex" }}>
           {/* <CardActionArea> */}
-          <Box style={{ display: "flex" }}>
+          <Box style={{
+            display: "flex",
+            backgroundColor: "rgba(67, 71, 92, 0.801)",
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
+            borderRadius: "20px",
+          }}
+          >
             <CardMedia
               sx={{
                 maxWidth: 250,
                 display: "flex",
+                borderRadius: '20px',
+                alignSelf: "center",
               }}
               component="img"
               height="250"
@@ -68,7 +78,7 @@ function FavouritesRow({ favProduct, setFavs, el }) {
             />
             <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
               <Typography
-                sx={{ fontFamily: "Montserrat, sans-serif" }}
+                sx={{ fontFamily: "Montserrat, sans-serif", fontSize: '30px', color: 'gold' }}
                 gutterBottom
                 variant="h6"
                 align="center"
@@ -76,34 +86,56 @@ function FavouritesRow({ favProduct, setFavs, el }) {
                 {favProduct.title}
               </Typography>
               <Typography
-                sx={{ fontFamily: "Comfortaa, sans-serif" }}
+                sx={{ fontFamily: "Comfortaa, sans-serif", fontSize: '16px', color: 'gold' }}
                 variant="body1"
                 color="text.secondary"
                 align="center"
               >
                 {favProduct.description}
               </Typography>
-              <Button
-                sx={{
-                  mt: 4,
-                  mr: 2,
-                  fontFamily: "Lato Medium sans-serif",
-                }}
-                onClick={handleFavDelete}
-                variant="contained"
-                endIcon={<StarHalfIcon />}
+              <CardActions sx={{
+                minHeight: "36px",
+                display: "flex",
+                justifyContent: "space-around",
+              }}
               >
-                Удалить из избранного
-              </Button>
-
-              <Button
-                sx={{ mt: 4, ml: 2, fontFamily: "Lato Medium sans-serif" }}
-                variant="outlined"
-                onClick={handleClickAddToCart}
-              >
-                В корзину
-                <ShoppingCartIcon />
-              </Button>
+                <Button
+                  sx={{
+                    mt: 4,
+                    ml: 2,
+                    fontFamily: "Lato Medium sans-serif",
+                    borderColor: 'gold',
+                    color: 'gold',
+                    '&:hover': {
+                      backgroundColor: "rgba(82, 122, 83, 0.801)",
+                      borderColor: 'gold',
+                    }
+                  }}
+                  variant="outlined"
+                  onClick={handleClickAddToCart}
+                >
+                  В корзину
+                  <ShoppingCartIcon />
+                </Button>
+                <Button
+                  sx={{
+                    mt: 4,
+                    mr: 2,
+                    fontFamily: "Lato Medium sans-serif",
+                    color: 'gold',
+                    borderColor: 'gold',
+                    '&:hover': {
+                      backgroundColor: "rgba(154, 89, 89, 0.801)",
+                      borderColor: 'gold',
+                    }
+                  }}
+                  variant="outlined"
+                  onClick={handleFavDelete}
+                  endIcon={<StarHalfIcon />}
+                >
+                  Удалить из избранного
+                </Button>
+              </CardActions>
             </CardContent>
           </Box>
           {/* </CardActionArea> */}

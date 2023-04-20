@@ -38,12 +38,14 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-
+                "& > *": {
+                  m: 1,
+                },
               }}
             >
               <ButtonGroup
-                sx={{ maxWidth: "300px",
-                  "& > *": {
+                sx={{
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
                     color: 'gold',
@@ -112,7 +114,7 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-                "& > *": {
+                "&>*": {
                   m: 1,
                 },
               }}
@@ -120,7 +122,7 @@ function MyDesign() {
               <ButtonGroup
                 sx={
                   {
-                    "& > *": {
+                    "&>*": {
                       fontFamily: 'Lato Medium, sans-serif',
                       fontSize: '14px',
                       color: 'gold',
@@ -201,7 +203,7 @@ function MyDesign() {
             <div>
               <ButtonGroup
                 sx={{
-                  '& > *': {
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
                     color: 'gold',
@@ -212,28 +214,24 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
-                  style={{ fontSize: '14px' }}
                   value="./img/paper1.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Стандарт
                 </Button>
                 <Button
-                  style={{ fontSize: '14px' }}
                   value="./img/paper2.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Яркий
                 </Button>
                 <Button
-                  style={{ fontSize: '14px' }}
                   value="./img/paper3.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Зеленый
                 </Button>
                 <Button
-                  style={{ fontSize: '14px' }}
                   value="./img/paper4.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
