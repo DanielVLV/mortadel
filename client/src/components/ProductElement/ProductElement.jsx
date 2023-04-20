@@ -120,7 +120,13 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
         <Button
           size="small"
           onClick={handleClickAddToCart}
-          sx={{ color: 'gold', }}
+          sx={{ color: 'gold',
+            border: '1px solid gold',
+            minHeight: '50px',
+            minWidth: '45%',
+            textAlign: 'center',
+            '&:hover': { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
+          }}
         >
           В корзину
         </Button>
@@ -129,7 +135,11 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             <Button
               sx={{ fontSize: "11px",
                 color: 'gold',
+                border: '1px solid gold',
                 backgroundColor: "rgba(82, 122, 83, 0.801)",
+                minHeight: '50px',
+                minWidth: '45%',
+                textAlign: 'center',
                 "&:hover": {
                   backgroundColor: "rgba(154, 89, 89, 0.801)"
                 } }}
@@ -141,8 +151,16 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
             </Button>
           ) : (
             <Button
-              sx={{ color: 'gold',
-                "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" }
+              sx={{
+                color: 'gold',
+                border: '1px solid gold',
+                maxHeight: '50px',
+                minWidth: '45%',
+                textAlign: 'center',
+                "&:hover": {
+                  backgroundColor: "rgba(82, 122, 83, 0.801)",
+                  borderColor: 'gold',
+                }
               }}
               onClick={handleAddToFavs}
               variant="outlined"

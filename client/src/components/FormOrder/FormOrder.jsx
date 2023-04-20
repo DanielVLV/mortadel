@@ -118,7 +118,10 @@ function FormOrder({
           sx={{ fontFamily: "Lato Medium, sans-serif",
             color: 'gold',
             background: 'rgba(128, 128, 128)',
-            borderRadius: '10px' }}
+            borderRadius: '10px',
+            '&:hover': {
+              background: 'black'
+            } }}
           type="submit"
           variant="contained"
           endIcon={<SendIcon />}

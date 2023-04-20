@@ -15,7 +15,7 @@ function Favourites() {
       .then((res) => setFavs(res))
       .catch(console.error);
   }, []);
-  // console.log(allFavs);
+
   return (
     <div className={styles.favContainer}>
       {allFavs?.map((el) => (

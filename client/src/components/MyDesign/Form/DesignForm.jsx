@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 import {
-  Autocomplete,
+  // Autocomplete,
   Button,
   FormControl,
   styled,
@@ -137,7 +137,11 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           sx={{ fontFamily: "Lato Medium, sans-serif",
             color: 'gold',
             background: 'rgba(128, 128, 128)',
-            borderRadius: '10px' }}
+            borderRadius: '10px',
+            '&:hover': {
+              background: 'black'
+            }
+          }}
           type="submit"
           variant="contained"
           endIcon={<SendIcon />}
