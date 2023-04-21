@@ -122,7 +122,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
           onClick={handleClickAddToCart}
           sx={{ color: 'gold',
             border: '1px solid gold',
-            minHeight: '50px',
+            height: '50px',
             minWidth: '45%',
             textAlign: 'center',
             '&:hover': { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
@@ -137,7 +137,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
                 color: 'gold',
                 border: '1px solid gold',
                 backgroundColor: "rgba(82, 122, 83, 0.801)",
-                minHeight: '50px',
+                height: '50px',
                 minWidth: '45%',
                 textAlign: 'center',
                 "&:hover": {
@@ -154,7 +154,7 @@ function ProductElement({ product, setOpen, setFavs, allFavs, loading }) {
               sx={{
                 color: 'gold',
                 border: '1px solid gold',
-                minHeight: '50px',
+                height: '50px',
                 minWidth: '45%',
                 textAlign: 'center',
                 "&:hover": {

@@ -95,29 +95,10 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
               <div className={styles.buttonContainer}>
                 <Button
                   variant="outlined"
-                  onClick={handleClickAdd}
-                  sx={{
-                    mt: 7,
-                    mr: 3,
-                    borderColor: 'gold',
-                    color: 'gold',
-                    '&:hover': {
-                      backgroundColor: "rgba(82, 122, 83, 0.801)",
-                      borderColor: 'gold',
-                    }
-                  }}
-                >
-                  +
-                </Button>
-                <span style={{ fontFamily: "Comfortaa, sans-serif", color: 'gold' }}>
-                  {count[singleProduct.id]}
-                </span>
-                <Button
-                  variant="outlined"
                   onClick={hadleClickRemove}
                   sx={{
                     mt: 7,
-                    ml: 3,
+                    mr: 3,
                     borderColor: 'gold',
                     color: 'gold',
                     '&:hover': {
@@ -127,6 +108,25 @@ function CartSingleProduct({ singleProduct, count, setUnique }) {
                   }}
                 >
                   -
+                </Button>
+                <span style={{ fontFamily: "Comfortaa, sans-serif", color: 'gold' }}>
+                  {count[singleProduct.id]}
+                </span>
+                <Button
+                  variant="outlined"
+                  onClick={handleClickAdd}
+                  sx={{
+                    mt: 7,
+                    ml: 3,
+                    borderColor: 'gold',
+                    color: 'gold',
+                    '&:hover': {
+                      backgroundColor: "rgba(82, 122, 83, 0.801)",
+                      borderColor: 'gold',
+                    }
+                  }}
+                >
+                  +
                 </Button>
               </div>
             </CardContent>
