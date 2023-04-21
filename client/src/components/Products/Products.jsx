@@ -38,7 +38,8 @@ function Products({ bar }) {
         sx={{
 marginTop: 0,
         marginLeft: 0,
-        padding: 0
+        padding: 0,
+        maxWidth: "100%",
 }}
         container
         spacing={2}
