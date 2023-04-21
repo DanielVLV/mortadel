@@ -18,16 +18,46 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { Link, useLocation } from "react-router-dom";
-import { Checkbox, FormControlLabel, TextField } from "@mui/material";
+import {
+  CardActionArea, Checkbox, FormControlLabel, TextField
+} from "@mui/material";
+import ManageSearchOutlinedIcon from '@mui/icons-material/ManageSearchOutlined';
 import { useDispatch, useSelector } from "react-redux";
+import styled from "@emotion/styled";
 import {
   clearInputAction,
   searchProductsAction,
 } from "../../redux/saga/searchInput/search.action";
-import { domainAddress } from '../../constants/api';
-import './Sidebar.css';
+import { domainAddress } from "../../constants/api";
+import "./Sidebar.css";
 
 const drawerWidth = 200;
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#ffd700",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#ffd700",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#ffd700",
+      borderRadius: 12,
+    },
+    "&:hover fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "& .MuiInputBase-input": {
+      color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
+    },
+  },
+});
 
 export default function Sidebar({ setFilter, products, filteredProducts }) {
   const [tags, setTags] = useState();
@@ -38,6 +68,14 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   const SAGATURBONITROFILTERED = useSelector(
     (state) => state.searchInputReducer.filteredProducts
   );
+  const [bar, setBar] = useState(false);
+  let flag;
+
+  if (bar) { flag = 'block'; } else { flag = 'none'; }
+
+  const handleChangeBar = () => {
+    setBar(!bar);
+  };
 
   const dispatch = useDispatch();
   const getProductsFromState = useSelector(
@@ -69,16 +107,14 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
     }
 
     if (filteredProducts && !isEmpty) {
-      const arr = SAGATURBONITROFILTERED
-        .map((category) => ({
-          ...category,
-          Products: category.Products.filter((product) =>
-            selectedTags.every((tagId) =>
-              product.Tags.some((tag) => tag.id === Number(tagId))
-            )
-          ),
-        }))
-        .filter((category) => category.Products.length > 0);
+      const arr = SAGATURBONITROFILTERED.map((category) => ({
+        ...category,
+        Products: category.Products.filter((product) =>
+          selectedTags.every((tagId) =>
+            product.Tags.some((tag) => tag.id === Number(tagId))
+          )
+        ),
+      })).filter((category) => category.Products.length > 0);
 
       setFilter(arr);
     } else if (filteredProducts && isEmpty) {
@@ -167,69 +203,99 @@ export default function Sidebar({ setFilter, products, filteredProducts }) {
   }
 
   return (
-    <Box sx={{ display: "flex", position: "fixed" }}>
-      <CssBaseline />
-      <AppBar />
-      <Drawer
-        variant="permanent"
+    <>
+      <ManageSearchOutlinedIcon
         sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            position: "static",
-            width: drawerWidth,
-            boxSizing: "border-box",
+          marginLeft: 4,
+          bgcolor: "transparent",
+          color: "gold",
+          fontSize: "2.5rem",
+          "&:hover": {
+            color: "DarkOrange",
+            transform: "scale(1.2)",
+            transition: "transform 0.3s ease-in-out",
           },
         }}
-      >
-        <Box
+        onClick={handleChangeBar}
+      />
+      <Box sx={{ display: "flex", position: "fixed", top: "120px" }}>
+        <CssBaseline />
+        <AppBar />
+        <Drawer
+          variant="permanent"
           sx={{
-            overflow: "auto",
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              top: "5%",
+              position: "relative",
+              width: drawerWidth,
+              display: flag,
+              boxSizing: "border-box",
+              borderRadius: "20px",
+              backgroundColor: "rgba(67, 71, 92, 0.801)",
+              border: "2px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 0 60px var(--metal)",
+            },
           }}
         >
-          <List>
-            <TextField
-              id="outlined-textarea"
-              type="text"
-              label="Поиск по товарам"
-              placeholder="Поиск"
-              multiline
-              size="small"
-              name="searchInput"
-              value={searchInput}
-              onChange={(event) => handleSearchInput(event)}
-            />
-            {tags?.map((el) => (
-              <ListItem key={el.id}>
-                <FormControlLabel
-                  sx={{
-                    "& > label > *": {
-                      fontFamily: 'Lato Medium, sans-serif',
-                      fontSize: '18px',
-                    }
-                  }}
-                  control={
-                    <div className="checkbox-css">
-                      <input
+          <Box
+            sx={{
+              overflow: "auto",
+              borderRadius: "20px",
+              color: "Gold",
+              backgroundColor: "rgba(67, 71, 92, 0.135)",
+              border: "2px solid rgba(255, 255, 255, 0.1)",
+              boxShadow: "0 0 60px var(--metal)",
+            }}
+          >
+            <List>
+              <CssTextField
+                InputLabelProps={{
+                  style: { color: "#ffd700" },
+                }}
+                id="custom-css-outlined-input"
+                type="text"
+                label="Поиск по товарам"
+                placeholder="Поиск"
+                multiline
+                size="small"
+                name="searchInput"
+                value={searchInput}
+                onChange={(event) => handleSearchInput(event)}
+              />
+              {tags?.map((el) => (
+                <ListItem key={el.id}>
+                  <CardActionArea>
+                    <FormControlLabel
+                      sx={{
+                        "& > label > *": {
+                          fontFamily: 'Lato Medium, sans-serif',
+                          fontSize: '18px',
+                          color: "gold",
+                        }
+                      }}
+                      control={
+                        <div className="checkbox-css">
+                          <input
                           // id="check2"
-                        type="checkbox"
-                        value={el.id}
-                        onChange={(e) =>
-                          handleTag(e.target.value, e.target.checked)}
-                      />
-                      <label htmlFor="check2" />
-                    </div>
+                            type="checkbox"
+                            value={el.id}
+                            onChange={(e) =>
+                              handleTag(e.target.value, e.target.checked)}
+                          />
+                          <label htmlFor="check2" />
+                        </div>
                     }
-                  label={el.tagName}
-                />
-
-
-
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
-    </Box>
+                      label={el.tagName}
+                    />
+                  </CardActionArea>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+      </Box>
+    </>
   );
 }

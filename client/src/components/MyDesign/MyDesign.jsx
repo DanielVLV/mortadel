@@ -9,8 +9,9 @@ import { EffectCards, Pagination, Navigation } from "swiper";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
+// import styled from "@emotion/styled";
 
-import { useMediaQuery, useTheme } from "@mui/material";
+import { TextField, useMediaQuery, useTheme } from "@mui/material";
 import styles from "./MyDesign.module.css";
 import DesignForm from "./Form/DesignForm";
 
@@ -23,8 +24,9 @@ function MyDesign() {
     setActiveSlideIndex(swiper.activeIndex);
   };
 
-  const theme = useTheme();
-  const isRequireAdaptaption = useMediaQuery(theme.breakpoints.down('lg'));
+  // const theme = useTheme();
+  // const isRequireAdaptaption = useMediaQuery(theme.breakpoints.down('lg'));
+
 
 
   return (
@@ -36,15 +38,17 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-
+                "& > *": {
+                  m: 1,
+                },
               }}
             >
               <ButtonGroup
-                sx={{ maxWidth: "300px",
-                  "& > *": {
+                sx={{
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
-                    color: 'rgb(62, 19, 19)',
+                    color: 'gold',
                   }
                 }}
                 orientation="vertical"
@@ -52,99 +56,81 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/1.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пантера
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/2.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Дракон
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/4.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Тигр
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/3.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пума
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/5.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Сердечко
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/6.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Нота
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/7.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Корона
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/8.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Волк
                 </Button>
                 <Button
-                  style={isRequireAdaptaption ? ({
-                    // fontSize: '12px',
-                    color: 'rgb(62, 19, 19)' })
-                    : ({
-                      color: 'rgb(62, 19, 19)' })}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/11.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -155,7 +141,7 @@ function MyDesign() {
             <Box
               sx={{
                 display: "flex",
-                "& > *": {
+                "&>*": {
                   m: 1,
                 },
               }}
@@ -163,9 +149,10 @@ function MyDesign() {
               <ButtonGroup
                 sx={
                   {
-                    "& > *": {
+                    "&>*": {
                       fontFamily: 'Lato Medium, sans-serif',
                       fontSize: '14px',
+                      color: 'gold',
                     }
                   }
 }
@@ -174,63 +161,81 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/12.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Микрофон
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/13.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Кружка
                 </Button>
                 <Button
-                  style={{ fontSize: '12px', color: '#E0D6BD' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/14.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пиво
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/15.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Космос
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/16.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Бургер
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/17.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пенное
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/18.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Пикник
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/20.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
                   Роза
                 </Button>
                 <Button
-                  style={{ color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/21.png"
                   onClick={(e) => setSelectedImage(e.target.value)}
                 >
@@ -252,9 +257,10 @@ function MyDesign() {
             <div>
               <ButtonGroup
                 sx={{
-                  '& > *': {
+                  '&>*': {
                     fontFamily: 'Lato Medium, sans-serif',
                     fontSize: '14px',
+                    color: 'gold',
                   }
                 }}
                 orientation="vertical"
@@ -262,28 +268,36 @@ function MyDesign() {
                 variant="text"
               >
                 <Button
-                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/paper1.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Стандарт
                 </Button>
                 <Button
-                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/paper2.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Яркий
                 </Button>
                 <Button
-                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/paper3.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >
                   Зеленый
                 </Button>
                 <Button
-                  style={{ fontSize: '14px', color: 'rgb(62, 19, 19)' }}
+                  sx={{ fontFamily: 'Lato Medium, sans-serif',
+                    fontSize: '14px',
+                    color: 'gold', }}
                   value="./img/paper4.png"
                   onClick={(e) => setcraftPaper(e.target.value)}
                 >

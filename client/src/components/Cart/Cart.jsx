@@ -13,7 +13,6 @@ import Favourites from "./Favourites/Favourites";
 import styles from "./cart.module.css";
 import "./Cart.css";
 
-
 function Cart() {
   const cartArr = useSelector(getCart);
   const uniqueCart = useSelector(getUniqueCart);
@@ -27,14 +26,12 @@ function Cart() {
 
   // удаление повторных элементов
   useEffect(() => {
-    const uniqueArr = cartArr.filter((obj, index, self) => index === self.findIndex((t) => t.id === obj.id && t.name === obj.name));
-    // const uniqueSet = new Set(cartArr);
-    // console.log(uniqueArr, "NEW UNIQUE ARR");
+    const uniqueArr = cartArr.filter(
+      (obj, index, self) => index === self.findIndex((t) => t.id === obj.id && t.name === obj.name)
+    );
     setUnique(uniqueArr);
   }, [cartArr]);
-  // console.log(cartArr, "cartArr");
-  // console.log(uniqueCart, "uniqueCartWADADAWDAWDAWDAWDAWD");
-  // console.log(uniqueArray, "unique");
+
 
   const uniqueArraySorted = uniqueArray.sort((a, b) => (a.id > b.id ? 1 : -1));
   // подсчет количества повторений каждого элемента
@@ -52,11 +49,11 @@ function Cart() {
   };
 
   return (
-    <div>
+    <div className={styles.allDivCart}>
       {user && (
         <>
           <span>Корзина</span>
-          <Switch onChange={handleChange} />
+          <Switch color="default" onChange={handleChange} />
           <span>Избранное</span>
         </>
       )}

@@ -3,13 +3,19 @@
   width: 300px;
   float: left;
   margin-right: 15px;
+  border: solid 1px #ADD8E6;
+  border-radius: 15px;
 }
 
 .textContainer {
- max-width: 800px;
+  font-family: 'Comfortaa', sans-serif;
+  color: gold;
+  max-width: 800px;
 }
 
 .span {
-    font-size: 20px;
-    font-style: oblique;
+  font-family: "Lato Medium", sans-serif;
+  font-size: 20px;
+  font-style: oblique;
+  color: #ADD8E6
 }

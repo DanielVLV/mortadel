@@ -4,8 +4,9 @@
 @font-face {
   font-family: 'Lato Medium';
   src: url('./fonts/Lato/Lato-Medium.ttf');
-}
+  backgroundColor: rgb(36, 39, 56),
 
+}
 
 /*
 font-family: 'Comfortaa', sans-serif;
@@ -21,16 +22,17 @@ font-family: 'Comfortaa', sans-serif;
 
 
 .App {
+  height: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.body {
-  min-height: 88vh;
-  /* display: flex; */
-  /* flex: 2; */
-}
+/* .body { */
+/* min-height: 88vh; */
+/* align-items: center; */
+/* flex: 2; */
+/* } */
 
 .App-logo {
   height: 40vmin;
@@ -72,4 +74,9 @@ a {
   text-decoration: none;
   color: blue;
   padding: 14px 16px;
+}
+
+ul {
+  /* border-radius: 12px; */
+  /* background-color: rgba(64, 64, 64, 0.958); */
 }

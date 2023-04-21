@@ -1,17 +1,21 @@
 .footerAllDiv {
-    display: flex;
-    justify-content: space-around;
-    background-color: #353757;
+  display: flex;
+  justify-content: space-around;
+  background-color: #353757;
+  position: "absolute";
+  bottom: 0;
+  width: "100%";
+  height: "602px";
 }
 
 .text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    text-decoration: none;
-    color: Gold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  color: Gold;
 }
 
 .text:hover {
-    font-weight: bolder;
-    color: DarkOrange;
+  font-weight: bolder;
+  color: DarkOrange;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
 /* eslint-disable max-len */
@@ -5,15 +6,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { Box, Grid } from "@mui/material";
-
 import Sidebar from "../Sidebar/Sidebar";
 import CategoryRow from "../CategoryRow/CategoryRow";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { domainAddress } from "../../constants/api";
+import stylesProduct from "./products.module.css";
 
-function Products() {
+function Products({ bar }) {
   const products = useSelector((state) => state.ProductSlice.products);
 
   const [filteredProducts, setFilter] = useState(null);
@@ -30,17 +30,30 @@ function Products() {
   }, []);
 
   return (
-    <Box style={{ display: "flex" }}>
-      <Grid style={{ display: "flex" }} container spacing={2}>
-        <Grid item xs={2}>
+    <Box style={{
+ display: "flex",
+}}
+    >
+      <Grid
+        sx={{
+marginTop: 0,
+        marginLeft: 0,
+        padding: 0
+}}
+        container
+        spacing={2}
+        className={stylesProduct.gridContainer}
+      >
+        {/* <Grid item xs={2} sx={{ position: "absolute" }}> */}
           <Sidebar
             setFilter={setFilter}
             filteredProducts={filteredProducts}
             products={products}
+            bar={bar}
           />
-        </Grid>
+        {/* </Grid> */}
         <Grid item xs={10}>
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Box component="main" sx={{ flexGrow: 1, p: 3, marginLeft: 10 }}>
             {filteredProducts
               ? filteredProducts.map((el) => (
                   <CategoryRow

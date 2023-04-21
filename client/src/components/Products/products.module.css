@@ -1,0 +1,18 @@
+.gridContainer {
+    background: url(../../../public/background1.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    /* justify-content: center; */
+} 
+
+.adds {
+    color: rgba(84, 90, 121, 0.938)
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    position: relative;
+}
+
+.css-1v7zwy1-MuiGrid-root>.MuiGrid-item {
+    padding-left: 60px;
+}

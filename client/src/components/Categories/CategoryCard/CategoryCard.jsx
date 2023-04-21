@@ -20,7 +20,13 @@ import { addFav } from "../../../redux/product.slice";
 import { addIntoCart } from "../../../redux/CartRedux/cart.actions";
 import { domainAddress } from "../../../constants/api";
 
-function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loading }) {
+function CategoryCard({
+  product,
+  onlyProductIdsFromFavs,
+  setFavs,
+  allFavs,
+  loading,
+}) {
   const user = useSelector((state) => state.UserSlice.value);
   const productId = product.id;
   const dispatch = useDispatch();
@@ -49,7 +55,6 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
     }
   };
 
-
   const favObj = allFavs.find((el) => el.productId === productId);
   const favId = favObj?.id;
   const handleClickAddToCart = () => {
@@ -76,15 +81,22 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
   return (
     <Box
       sx={{ mb: 1, mt: 1 }}
-      style={{ border: "1px solid grey" }}
+      style={{
+        border: "1px solid grey",
+        borderRadius: '20px',
+        backgrounCol: 'black' }}
     >
-      <Card>
+      <Card sx={{
+        backgroundColor: "rgba(67, 71, 92, 0.900)",
+        borderRadius: '20px' }}
+      >
         <Box style={{ display: "flex" }}>
           <Box style={{ display: "flex" }}>
             <CardMedia
               sx={{
                 maxWidth: 250,
                 display: "flex",
+                borderRadius: '20px',
               }}
               component="img"
               // height="100%"
@@ -92,16 +104,59 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
               alt=""
             />
             <CardContent sx={{ flex: 1, m: 0, width: "900px" }}>
-              <Typography gutterBottom variant="h6" align="center">
+              <Typography
+                gutterBottom
+                variant="h6"
+                align="center"
+                sx={{
+                  fontFamily: 'Lato Medium, sans-serif',
+                  color: 'gold' }}
+              >
                 {product?.title}
               </Typography>
-              <Typography variant="body1" color="text.secondary" align="center">
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                align="center"
+                sx={{
+                  fontFamily: 'Comfortaa, sans-serif',
+                  color: 'gold' }}
+              >
                 {product?.description}
               </Typography>
+              <Button
+                sx={{ mt: 7,
+                  ml: 3,
+                  color: 'gold',
+                  fontFamily: 'Lato Medium, sans-serif',
+                  border: '1px solid gold',
+                  maxHeight: '50px',
+                  minWidth: '25%',
+                  textAlign: 'center',
+                  "&:hover": { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
+                }}
+                variant="outlined"
+                onClick={handleClickAddToCart}
+              >
+                В корзину
+                <ShoppingCartIcon />
+              </Button>
               {user &&
                 (isInFav ? (
                   <Button
-                    sx={{ mt: 7, mr: 3 }}
+                    sx={{ mt: 7,
+                      mr: 3,
+                      ml: 3,
+                      color: 'gold',
+                      backgroundColor: "rgba(82, 122, 83, 0.801)",
+                      fontFamily: 'Lato Medium, sans-serif',
+                      border: '1px solid gold',
+                      maxHeight: '50px',
+                      minWidth: '25%',
+                      textAlign: 'center',
+                      "&:hover": {
+                        backgroundColor: "rgba(154, 89, 89, 0.801)"
+                      } }}
                     onClick={handleFavDelete}
                     variant="contained"
                     endIcon={<StarHalfIcon />}
@@ -110,7 +165,16 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
                   </Button>
                 ) : (
                   <Button
-                    sx={{ mt: 7, mr: 3 }}
+                    sx={{ mt: 7,
+                      mr: 3,
+                      ml: 3,
+                      color: 'gold',
+                      fontFamily: 'Lato Medium, sans-serif',
+                      border: '1px solid gold',
+                      maxHeight: '50px',
+                      minWidth: '25%',
+                      textAlign: 'center',
+                      "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" } }}
                     onClick={handleAddToFavs}
                     variant="outlined"
                     endIcon={<StarHalfIcon />}
@@ -118,14 +182,6 @@ function CategoryCard({ product, onlyProductIdsFromFavs, setFavs, allFavs, loadi
                     В избранное
                   </Button>
                 ))}
-              <Button
-                sx={{ mt: 7, ml: 3 }}
-                variant="outlined"
-                onClick={handleClickAddToCart}
-              >
-                В корзину
-                <ShoppingCartIcon />
-              </Button>
             </CardContent>
           </Box>
         </Box>

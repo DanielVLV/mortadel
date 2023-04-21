@@ -45,11 +45,28 @@ function ModalWindow({ open, setOpen }) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
         maxWidth={"lg"}
+        PaperProps={{
+          style: {
+            // backgroundColor: "rgba(84, 90, 121, 0.958)",
+            // backgroundColor: 'rgba(128, 0, 0, 0.9)',
+            backgroundColor: 'rgba(64, 64, 64, 0.958)',
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
+            borderRadius: "20px",
+          },
+        }}
       >
-        <DialogTitle>{product?.title}</DialogTitle>
+        <DialogTitle sx={{
+          fontFamily: "Lato Medium, sans-serif",
+          fontSize: '26px',
+          textAlign: "center",
+          color: 'Gold'
+        }}
+        >{product?.title}
+        </DialogTitle>
         <DialogContent>
           <DialogContentText
-            sx={{ fontFamily: 'Lato Medium, sans-serif' }}
+            sx={{ fontFamily: "Lato Medium, sans-serif" }}
             id="alert-dialog-slide-description"
           >
             <Box
@@ -61,12 +78,17 @@ function ModalWindow({ open, setOpen }) {
               <div className={styles.textContainer}>
                 <img src={product?.img} className={styles.img} />
                 {/* <br /> */}
-                <span className={styles.span}>Описание:</span> {product?.description}
+                <span className={styles.span}>Описание:</span>{"  "}
+                {product?.description}
                 <br />
-                <span className={styles.span}>Состав:</span> {product?.fullDescription}
+                <span className={styles.span}>Состав:</span>{"  "}
+                {product?.fullDescription}
                 <br />
-                <span className={styles.span}>Вес:</span>{product?.weight}г.
-                {/* <br /> */}
+                <span className={styles.span}>Вес:</span>{"  "}
+                {product?.weight}г.
+                <br />
+                <span className={styles.span}>Цена:</span>{"  "}
+                {product?.price}€
               </div>
               <FormOrder
                 productId={product?.id}
@@ -81,7 +103,11 @@ function ModalWindow({ open, setOpen }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Закрыть</Button>
+          <Button
+            sx={{ fontFamily: "Lato Medium, sans-serif", color: 'gold' }}
+            onClick={handleClose}
+          >Закрыть
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable indent */
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/jsx-indent */
@@ -10,7 +11,7 @@ import CategoryCard from "./CategoryCard/CategoryCard";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { domainAddress } from "../../constants/api";
 
-function Categories() {
+function Categories({ bar }) {
   const { categoryId } = useParams();
   const products = useSelector((state) => state.ProductSlice.products);
   const [filteredProducts, setFilter] = useState(null);
@@ -42,30 +43,48 @@ function Categories() {
     (el) => el.id === +categoryId
   );
 
+  const { categoryName } = category[0];
+
+
   return (
     <Box style={{ display: "flex" }}>
       <Sidebar
         setFilter={setFilter}
         filteredProducts={filteredProducts}
         products={products}
+        bar={bar}
       />
       <Box
         component="main"
         sx={{
- display: "flex",
-flexDirection: "column",
-        alignItems: "center",
-flexGrow: 1,
-p: 3
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          flexGrow: 1,
+          p: 3,
         }}
       >
+        <div
+          style={{
+            fontFamily: 'Montserrat, sans-serif',
+            fontSize: '28px',
+            color: 'gold',
+            fontWeight: 'normal',
+            backgroundColor: "rgba(67, 71, 92, 0.801)",
+            border: "2px solid rgba(255, 255, 255, 0.1)",
+            boxShadow: "0 0 60px var(--metal)",
+            borderRadius: "20px",
+            padding: '5px 30px ',
+          }}
+        >
+          {categoryName}
+        </div>
         {filteredProducts
           ? filterCategory[0]?.Products?.map((el) => (
               <CategoryCard
                 key={el.id}
                 product={el}
                 setOpen={setOpen}
-                // onlyProductIdsFromFavs={onlyProductIdsFromFavs}
                 setFavs={setFavs}
                 allFavs={allFavs}
                 loading={loading}

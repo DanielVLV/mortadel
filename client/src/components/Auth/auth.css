@@ -2,3 +2,13 @@
   display: flex;
   justify-content: center;
 }
+
+.authContainer {
+  height: 100vh;
+}
+
+.body {
+  min-height: 100vh;
+  background: url(../../../public/background1.jpg) no-repeat center center fixed;
+  background-size: cover;
+}

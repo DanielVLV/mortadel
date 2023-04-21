@@ -57,7 +57,19 @@ function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        alignItems: 'center',
+        height: '600px',
+        width: '800px',
+
+      }}
+      id="payment-form"
+      onSubmit={handleSubmit}
+    >
       <PaymentElement id="payment-element" />
       <button type="submit" disabled={isProcessing || !stripe || !elements} id="submit">
         <span id="button-text">
@@ -65,7 +77,18 @@ function CheckoutForm() {
         </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && (
+      <div
+        style={{
+          height: '200px',
+          width: '400px',
+          textAlign: 'center'
+        }}
+        id="payment-message"
+      >
+        {message}
+      </div>
+      )}
     </form>
   );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-wrap-multilines */
@@ -15,6 +16,7 @@ import Badge from "@mui/material/Badge";
 import MenuPopupState from "./MenuPopupState/MenuPopupState";
 import { getCart } from "../../redux/CartRedux/cart.selectors";
 import { signoutUser } from "../../redux/user.slice";
+
 import './Navbar.css';
 
 export default function Navbar() {
@@ -74,9 +76,9 @@ export default function Navbar() {
             />
             <Tab
               value="/contacts"
-              label={<Link to="/contacts">Связаться с нами</Link>}
+              label={<Link to="/contacts">Мы на карте</Link>}
             />
-            <Link to="https://t.me/goncharovp" target="_blank">
+            <Link to="https://t.me/mortadelshop" target="_blank">
               <TelegramIcon
                 sx={{
                   '&:hover': {
@@ -128,7 +130,7 @@ export default function Navbar() {
               <Tab
                 sx={{ marginLeft: "auto", }}
                 value="/auth"
-                label={<Link to="/auth">Регистрация/Войти</Link>}
+                label={<Link to="/auth">Войти</Link>}
               />
             )}
           </TabList>

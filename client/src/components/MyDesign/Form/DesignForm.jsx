@@ -1,9 +1,43 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
-import { Button, FormControl, TextField } from "@mui/material";
+import {
+  // Autocomplete,
+  Button,
+  FormControl,
+  styled,
+  TextField,
+} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useState } from "react";
 import { domainAddress } from "../../../constants/api";
-import { validatePhone } from '../../../js/api.functions';
+import { validatePhone } from "../../../js/api.functions";
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#ffd700",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#ffd700",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#ffd700",
+      borderRadius: 12,
+    },
+    "&:hover fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#c5aa12",
+    },
+    "& .MuiInputBase-input": {
+      color: "#ffd700",
+      "&:focus": {
+        boxShadow: "0 0 0 0rem",
+      },
+    },
+  },
+});
 
 function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
   const initialState = {
@@ -13,11 +47,11 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
   };
   const [form, setForm] = useState(initialState);
   const [isValid, setIsValid] = useState(false);
-  const [phoneError, setPhoneError] = useState('');
+  const [phoneError, setPhoneError] = useState("");
   const [isSended, seIsSended] = useState(false);
 
   function handleInput(event) {
-    setPhoneError('');
+    setPhoneError("");
     setIsValid(false);
     seIsSended(false);
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -29,7 +63,6 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
       setIsValid(true);
       setForm(initialState);
     } else if (validatePhone(form.phone)) {
-
       const fullOrder = `Вариант букета №${
         activeSlideIndex + 1
       }, бумага: ${craftPaper}, принт: ${selectedImage}`;
@@ -46,26 +79,28 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
       setForm(initialState);
       seIsSended(true);
     } else {
-      setPhoneError('Некорректный номер телефона');
+      setPhoneError("Некорректный номер телефона");
       setForm(initialState);
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-    >
+    <form onSubmit={handleSubmit}>
       <FormControl
         sx={{
           "& > *": {
-            fontFamily: 'Lato Medium, sans-serif',
-            fontSize: '14px',
-          }
+            fontFamily: "Lato Medium, sans-serif",
+            fontSize: "14px",
+          },
         }}
         id="inputGroup"
       >
-        <TextField
+        <CssTextField
+          InputLabelProps={{
+            style: { color: "#ffd700" },
+          }}
           id="phone"
           label="Телефон"
+          autoComplete="off"
           variant="outlined"
           name="phone"
           onChange={handleInput}
@@ -74,8 +109,12 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           error={!!phoneError}
           helperText={phoneError}
         />
-        <TextField
+        <CssTextField
+          InputLabelProps={{
+            style: { color: "#ffd700" },
+          }}
           id="phoneRep"
+          autoComplete="off"
           label="Повторить номер телефона"
           variant="outlined"
           name="phone2"
@@ -83,9 +122,13 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           required
           value={form.phone2}
         />
-        <TextField
+        <CssTextField
+          InputLabelProps={{
+            style: { color: "#ffd700" },
+          }}
           id="name"
           label="Имя"
+          autoComplete="off"
           variant="outlined"
           name="name"
           onChange={handleInput}
@@ -93,11 +136,27 @@ function DesignForm({ selectedImage, craftPaper, activeSlideIndex }) {
           inputProps={{ maxLength: 20 }}
           required
         />
-        <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+        <Button
+          sx={{ fontFamily: "Lato Medium, sans-serif",
+            color: 'gold',
+            background: 'rgba(128, 128, 128)',
+            borderRadius: '10px',
+            '&:hover': {
+              background: 'black'
+            }
+          }}
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+        >
           Оформить заказ
         </Button>
-        {isValid && <div style={{ color: 'red' }}>Проверьте введенные данные</div>}
-        {isSended && <div style={{ color: 'blue' }}>Заказ успешно отправлен</div>}
+        {isValid && (
+          <div style={{ color: "red" }}>Проверьте введенные данные</div>
+        )}
+        {isSended && (
+          <div style={{ color: "blue" }}>Заказ успешно отправлен</div>
+        )}
       </FormControl>
     </form>
   );
