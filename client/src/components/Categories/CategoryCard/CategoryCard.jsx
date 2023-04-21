@@ -130,7 +130,7 @@ function CategoryCard({
                   color: 'gold',
                   fontFamily: 'Lato Medium, sans-serif',
                   border: '1px solid gold',
-                  maxHeight: '50px',
+                  height: '50px',
                   minWidth: '25%',
                   textAlign: 'center',
                   "&:hover": { backgroundColor: 'rgba(82, 122, 83, 0.801)' }
@@ -151,7 +151,7 @@ function CategoryCard({
                       backgroundColor: "rgba(82, 122, 83, 0.801)",
                       fontFamily: 'Lato Medium, sans-serif',
                       border: '1px solid gold',
-                      maxHeight: '50px',
+                      height: '50px',
                       minWidth: '25%',
                       textAlign: 'center',
                       "&:hover": {
@@ -171,7 +171,7 @@ function CategoryCard({
                       color: 'gold',
                       fontFamily: 'Lato Medium, sans-serif',
                       border: '1px solid gold',
-                      maxHeight: '50px',
+                      height: '50px',
                       minWidth: '25%',
                       textAlign: 'center',
                       "&:hover": { backgroundColor: "rgba(82, 122, 83, 0.801)" } }}
